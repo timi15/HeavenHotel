@@ -1,0 +1,117 @@
+/*
+FOOTER
+*/
+
+
+#footer {
+    
+    
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+    
+}
+#top{
+    padding-top: 1rem  ;
+    height: auto;
+    text-align: center;
+    font-size: 13px;
+}
+
+#logoHatter{
+    background-color: black;
+    text-align: center;
+}
+
+#logo{
+    height: 200px;
+    
+}#about{
+    background-image: url("../../img/panorama.jpg");
+    padding: 100px;
+    color: white;
+    font-size: 20px;
+    
+    
+}
+hr{
+    width: 80%;
+}
+
+#opinionsColumn{
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#opinionsContainer{
+    text-align: center;
+}
+
+#contactColunm{
+    display: flex;
+    flex-direction: column;
+    
+    
+    
+}
+#contactColumn > input, textarea{
+    width: 70%;
+    
+    
+}
+
+#contactColumn > p{
+    margin-bottom: 0px;
+    margin-top: 30px;
+    text-align: start;
+    margin-left: 12rem;
+}
+
+#contactContainer{
+    text-align: center;
+}
+
+#alcim{
+    background-image: url("../../img/template.jpg");
+    background-position-y: -100px;
+    background-position-x: -100px;
+    height: 160px;
+    color: white;
+    text-align: center;
+    padding-top: 4rem;
+    text-transform: uppercase;
+
+
+}
+p{
+    font-family: 'Times New Roman', Times, serif
+}
+
+.err{
+    text-align: center;
+    
+    color: red;
+    border: 9px double red;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(172, 64, 64, 0.284);
+}
+
+#opinionContact{
+    font-size: 20px;
+
+}
+#opinionName{
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+
+
+
