@@ -10,7 +10,7 @@ export const Sight = (props) => {
             <Carousel style={{width:500}}>
                 <Carousel.Item interval={5000} >
                     <img
-                        className="d-block w-100 carousel"
+                        className="d-block w-90 carousel"
                         src={props.pic1}
                         alt="First slide"
                     />
@@ -18,7 +18,7 @@ export const Sight = (props) => {
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
-                        className="d-block w-100 carousel"
+                        className="d-block w-90 carousel"
                         src={props.pic1}
                         alt="Second slide"
                     />
@@ -26,7 +26,7 @@ export const Sight = (props) => {
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
-                        className="d-block w-100 carousel"
+                        className="d-block w-90 carousel"
                         src={props.pic1}
                         alt="Third slide"
                     />

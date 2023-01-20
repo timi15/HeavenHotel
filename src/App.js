@@ -7,6 +7,7 @@ import { Home } from './pages/Home';
 import { Sights } from './pages/Sights';
 import { Contact } from './pages/Contact';
 import { Error } from './components/Error';
+import { DataManagement } from './components/DataManagement';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route  path='/' element={<Home />} />
           <Route  path='/sights' element={<Sights />} />
           <Route  path='/contact' element={<Contact />} />
+          <Route  path='/datamanagement' element={<DataManagement />} />
 
 
           <Route  path='*' element={<Error />} />

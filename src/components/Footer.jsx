@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import kep from "../img/szepkartya.jpg"
 
@@ -18,18 +19,18 @@ export const Footer = () => {
                                     <ul className="footer-links">
                                         <li>
 
-                                            <i className="fa fa-map-marker fa-lg" ></i>4400 Nyíregyháza Info
-                                            utca 1.
+                                            <i className="fa fa-map-marker fa-lg" ></i>4400 Nyíregyháza Hotel
+                                            utca 124.
 
                                         </li>
                                         <li>
 
-                                            <i className="fa fa-phone fa-lg"></i>+36-30-123-45-67
+                                            <i className="fa fa-phone fa-lg"></i>+36-30-234-6421
 
                                         </li>
                                         <li>
 
-                                            <i className="fa fa-envelope fa-lg"></i>info@infotech.com
+                                            <i className="fa fa-envelope fa-lg"></i>sales@hotelheaven.com
 
                                         </li>
                                         <li>
@@ -39,13 +40,11 @@ export const Footer = () => {
 
                                         </li>
                                     </ul>
-                                    <p>Adatkezelési tájékoztató</p>
+                                    <Link id='dataManagement' to="/datamanagement"><p>Adatkezelési tájékoztató</p></Link>
+                                    
 
 
-                                    <i className="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-                                    <i className="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                                    <i className="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
-                                    <i className="fa fa-pinterest-square fa-2x" aria-hidden="true"></i>
+                                    
 
 
                                 </div>

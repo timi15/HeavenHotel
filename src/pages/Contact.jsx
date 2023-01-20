@@ -19,7 +19,11 @@ export const Contact = () => {
           <p>Üzenet</p>
           <textarea rows={10} name="message" placeholder='Írja le miben segíthetünk... ' />
 
+          
+
         </div>
+
+        
 
       </div>
     </>
