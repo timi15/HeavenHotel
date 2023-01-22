@@ -172,30 +172,31 @@ hr {
 
 /*CONTACT*/
 #contactColunm {
-    display: flex;
     flex-direction: column;
 
 
 
 }
 
-#contactColumn>input,
-textarea {
-    width: 70%;
-
-
+#googleMap {
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
-#contactColumn>p {
+#contactForm>p {
     margin-bottom: 0px;
     margin-top: 30px;
     text-align: start;
-    margin-left: 12rem;
+
 }
 
-#contactContainer {
-    text-align: center;
+#contactForm>input,
+textarea {
+    width: 100%;
 }
+
+
 
 /*ERROR*/
 
@@ -213,9 +214,13 @@ textarea {
 
 /*responsive*/
 
-#carousel{
+#carousel {
     max-width: 500px;
-    
+
 }
 
+/* SIGHT */
 
+#sightRow {
+    padding: 0px 50px;
+}
