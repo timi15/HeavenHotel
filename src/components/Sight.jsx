@@ -7,7 +7,7 @@ export const Sight = (props) => {
 
             <h3>{props.place}</h3>
 
-            <Carousel style={{width:500}}>
+            <Carousel id="carousel" >
                 <Carousel.Item interval={5000} >
                     <img
                         className="d-block w-90 carousel"

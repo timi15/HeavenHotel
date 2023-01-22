@@ -40,7 +40,7 @@ export const Footer = () => {
 
                                         </li>
                                     </ul>
-                                    <Link id='dataManagement' to="/datamanagement"><p>Adatkezelési tájékoztató</p></Link>
+                                    <Link id='dataManagement' to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
                                     
 
 

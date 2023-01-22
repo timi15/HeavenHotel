@@ -1,4 +1,5 @@
 import React from 'react'
+import { TopIcon } from './TopIcon'
 
 export const Top = () => {
     return (
@@ -16,11 +17,9 @@ export const Top = () => {
 
                         <div className="col-md-4">
 
-                            <i className="fa fa-envelope fa-2x"></i>
-                            <i className="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
-                            <i className="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                            <i className="fa fa-google-plus-square fa-2x" aria-hidden="true"></i>
-                            <i className="fa fa-pinterest-square fa-2x" aria-hidden="true"></i>
+                            <TopIcon/>
+
+                            
                         </div>
 
 

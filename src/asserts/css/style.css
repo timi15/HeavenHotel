@@ -1,4 +1,4 @@
-#alcim{
+#alcim {
     background-image: url("../../img/template.jpg");
     background-position-y: -100px;
     background-position-x: -100px;
@@ -10,8 +10,27 @@
 
 
 }
-p{
+
+p {
     font-family: 'Times New Roman', Times, serif
+}
+
+
+/*APPBAR*/
+
+#appbar {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    margin: 0px 20px;
+
+
+}
+
+#appbar:hover {
+    transform: scale(1.4);
+
+
+
 }
 
 
@@ -20,7 +39,7 @@ FOOTER
 */
 
 
-#footer {       
+#footer {
     right: 0;
     bottom: 0;
     left: 0;
@@ -28,103 +47,123 @@ FOOTER
     background-color: #efefef;
     text-align: center;
     font-size: 13px;
-    
-}
 
-/*DATAMANAGEMENT*/
-#dataManagement{
-    font-size: 17px;
-    text-align: left;
-    color: black;
-    text-decoration: none;
-   
-}
-
-#dataManagementContainer{
-    font-family: 'Times New Roman', Times, serif;
-    margin: 50px auto;
-    text-align: justify;
-}
-
-#dataManagementContainer > h6 {
-    text-align: center;
-    font-weight: bold;
-    
-}
-
-#dataHr{
-    margin: 30px auto;
-    
 }
 
 
-
-.footer-title{
+.footer-title {
     text-transform: uppercase;
     font-size: 20px;
     margin: 10px 0px 20px 0px;
     text-decoration: underline;
 }
 
-.footer-links > li{
+.footer-links>li {
     list-style-type: none;
     padding: 6px 0px;
     text-align: left;
-    
+
 }
 
-.footer-links > li >i{
+.footer-links>li>i {
     padding-right: 10px;
-    
+
 }
+
+/*DATAMANAGEMENT*/
+#dataManagement {
+    font-size: 17px;
+    text-align: left;
+    color: black;
+    text-decoration: none;
+
+}
+
+#dataManagementContainer {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 50px auto;
+    text-align: justify;
+}
+
+#dataManagementContainer>h6 {
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#dataHr {
+    margin: 30px auto;
+
+}
+
+
 
 /*TOP*/
-#top{
-    padding-top: 1rem  ;
+#top {
+    padding-top: 1rem;
     height: auto;
     text-align: center;
     font-size: 13px;
 }
 
-#logoHatter{
+#topIcon>i {
+    margin: 0px 10px;
+    font-size: 20px;
+}
+
+#logoHatter {
     background-color: black;
     text-align: center;
 }
 
-#logo{
+#logo {
     height: 200px;
-    
-}#about{
+
+}
+
+#about {
     background-image: url("../../img/panorama.jpg");
     padding: 100px;
     color: white;
     font-size: 20px;
-    
-    
+
+
 }
-hr{
+
+hr {
     width: 80%;
 }
 
 
 /* OPINIONS*/
-#opinionsColumn{
+
+#opinionsContainer {
+    text-align: center;
+
+}
+
+#opinionsColumn {
+    margin: 50px 20px;
     text-align: center;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
-#opinionsContainer{
-    text-align: center;
+
+#opinionsColumn>h3 {
+    text-transform: uppercase;
+    padding-bottom: 50px;
+
 }
 
 /*OPINION*/
 
-#opinionContact{
+#opinionContact {
     font-size: 20px;
 
 }
-#opinionName{
+
+#opinionName {
     font-style: italic;
     font-weight: bold;
 
@@ -132,34 +171,36 @@ hr{
 
 
 /*CONTACT*/
-#contactColunm{
+#contactColunm {
     display: flex;
     flex-direction: column;
-    
-    
-    
-}
-#contactColumn > input, textarea{
-    width: 70%;
-    
-    
+
+
+
 }
 
-#contactColumn > p{
+#contactColumn>input,
+textarea {
+    width: 70%;
+
+
+}
+
+#contactColumn>p {
     margin-bottom: 0px;
     margin-top: 30px;
     text-align: start;
     margin-left: 12rem;
 }
 
-#contactContainer{
+#contactContainer {
     text-align: center;
 }
 
 /*ERROR*/
 
-.err{
-    text-align: center;    
+.err {
+    text-align: center;
     color: red;
     border: 9px double red;
     width: 80%;
@@ -168,8 +209,13 @@ hr{
     background-color: rgba(172, 64, 64, 0.284);
 }
 
+/* carousel*/
 
+/*responsive*/
 
-
+#carousel{
+    max-width: 500px;
+    
+}
 
 

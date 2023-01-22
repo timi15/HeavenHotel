@@ -48,7 +48,7 @@ export const Layout = ({ children }) => {
         <>
         <Top/>
         <LogoComponent/>
-            <AppBar position="static" >
+            <AppBar  position="static" >
                 <Container maxWidth="xl">
                     <Toolbar  disableGutters  >
                     
@@ -88,7 +88,7 @@ export const Layout = ({ children }) => {
                             >
                                 {pages.map((page, index) => (
                                     <MenuItem key={index} onClick={() => handleCloseNavMenu(page.route)}>
-                                        <Typography textAlign="center">{page.name}</Typography>
+                                        <Typography id="appbar" textAlign="center">{page.name}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -98,6 +98,7 @@ export const Layout = ({ children }) => {
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center"}}>
                             {pages.map((page, index) => (
                                 <Button
+                                    id="appbar"
                                     key={index}
                                     onClick={() => handleCloseNavMenu(page.route)}
                                     sx={{ my: 2, color: 'white',   display: 'block' }}
@@ -131,7 +132,7 @@ export const Layout = ({ children }) => {
                             >
                                 {settings.map((setting) => (
                                     <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
-                                        <Typography textAlign="center">{setting.name}</Typography>
+                                        <Typography id="appbar" textAlign="center">{setting.name}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>
