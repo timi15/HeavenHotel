@@ -173,6 +173,8 @@ hr {
 
 
 /*CONTACT*/
+
+
 #contactColunm {
     flex-direction: column;
 
@@ -184,18 +186,6 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center
-}
-
-#contactForm>p {
-    margin-bottom: 0px;
-    margin-top: 30px;
-    text-align: start;
-
-}
-
-#contactForm>input,
-textarea {
-    width: 100%;
 }
 
 
@@ -235,3 +225,37 @@ textarea {
 #slider{
     max-width: 250px;
 }
+
+
+/*ROOMS*/
+
+.MuiTypography-subtitle2{
+    text-align: justify;
+}
+
+
+.MuiTypography-root{
+   padding-bottom: 10px;
+}
+
+.MuiTypography-h6{
+    text-transform: uppercase;
+    text-align: center;
+    font-style: italic;
+
+}
+
+
+/*gallery*/
+
+
+
+
+#szobaFooldalon{
+    background-image: url("../../img/hatterjpg.jpg");
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+

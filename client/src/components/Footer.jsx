@@ -14,7 +14,7 @@ export const Footer = () => {
                         <div className="row">
                             <div className="col-md-4 col-xs-6">
                                 <div className="footer">
-                                    <h3 className="footer-title">Elérhetőségeink</h3>
+                                    <h3 className="footer-title">Lépj velünk kapcsolatban</h3>
 
                                     <ul className="contact">
                                         <li>
@@ -40,7 +40,7 @@ export const Footer = () => {
 
                                         </li>
                                     </ul>
-                                    <Link id='dataManagement' to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
+                                   
                                     
 
 
@@ -51,8 +51,9 @@ export const Footer = () => {
                             </div>
 
                             <div className="col-md-4 col-xs-6">
-                                <div className="footer">
-                                    <h3 className="footer-title">Szobáink</h3>
+                                <div className="footer" >
+                                    <h3 className="footer-title">Információk</h3>
+                                    <Link style={{textAlign:"center"}} id='dataManagement' to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
 
                                 </div>
                             </div>
@@ -60,7 +61,7 @@ export const Footer = () => {
                             <div className="col-md-4 col-xs-6">
                                 <div className="footer">
                                     <h3 className="footer-title">Heaven hotel Nyíregyháza</h3>
-                                    <img src={kep} alt="" style={{ maxWidth: "100%", height: "auto" }} />
+                                    <img src={kep} alt="" style={{ maxWidth: "86%", height: "auto" }} />
                                 </div>
                             </div>
                         </div>

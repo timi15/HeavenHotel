@@ -1,8 +1,18 @@
 
-import React from 'react'
+import { TextField } from '@mui/material'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap'
 
 export const Contact = () => {
+
+  const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleClick = () => {
+        localStorage.setItem("message", JSON.stringify({name, email, message}));
+    }
+
   return (
 
     <>
@@ -53,19 +63,21 @@ export const Contact = () => {
 
 
 
-            <div id='contactForm' className='col-md-6 col-xs-6' >
+            <div id='contactForm' className='col-md-6 col-xs-6' style={{textAlign:'center'}}  >
 
-              <div><h5>Írj nekünk üzenetet!</h5></div>
+              <div style={{marginBottom:30, marginTop:20}}><h5>Írj nekünk üzenetet!</h5></div>
 
-              <p>Név(*)</p>
-              <input type="text" name="name" placeholder='Adja meg a teljes nevét...' />
-              <p>E-mail-cím(*)</p>
-              <input type="email" name="e-mail" placeholder='Adja meg e-mail-címét...' />
-              <p>Üzenet</p>
-              <textarea rows={10} name="message" placeholder='Írja le miben segíthetünk... ' />
-              <Button>Küldés</Button>
+              <TextField id="outlined-basic" label="Név" variant="outlined" style={{ width: '100%', marginBottom: '20px' }}  onChange={(e) => setName(e.target.value)}/>
+
+                <TextField id="outlined-basic" label="E-mail cím" variant="outlined" style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setEmail(e.target.value)}/>
+
+                <TextField id="outlined-basic" label="Üzenet" variant="outlined" multiline rows={5} style={{ width: '100%', marginBottom: '20px' }} 
+                onChange={({target: {value}}) => setMessage(value)}/>
+                <input type="button" value="Külés" style={{width:200,height:50 ,borderRadius:10}} ononClick={() => handleClick()}/>
+                
 
             </div>
+            
             
 
           </div>

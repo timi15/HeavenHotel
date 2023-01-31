@@ -9,6 +9,7 @@ import { Contact } from './pages/Contact';
 import { Error } from './components/Error';
 import { DataManagement } from './components/DataManagement';
 import { Reservation } from './pages/Reservation';
+import { Rooms } from './pages/Rooms';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route  path='/contact' element={<Contact />} />
           <Route  path='/reservation' element={<Reservation />} />
           <Route  path='/datamanagement' element={<DataManagement />} />
+          <Route  path='/rooms' element={<Rooms/>} />
 
 
           <Route  path='*' element={<Error />} />
