@@ -1,7 +1,12 @@
 const express = require('express');
 const mysql = require("mysql")
+const cors = require("cors")
+const bodyParser = require("body-parser")
 const app= express()
-app.use(express.json());
+
+app.use(bodyParser.json())
+app.use(cors());
+
 
 const db= mysql.createConnection(
     {
@@ -13,19 +18,32 @@ const db= mysql.createConnection(
     }
 )
 
-db.connect(()=>{
-    
-    console.log("Connected!");
-    let sql= "INSERT INTO room_type(room_type_name, description) VALUES ('Superior egyágyas szoba', 'Kényelmes, 16 m2 alapterületű egyágyas szoba 1 fő részére. A fürdőszobában ülőkád található. Bekészítések: törölköző, hajszárító. A szoba ablakaiból a csodálatos nyíregyházi belváros látható. A szobában minibár is a vendégek rendelkezésére áll.') ";
-    db.query(sql, (err, result)=>{
-        if(err){
-            throw err
+db.connect((err)=>{
+    if (err){
+        console.log(err);
+    }
+    console.log("Connect");
+})
+
+app.get("/", (req,res)=>{
+    db.query("SELECT * FROM room INNER JOIN room_type ON room.room_type_id = room_type.room_type_id ", (err, result, fields)=>{
+        if (err){
+         res.status(204).send(err)
         }
-        console.log("beszurva");
-
-
+        res.send(result)
     })
 })
+
+app.get("/roomtype", (req,res)=>{
+    db.query("SELECT * FROM room_type ", (err, result, fields)=>{
+        if (err){
+         res.status(204).send(err)
+        }
+        res.send(result)
+    })
+})
+
+
 
 
 

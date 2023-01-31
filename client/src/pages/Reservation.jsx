@@ -1,9 +1,6 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
-import BasicDatePicker from '../components/BasicDateRangePicker'
-import { MoneySlider } from '../components/MoneySlider'
+
 import { RoomsFilter } from '../components/RoomsFilter'
-import { RoomTypeSelect } from '../components/RoomTypeSelect'
 
 export const Reservation = () => {
     return (
