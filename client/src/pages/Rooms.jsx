@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 
-
-
+import room1 from "../img/szobak/superiorEgyagyasSzoba.jpg"
+import room2 from "../img/szobak/standardKetagyasSzoba.jpg"
+import room3 from "../img/szobak/superiorKetagyasSzoba.jpg"
+import room4 from "../img/szobak/standardKetagyasSzoba.jpg"
+import room5 from "../img/szobak/superiorHaromagyasSzoba.jpg"
+import room6 from "../img/szobak/standardNegyagyasSzoba.jpg"
+import room7 from "../img/szobak/superiorNegyagyasSzoba.jpg"
 
 
 
@@ -12,7 +17,7 @@ export const Rooms = () => {
     const [rooms, setRooms] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/rooms", {
+        axios.get("http://localhost:8080/roomtype", {
             headers: {
                 'Access-Control-Allow-Origin': "localhost:3000"
             }
@@ -24,10 +29,7 @@ export const Rooms = () => {
             })
     }, []);
 
-
-
-
-
+    const roomPic =[room1, room2, room3, room4, room5, room6, room7];
 
     return (
         <div className="section">
@@ -48,9 +50,9 @@ export const Rooms = () => {
                             <CardMedia
 
                                 component="img"
-                                alt="green iguana"
+                                alt="room"
                                 height="140"
-                                image={require("../img/szobak/superiorEgyagyasSzoba.jpg")}
+                                image={roomPic[index]}
                             />
 
                             <CardContent>
@@ -77,7 +79,6 @@ export const Rooms = () => {
                             </CardContent>
 
                             <CardActions style={{justifyContent:'right'}}>
-                                <Button variant='outlined' size="medium">Törlés</Button>
                                 <Button variant='outlined' size="medium">Módosítás</Button>
                             </CardActions>
 
