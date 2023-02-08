@@ -25,23 +25,29 @@ db.connect((err)=>{
     console.log("Connect");
 })
 
+
+
+
+app.get("/roomtype", (req,res)=>{
+    db.query("SELECT * FROM room_type ", (err, result, fields)=>{
+        if (err){
+         console.log(err);
+        }
+     
+        res.send(result)
+    })
+})
+
 app.get("/rooms", (req,res)=>{
     db.query("SELECT * FROM room INNER JOIN room_type ON room.room_type_id = room_type.room_type_id ", (err, result, fields)=>{
         if (err){
-         res.status(204).send(err)
+         res.status(204).json("Hiba")
         }
         res.send(result)
     })
 })
 
-app.get("/roomtype", (req,res)=>{
-    db.query("SELECT * FROM room_type ", (err, result, fields)=>{
-        if (err){
-         res.status(204).send(err)
-        }
-        res.send(result)
-    })
-})
+
 
 
 
