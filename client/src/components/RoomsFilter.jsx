@@ -170,22 +170,33 @@ export const RoomsFilter = () => {
                     <div className="row" >
 
                         {
+
+
+                            filteredRoom.length !== 0 && (
+                                filteredRoom.map((value, index) =>
+
+                                    <Card style={{ width: '18rem' }} key={index}>
+
+                                        <Card.Body>
+                                            <Card.Title>{value.room_type_name}</Card.Title>
+                                            <Card.Text>
+                                                {value.description}
+                                            </Card.Text>
+                                            <Button variant="primary" >Foglalás</Button>
+                                        </Card.Body>
+                                    </Card>
+
+
+                                )
+                            )
                             
-                            filteredRoom.map((value, index) =>
 
-                            <Card style={{ width: '18rem' }} key={index}>
-                                
-                                <Card.Body>
-                                    <Card.Title>{value.room_type_name}</Card.Title>
-                                    <Card.Text>
-                                        {value.description}
-                                    </Card.Text>
-                                    <Button variant="primary" >Foglalás</Button>
-                                </Card.Body>
-                            </Card>
 
-                        
-                        )
+                        }
+                        {
+                         filteredRoom.length===0 && (
+                            <div>Nincs ilyen elérhető szoba vagy töltse ki az összes mezőt</div>
+                         )
                         }
 
                     </div>
