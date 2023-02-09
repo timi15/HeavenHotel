@@ -25,7 +25,7 @@ export const RoomsFilter = () => {
     const [types, setTypes] = React.useState([]);
     const [type, setType] = React.useState('');
 
-    const [price, setPrice] = React.useState('');
+    
 
 
 
@@ -65,8 +65,8 @@ export const RoomsFilter = () => {
     }, []);
 
     useEffect(() => {
-        setFilteredRoom(rooms.filter(room => room.room_type_name === type && room.price_night < price))
-    }, [rooms, type, price]);
+        setFilteredRoom(rooms.filter(room => room.room_type_name === type && room.available ===1 ))
+    }, [rooms, type]);
 
 
 
@@ -90,7 +90,7 @@ export const RoomsFilter = () => {
 
 
 
-    console.log(new Date(checkIn).toLocaleDateString("sv-SE"), new Date(checkOut).toLocaleDateString("sv-SE"), type, price)
+    console.log(new Date(checkIn).toLocaleDateString("sv-SE"), new Date(checkOut).toLocaleDateString("sv-SE"), type)
     console.log(rooms)
 
     console.log(filteredRoom)
@@ -148,21 +148,12 @@ export const RoomsFilter = () => {
                                 )}
                             </Select>
                         </FormControl>
-                        <FormControl sx={{ m: 1, width: 150 }}>
-                            <InputLabel htmlFor="outlined-adornment-amount">Limit</InputLabel>
-                            <OutlinedInput
-                                id="outlined-adornment-amount"
-                                startAdornment={<InputAdornment position="start">Ft</InputAdornment>}
-                                label="Limit"
-                                value={price}
-                                onChange={(e) => setPrice(e.target.value)}
-                            />
-                        </FormControl>
+                        
                     </div>
 
                     <div className="row" style={{ justifyContent: "center" }}>
 
-                        
+
 
 
                     </div>
@@ -195,7 +186,7 @@ export const RoomsFilter = () => {
                         }
                         {
                          filteredRoom.length===0 && (
-                            <div>Nincs ilyen elérhető szoba vagy töltse ki az összes mezőt</div>
+                            <div>Nincs ilyen elérhető szoba vagy töltse ki az összes mező</div>
                          )
                         }
 
