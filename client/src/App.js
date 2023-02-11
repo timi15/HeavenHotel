@@ -10,6 +10,7 @@ import { Error } from './components/Error';
 import { DataManagement } from './components/DataManagement';
 import { Reservation } from './pages/Reservation';
 import { Rooms } from './pages/Rooms';
+import { GYIK } from './components/GYIK';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route  path='/contact' element={<Contact />} />
           <Route  path='/reservation' element={<Reservation />} />
           <Route  path='/datamanagement' element={<DataManagement />} />
+          <Route  path='/gyik' element={<GYIK />} />
           <Route  path='/rooms' element={<Rooms/>} />
 
 
