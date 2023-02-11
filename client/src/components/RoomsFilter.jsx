@@ -9,7 +9,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button, Card } from 'react-bootstrap';
-import { InputAdornment, OutlinedInput } from '@mui/material';
 import moment from "moment";
 import axios from 'axios'
 
@@ -25,7 +24,7 @@ export const RoomsFilter = () => {
     const [types, setTypes] = React.useState([]);
     const [type, setType] = React.useState('');
 
-    const [price, setPrice] = React.useState('');
+    
 
 
 
@@ -65,8 +64,8 @@ export const RoomsFilter = () => {
     }, []);
 
     useEffect(() => {
-        setFilteredRoom(rooms.filter(room => room.room_type_name === type && room.price_night < price))
-    }, [rooms, type, price]);
+        setFilteredRoom(rooms.filter(room => room.room_type_name === type && room.available ===1 ))
+    }, [rooms, type]);
 
 
 
@@ -90,7 +89,7 @@ export const RoomsFilter = () => {
 
 
 
-    console.log(new Date(checkIn).toLocaleDateString("sv-SE"), new Date(checkOut).toLocaleDateString("sv-SE"), type, price)
+    console.log(new Date(checkIn).toLocaleDateString("sv-SE"), new Date(checkOut).toLocaleDateString("sv-SE"), type)
     console.log(rooms)
 
     console.log(filteredRoom)
@@ -148,21 +147,12 @@ export const RoomsFilter = () => {
                                 )}
                             </Select>
                         </FormControl>
-                        <FormControl sx={{ m: 1, width: 150 }}>
-                            <InputLabel htmlFor="outlined-adornment-amount">Limit</InputLabel>
-                            <OutlinedInput
-                                id="outlined-adornment-amount"
-                                startAdornment={<InputAdornment position="start">Ft</InputAdornment>}
-                                label="Limit"
-                                value={price}
-                                onChange={(e) => setPrice(e.target.value)}
-                            />
-                        </FormControl>
+                        
                     </div>
 
                     <div className="row" style={{ justifyContent: "center" }}>
 
-                        
+
 
 
                     </div>
@@ -170,22 +160,33 @@ export const RoomsFilter = () => {
                     <div className="row" >
 
                         {
+
+
+                            filteredRoom.length !== 0 && (
+                                filteredRoom.map((value, index) =>
+
+                                    <Card style={{ width: '18rem' }} key={index}>
+
+                                        <Card.Body>
+                                            <Card.Title>{value.room_type_name}</Card.Title>
+                                            <Card.Text>
+                                                {value.description}
+                                            </Card.Text>
+                                            <Button variant="primary" >Foglalás</Button>
+                                        </Card.Body>
+                                    </Card>
+
+
+                                )
+                            )
                             
-                            filteredRoom.map((value, index) =>
 
-                            <Card style={{ width: '18rem' }} key={index}>
-                                
-                                <Card.Body>
-                                    <Card.Title>{value.room_type_name}</Card.Title>
-                                    <Card.Text>
-                                        {value.description}
-                                    </Card.Text>
-                                    <Button variant="primary" >Foglalás</Button>
-                                </Card.Body>
-                            </Card>
 
-                        
-                        )
+                        }
+                        {
+                         filteredRoom.length===0 && (
+                            <div>Nincs ilyen elérhető szoba vagy töltse ki az összes mező</div>
+                         )
                         }
 
                     </div>

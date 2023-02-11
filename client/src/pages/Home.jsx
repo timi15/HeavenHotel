@@ -9,9 +9,9 @@ export const Home = () => {
     <>
     <About/>
     <RoomOnHomePage/>
-    
-    <Gallery/>
     <Opinions/>
+    <Gallery/>
+    
     </>
   )
 }
