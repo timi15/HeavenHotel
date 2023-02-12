@@ -51,7 +51,7 @@ export const Layout = ({ children }) => {
         <>
         <Top/>
         <LogoComponent/>
-            <AppBar  position="static" >
+            <AppBar  position="static" class="appbar"  >
                 <Container maxWidth="xl">
                     <Toolbar  disableGutters  >
                     
@@ -114,7 +114,7 @@ export const Layout = ({ children }) => {
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar  src="/broken-image.jpg" />
+                                    <Avatar  src="/broken-image.jpg" style={{backgroundColor:' rgb(131, 112, 8)'}} />
                                 </IconButton>
                             </Tooltip>
                             <Menu

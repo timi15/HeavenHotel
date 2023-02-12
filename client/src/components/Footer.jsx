@@ -53,9 +53,10 @@ export const Footer = () => {
                             <div className="col-md-4 col-xs-6">
                                 <div className="footer" >
                                     <h3 className="footer-title">Információk</h3>
-                                    <Link style={{textAlign:"center"}} id='dataManagement' to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
-                                    <Link style={{textAlign:"center"}} id='gyik' to="gyik" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
-
+                                    <Link style={{textAlign:"center", color:' rgb(131, 112, 8)'}} id='dataManagement' to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
+                                    <Link style={{textAlign:"center", color:' rgb(131, 112, 8)'}} id='aszf' to="aszf" target='_top'><p>Általános Szerződési Feltételek (ÁSZF)</p></Link>
+                                    <Link style={{textAlign:"center", color:' rgb(131, 112, 8)'}} id='gyik' to="gyik" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
+                                    
                                 </div>
                             </div>
 

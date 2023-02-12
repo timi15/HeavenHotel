@@ -73,7 +73,7 @@ export const Contact = () => {
 
                 <TextField id="outlined-basic" label="Üzenet" variant="outlined" multiline rows={5} style={{ width: '100%', marginBottom: '20px' }} 
                 onChange={({target: {value}}) => setMessage(value)}/>
-                <input type="button" value="Külés" style={{width:200,height:50 ,borderRadius:10}} ononClick={() => handleClick()}/>
+                <input type="button" id="button" value="Külés"  style={{width:200,height:50 ,borderRadius:10}} ononClick={() => handleClick()}/>
                 
 
             </div>

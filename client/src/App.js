@@ -11,6 +11,9 @@ import { DataManagement } from './components/DataManagement';
 import { Reservation } from './pages/Reservation';
 import { Rooms } from './pages/Rooms';
 import { GYIK } from './components/GYIK';
+import { LogIn } from './components/LogIn';
+import { SignUp } from './components/SignUp';
+import { Aszf } from './components/Aszf.jsx';
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
           <Route  path='/datamanagement' element={<DataManagement />} />
           <Route  path='/gyik' element={<GYIK />} />
           <Route  path='/rooms' element={<Rooms/>} />
-
+          <Route  path='/login' element={<LogIn/>} />
+          <Route  path='/signup' element={<SignUp/>} />
+          <Route  path='/aszf' element={<Aszf/>} />
 
           <Route  path='*' element={<Error />} />
 

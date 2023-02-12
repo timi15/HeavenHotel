@@ -13,9 +13,9 @@ export const GYIK = () => {
             <div className="container" style={{maxWidth:700}}>
                 <h4>IDŐPONTOK</h4>
                 
-            <GYIKitem  question="Mikor foglalhatjuk el a szobát az érkezés napján?" answer="A megfelelő takarítás és fertőtlenítés miatt a szobát az érkezés napján 15 órától tudjuk garantálni. 12 és 15 óra között addig elfogyasztható az ebéd, mely minden csomagunk tartalma. Ez idő alatt csomagszobánk díjmentesen használható korlátozott számban."/>
-            <GYIKitem  question="A távozás napján meddig kell elhagyni a szobát?" answer="A távozás napján 11 óráig kérjük szépen átadni a szobát."/>
-            <GYIKitem  question="Mik az étkezési időpontok?" answer="Reggeli: 7.00-10.00 Ebéd: 12.00-15.00 Vacsora: 18.00-20.30"/>
+            <GYIKitem   question="Mikor foglalhatjuk el a szobát az érkezés napján?" answer="A megfelelő takarítás és fertőtlenítés miatt a szobát az érkezés napján 15 órától tudjuk garantálni. 12 és 15 óra között addig elfogyasztható az ebéd, mely minden csomagunk tartalma. Ez idő alatt csomagszobánk díjmentesen használható korlátozott számban."/>
+            <GYIKitem   question="A távozás napján meddig kell elhagyni a szobát?" answer="A távozás napján 11 óráig kérjük szépen átadni a szobát."/>
+            <GYIKitem   question="Mik az étkezési időpontok?" answer="Reggeli: 7.00-10.00 Ebéd: 12.00-15.00 Vacsora: 18.00-20.30"/>
             
             <h4>ÉTKEZÉS</h4>
             <GYIKitem question="Milyen étkezés jár az érkezés napján?" answer="Minden akciós csomagunk teljes ellátást tartalmaz. Érkezés napján 12.00-15.00 között elfogyasztható az első ebéd, és 18.00-20.30 között az első vacsora."/>
@@ -24,8 +24,8 @@ export const GYIK = () => {
             
 
             <h4>FOGLALÁS</h4>
-            <GYIKitem question="A foglalás regisztrációhoz kötött?" answer="Igen, weboldalunkon a foglalás regisztrációhoz kötött."/>
-            <GYIKitem question="Mi a foglalás menete?" answer="Közvetlen foglalást szállodánk honlapján tud rögzíteni. Amennyiben az időpont/ár kérdéses, lehetőség van ajánlatot kérni a honlapon keresztül, vagy akár telefonon keresztül is rendelkezésre állnak kollégáink munkanapokon 8.00-16.00 között."/>
+            <GYIKitem  question="A foglalás regisztrációhoz kötött?" answer="Igen, weboldalunkon a foglalás regisztrációhoz kötött."/>
+            <GYIKitem question="Mi a foglalás menete?" answer="Közvetlen foglalást szállodánk honlapján tud rögzíteni. Amennyiben az időpont/ár kérdéses, lehetőség van ajánlatot kérni a honlapon keresztül, vagy akár telefonon keresztül is rendelkezésre állnak kollégáink munkanapokon 8.00-16.00 között." / >
            
            <h4>SZOBÁK</h4>
            <GYIKitem question="Minden szoba klimatizált?" answer="Igen, kivétel nélkül."/>
