@@ -4,13 +4,13 @@ export const Aszf = () => {
     return (
 
         <div class="aszfdiv">
-            <h3 id="aszf_cim">Általános Szerződési Feltételek (ÁSZF)</h3>
+            <h3 id="alcim">Általános Szerződési Feltételek </h3>
             <div id='aszfContainer' className="container">
 
 
                 <h5>1. Általános rendelkezések</h5>
 
-                <p>1.1. Az Általános Szállodai Szerződéses Feltételek (továbbiakban ÁSZF) azt a szerződéses tartalmat foglalják össze, melyek alapján a Heaven Hotel Kft. – Heaven Hotel **** - (4400 Nyíregyháza, Dózsa György u. 1), továbbiakban Szolgáltató) általánosságban elszállásolási szerződést köt Vendégeivel.</p>
+                <p>1.1. Az Általános Szállodai Szerződéses Feltételek (továbbiakban ÁSZF) azt a szerződéses tartalmat foglalják össze, melyek alapján a Heaven Hotel Kft. – Heaven Hotel **** - (4400 Nyíregyháza Hotel utca), továbbiakban Szolgáltató) általánosságban elszállásolási szerződést köt Vendégeivel.</p>
 
                 <h5>2. Szerződő felek</h5>
 

@@ -53,18 +53,7 @@ export const Gallery = () => {
                                 <div>
                                     <Box url="https://images.unsplash.com/photo-1529169436040-836f3d93f0f8" />
                                 </div>
-                                <div>
-                                    <Box url="https://images.unsplash.com/photo-1578898886615-0c4719f932dc" />
-                                </div>
-                                <div>
-                                    <Box url="https://images.unsplash.com/photo-1561049933-c7762dbc757e" />
-                                </div>
-                                <div>
-                                    <Box url="https://images.unsplash.com/photo-1522061634923-98236ee38c8d" />
-                                </div>
-                                <div>
-                                    <Box url="https://images.unsplash.com/photo-1512853431346-a61545d3f6e0" />
-                                </div>
+                                
                                 <div>
                                     <Box url="https://images.unsplash.com/photo-1584132905271-512c958d674a" />
                                 </div>

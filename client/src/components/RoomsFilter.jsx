@@ -172,7 +172,7 @@ export const RoomsFilter = () => {
                                             <Card.Text>
                                                 {value.description}
                                             </Card.Text>
-                                            <Button variant="primary" >Foglalás</Button>
+                                            <Button id="button" >Foglalás</Button>
                                         </Card.Body>
                                     </Card>
 

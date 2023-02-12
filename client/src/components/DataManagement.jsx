@@ -3,14 +3,13 @@ import React from 'react'
 export const DataManagement = () => {
     return (
         <>
-            <div id='alcim'><h3>Adatvédelmi irányelvek</h3></div>
+            <div id='alcim'><h3>Adatvédelmi tájékoztató</h3></div>
 
             <div id='dataManagementContainer' className="container">
 
-                <h6>ADATVÉDELMI TÁJÉKOZTATÓ</h6>
-                <hr id='dataHr' />
+                
 
-                <p>amelyben tájékoztatjuk Önt, mint honlapunk látogatóját, valamint szolgáltatásaink igénybe vevőjét a társaság adatkezelési és adatvédelmi szabályairól.</p>
+                <p>Tájékoztatjuk Önt, mint honlapunk látogatóját, valamint szolgáltatásaink igénybe vevőjét a társaság adatkezelési és adatvédelmi szabályairól.</p>
 
                 <ul>
                     <li>Milyen alapelveket követünk adatkezelésünk során?</li>
@@ -57,7 +56,7 @@ export const DataManagement = () => {
 
                 <p>A társaság fenntartja magának a jogot jelen Adatkezelési tájékoztató módosítására, amelyről az érintetteket megfelelő módon tájékoztatja.</p>
 
-                <p>2022. decemer. 1.</p>
+                <p>2022. december. 1.</p>
 
 
             </div>

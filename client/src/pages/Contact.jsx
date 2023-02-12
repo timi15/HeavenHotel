@@ -1,7 +1,7 @@
 
 import { TextField } from '@mui/material'
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
 
 export const Contact = () => {
 
@@ -73,7 +73,8 @@ export const Contact = () => {
 
                 <TextField id="outlined-basic" label="Üzenet" variant="outlined" multiline rows={5} style={{ width: '100%', marginBottom: '20px' }} 
                 onChange={({target: {value}}) => setMessage(value)}/>
-                <input type="button" id="button" value="Külés"  style={{width:200,height:50 ,borderRadius:10}} ononClick={() => handleClick()}/>
+               
+                <Button id="button" onClick={( ) => handleClick()} >Küldés</Button>
                 
 
             </div>

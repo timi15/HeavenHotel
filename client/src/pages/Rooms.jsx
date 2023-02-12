@@ -79,7 +79,7 @@ export const Rooms = () => {
                             </CardContent>
 
                             <CardActions style={{justifyContent:'right'}}>
-                                <Button variant='outlined' size="medium">Módosítás</Button>
+                                <Button id="button">Módosítás</Button>
                             </CardActions>
 
 

@@ -12,14 +12,14 @@ export const Top = () => {
 
                         <div className="col-md-8">
 
-                            <p>4400 Nyíregyháza, Dózsa György u. 1. Tel: +36 42 409-300</p>
+                            <p>4400 Nyíregyháza Hotel utca 124. Tel: +36-30-234-6421</p>
                         </div>
 
                         <div className="col-md-4">
 
-                            <TopIcon/>
+                            <TopIcon />
 
-                            
+
                         </div>
 
 

@@ -36,7 +36,7 @@ export const Sight = (props) => {
 
 
 
-            <p>{props.content}</p>
+            <p style={{marginTop:20}}>{props.content}</p>
 
         </div>
     )

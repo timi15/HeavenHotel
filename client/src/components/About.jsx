@@ -12,7 +12,7 @@ export const About = () => {
                         <hr />
                         <p>Nyíregyháza hotel paradicsoma</p>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6" style={{textAlign:'justify'}}>
                         <p>Szállodánk Nyíregyháza szívében helyezkedik el. Színvonalas étteremmel, ízléses berendezésekkel, új hívogató belső terekkel találkozhatnak a vendégek és élvezhetik a felhőtlen pihenését és szórakozását.</p>
 
                         <p>Bízunk benne, hogy honlapunk felkelti érdeklődését szállodánk iránt és személyesen is meggyőződik majd arról, hogy a valóságban is mennyi lehetőséget tudunk Önnek nyújtani. Hotelünk varázslatos világot teremt Vendégeink számára, elfeledtetve a mindennapi nyüzsgő élet kihívásait, csak a pihenésre és feltöltődésre irányítva a figyelmet.

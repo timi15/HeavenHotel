@@ -15,6 +15,7 @@ export const Footer = () => {
                             <div className="col-md-4 col-xs-6">
                                 <div className="footer">
                                     <h3 className="footer-title">Lépj velünk kapcsolatban</h3>
+                                    <hr />
 
                                     <ul className="contact">
                                         <li>
@@ -40,11 +41,11 @@ export const Footer = () => {
 
                                         </li>
                                     </ul>
-                                   
-                                    
 
 
-                                    
+
+
+
 
 
                                 </div>
@@ -53,16 +54,18 @@ export const Footer = () => {
                             <div className="col-md-4 col-xs-6">
                                 <div className="footer" >
                                     <h3 className="footer-title">Információk</h3>
-                                    <Link style={{textAlign:"center", color:' rgb(131, 112, 8)'}} id='dataManagement' to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
-                                    <Link style={{textAlign:"center", color:' rgb(131, 112, 8)'}} id='aszf' to="aszf" target='_top'><p>Általános Szerződési Feltételek (ÁSZF)</p></Link>
-                                    <Link style={{textAlign:"center", color:' rgb(131, 112, 8)'}} id='gyik' to="gyik" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
-                                    
+                                    <hr />
+                                    <Link id="information" to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
+                                    <Link id="information" to="aszf" target='_top'><p>Általános Szerződési Feltételek</p></Link>
+                                    <Link id="information" to="gyik" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
+
                                 </div>
                             </div>
 
                             <div className="col-md-4 col-xs-6">
                                 <div className="footer">
                                     <h3 className="footer-title">Heaven hotel Nyíregyháza</h3>
+                                    <hr />
                                     <img src={kep} alt="" style={{ maxWidth: "86%", height: "auto" }} />
                                 </div>
                             </div>
@@ -70,10 +73,10 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                
+
             </footer>
-            
-            
+
+
         </>
     )
 }
