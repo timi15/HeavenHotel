@@ -13,20 +13,7 @@ export const Contact = () => {
     localStorage.setItem("message", JSON.stringify({ name, email, message }));
   }
 
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#837008",
-      },
-      secondary: {
-        main: "#837008",
-      },
-    },
-    textField: {
-      color: "#837008",
-      
-    },
-  });
+  
 
 
   return (
@@ -81,7 +68,7 @@ export const Contact = () => {
 
             <div id='contactForm' className='col-md-6 col-xs-6' style={{ textAlign: 'center' }}  >
 
-              <ThemeProvider theme={theme}>
+              
 
                 <div style={{ marginBottom: 30, marginTop: 20 }}><h5>Írj nekünk üzenetet!</h5></div>
 
@@ -93,7 +80,7 @@ export const Contact = () => {
                   onChange={({ target: { value } }) => setMessage(value)} />
 
                 <Button variant='outlined' id='button' onClick={() => handleClick()} >Küldés</Button>
-              </ThemeProvider>
+              
 
 
             </div>

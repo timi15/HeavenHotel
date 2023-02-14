@@ -9,23 +9,11 @@ import { Button, Container } from 'react-bootstrap';
 
 
 export const LogIn = () => {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#837008",
-      },
-      secondary: {
-        main: "#837008",
-      },
-    },
-
-
-  });
 
   return (
     <Container component="main" maxWidth="xs" style={{ padding: 100 }} >
 
-      <ThemeProvider theme={theme}>
+   
 
         <Box
           sx={{
@@ -89,7 +77,7 @@ export const LogIn = () => {
               <Grid item>
                 < div id="signuplink">
 
-                  <Link to="/SignUp" variant="body2" style={{ width: 170, color: ' rgb(131, 112, 8)', marginTop: 10, }}>
+                  <Link to="/regisztracio" variant="body2" style={{ width: 170, color: ' rgb(131, 112, 8)', marginTop: 10, }}>
                     Nincs még fiókja? Regisztráljon itt
                   </Link>
                 </div>
@@ -99,7 +87,6 @@ export const LogIn = () => {
           </Box>
         </Box>
 
-      </ThemeProvider>
 
     </Container>
 

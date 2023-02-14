@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const DataManagement = () => {
+export const Adatvedelem = () => {
     return (
         <>
             <div id='alcim'><h3>Adatvédelmi tájékoztató</h3></div>

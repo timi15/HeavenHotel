@@ -19,20 +19,46 @@ p {
 
 /*APPBAR*/
 
-#appbar {
+#appbar, #appbar-button {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 17px;
-    margin: 0px 20px;
-
-
+    font-size: 16px;
+    margin: 0px 40px;
 }
 
-#appbar:hover {
-    transform: scale(1.4);
 
-
-
+#appbar-button {
+    color: #eeeeee;
+    cursor: pointer;
+    padding: 5px 15px;
+    
 }
+
+@keyframes glowing {
+    0% {
+        
+        box-shadow: 0 0 0px white;
+    }
+
+    50% {
+       
+        box-shadow: 0 0 20px white;
+    }
+
+    100% {
+        
+        box-shadow: 0 0 0px white ;
+    }
+}
+
+
+#appbar-button {
+    animation: glowing 5000ms infinite;
+    background-color: rgba(0, 0, 0, 0.31);
+}
+
+
+
+
 
 
 /*
@@ -273,10 +299,16 @@ hr {
 
 }
 
-#roomCard {
-    background-color: rgba(255, 228, 196, 0.57);
+#roomCard{
+    background-color: #ffe4c491;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.MuiCardActions-root > Button{ 
+    margin-left:auto;
+    margin-right: auto;
+    
 }
 
 
@@ -331,13 +363,6 @@ hr {
 }
 
 
-
-.appbar {
-
-    background-image: url("../../img/gold1.jpg");
-    border: solid 3px rgb(131, 112, 8);
-
-}
 
 
 
@@ -420,11 +445,11 @@ hr {
 /*TEXTFIELD*/
 
 .MuiTextField-root > label {
-   
+
     color: #837008;
 }
 
-.MuiTextField-root > .MuiInputBase-root{
+.MuiTextField-root>.MuiInputBase-root {
     color: #837008;
 }
 

@@ -1,11 +1,11 @@
 import React from 'react'
 import { Carousel } from 'react-bootstrap'
 
+
 export const Sight = (props) => {
     return (
-        <div>
-
-            <h3><a href={props.link} target="_blank">{props.place}</a></h3>
+        <div data-aos="fade-up" once={true}>
+            <h3 ><a href={props.link} target="_blank">{props.place}</a></h3>
 
             <Carousel id="carousel"  >
                 <Carousel.Item interval={5000} >
@@ -14,7 +14,7 @@ export const Sight = (props) => {
                         src={props.pic1}
                         alt="First slide"
                     />
-                    
+
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
@@ -22,7 +22,7 @@ export const Sight = (props) => {
                         src={props.pic2}
                         alt="Second slide"
                     />
-                    
+
                 </Carousel.Item>
                 <Carousel.Item interval={5000}>
                     <img
@@ -30,13 +30,13 @@ export const Sight = (props) => {
                         src={props.pic3}
                         alt="Third slide"
                     />
-                    
+
                 </Carousel.Item>
             </Carousel>
 
 
 
-            <p style={{marginTop:20}}>{props.content}</p>
+            <p style={{ marginTop: 20 }}>{props.content}</p>
 
         </div>
     )

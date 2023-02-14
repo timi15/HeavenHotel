@@ -1,11 +1,13 @@
 import React from 'react'
 import { Opinion } from './Opinion'
 
+
 export const Opinions = () => {
     return (
-        <div id="opinionsContainer" className="container">
+        <div id="opinionsContainer" className="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
 
-            <div id="opinionsColumn" className="column">
+            <div id="opinionsColumn" className="column" >
+
                 <h3>vendégeink mondták</h3>
 
 

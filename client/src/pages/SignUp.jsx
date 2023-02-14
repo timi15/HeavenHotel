@@ -6,18 +6,6 @@ import { Link } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 
 export const SignUp = () => {
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: "#837008",
-            },
-            secondary: {
-                main: "#837008",
-            },
-        },
-
-
-    });
     return (
 
         <Container component="main" style={{ maxWidth: 800 }}>
@@ -37,7 +25,7 @@ export const SignUp = () => {
                 <Typography component="h1" variant="h5">
                     Regisztráció
                 </Typography>
-                <ThemeProvider theme={theme}>
+                
 
                     <Box component="form" sx={{ mt: 1 }}>
 
@@ -122,7 +110,7 @@ export const SignUp = () => {
                         </div>
                         < div id="signuplink">
 
-                            <Link to="/LogIn" variant="body2" style={{ width: 170, color: ' rgb(131, 112, 8)', marginTop: 10, }}>
+                            <Link to="/bejelentkezes" variant="body2" style={{ width: 170, color: ' rgb(131, 112, 8)', marginTop: 10, }}>
                                 Már van fiókja? Lépjen be itt!
                             </Link>
                         </div>
@@ -130,7 +118,7 @@ export const SignUp = () => {
 
                     </Box>
 
-                </ThemeProvider>
+                
             </Box>
 
         </Container>

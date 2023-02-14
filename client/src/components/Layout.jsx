@@ -12,13 +12,13 @@ export const Layout = ({ children }) => {
     const navigate = useNavigate();
     const pages = [
         { name: 'Főoldal', route: '/' },
-        { name: 'Szobák', route: '/rooms' },
-        { name: 'Látnivalók', route: '/sights' },
-        { name: 'Foglalás', route: '/reservation' },
-        { name: 'Kapcsolat', route: '/contact' }
+        { name: 'Szobák', route: '/szobak' },
+        { name: 'Látnivalók', route: '/latnivalok' },
+        { name: 'Foglalás', route: '/foglalas' },
+        { name: 'Kapcsolat', route: '/kapcsolatok' }
     ];
     const settings = [
-        { name: 'Bejelentkezés', route: '/login' },
+        { name: 'Bejelentkezés', route: '/bejelentkezes' },
        
     ];
 
@@ -51,7 +51,7 @@ export const Layout = ({ children }) => {
         <>
         <Top/>
         <LogoComponent/>
-            <AppBar  position="static" class="appbar"  >
+            <AppBar  position="static" style={{background:"rgba(0, 0, 0, 0.31)"}}  >
                 <Container maxWidth="xl">
                     <Toolbar  disableGutters  >
                     
@@ -87,6 +87,7 @@ export const Layout = ({ children }) => {
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
                                     
+                                    
                                 }}
                             >
                                 {pages.map((page, index) => (
@@ -101,10 +102,10 @@ export const Layout = ({ children }) => {
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center"}}>
                             {pages.map((page, index) => (
                                 <Button
-                                    id="appbar"
+                                    id="appbar-button"
                                     key={index}
                                     onClick={() => handleCloseNavMenu(page.route)}
-                                    sx={{ my: 2, color: 'white',   display: 'block' }}
+                                    sx={{ my: 2,   display: 'block' }}
                                 >
                                     {page.name}
                                 </Button>
@@ -112,11 +113,11 @@ export const Layout = ({ children }) => {
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
-                            <Tooltip title="Open settings">
+                            
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar  src="/broken-image.jpg" style={{backgroundColor:' rgb(131, 112, 8)'}} />
+                                    <Avatar  src="/broken-image.jpg"  />
                                 </IconButton>
-                            </Tooltip>
+                            
                             <Menu
                                 sx={{ mt: '45px' }}
                                 id="menu-appbar"

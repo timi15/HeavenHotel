@@ -46,7 +46,7 @@ export const Rooms = () => {
                 <div className="row" >
 
                     {Array.from(rooms).map((val, index) =>
-                        <Card id="roomCard" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
+                        <Card  id="roomCard" data-aos="fade-up" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
                             <CardMedia
 
                                 component="img"

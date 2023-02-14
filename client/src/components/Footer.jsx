@@ -55,9 +55,9 @@ export const Footer = () => {
                                 <div className="footer" >
                                     <h3 className="footer-title">Információk</h3>
                                     <hr />
-                                    <Link id="information" to="datamanagement" target='_top'><p>Adatkezelési tájékoztató</p></Link>
-                                    <Link id="information" to="aszf" target='_top'><p>Általános Szerződési Feltételek</p></Link>
-                                    <Link id="information" to="gyik" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
+                                    <Link id="information" to="adatvedelem" target='_top'><p>Adatkezelési tájékoztató</p></Link>
+                                    <Link id="information" to="altalanos_szerzodesi_feltetelek" target='_top'><p>Általános Szerződési Feltételek</p></Link>
+                                    <Link id="information" to="gyakori_kerdesek_es_valaszok" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
 
                                 </div>
                             </div>

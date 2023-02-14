@@ -11,7 +11,7 @@ import Select from '@mui/material/Select';
 import { Button, Card } from 'react-bootstrap';
 import moment from "moment";
 import axios from 'axios'
-import { createTheme, ThemeProvider } from '@mui/material';
+import { CardActions, CardContent, CardMedia, createTheme, ThemeProvider, Typography } from '@mui/material';
 
 
 
@@ -26,7 +26,7 @@ export const RoomsFilter = () => {
     const [types, setTypes] = React.useState([]);
     const [type, setType] = React.useState('');
 
-    
+
 
 
 
@@ -66,7 +66,7 @@ export const RoomsFilter = () => {
     }, []);
 
     useEffect(() => {
-        setFilteredRoom(rooms.filter(room => room.room_type_name === type && room.available ===1 ))
+        setFilteredRoom(rooms.filter(room => room.room_type_name === type && room.available === 1))
     }, [rooms, type]);
 
 
@@ -96,23 +96,12 @@ export const RoomsFilter = () => {
 
     console.log(filteredRoom)
 
-    const theme = createTheme({
-        palette: {
-          primary: {
-            main: "#837008",
-          },
-          secondary: {
-            main: "#837008",
-          },
-        },
-        
 
-      });
 
     return (
         <>
             <div className="section" style={{ textAlign: "center" }}>
-                <ThemeProvider theme={theme}>
+
                 <div className="container" style={{ display: "contents" }} >
                     <div className="row" style={{ marginBottom: 10 }}>
 
@@ -163,7 +152,7 @@ export const RoomsFilter = () => {
                                 )}
                             </Select>
                         </FormControl>
-                        
+
                     </div>
 
                     <div className="row" style={{ justifyContent: "center" }}>
@@ -181,28 +170,34 @@ export const RoomsFilter = () => {
                             filteredRoom.length !== 0 && (
                                 filteredRoom.map((value, index) =>
 
-                                    <Card style={{ width: '18rem' }} key={index}>
-
-                                        <Card.Body>
-                                            <Card.Title>{value.room_type_name}</Card.Title>
-                                            <Card.Text>
+                                    <Card id="roomCard" style={{maxWidth:600}} key={index}>
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="div">
+                                                {value.room_type_name}
+                                            </Typography>
+                                            <Typography variant="body2" color="text.secondary">
                                                 {value.description}
-                                            </Card.Text>
-                                            <Button variant='outlined' id="button" >Foglalás</Button>
-                                        </Card.Body>
+                                            </Typography>
+                                        </CardContent>
+                                        <CardActions sx={{mb:5}}>
+                                            <Button variant='outlined' id="button">Foglalás</Button>
+
+                                        </CardActions>
                                     </Card>
+
+
 
 
                                 )
                             )
-                            
+
 
 
                         }
                         {
-                         filteredRoom.length===0 && (
-                            <div>Nincs ilyen elérhető szoba vagy töltse ki az összes mező</div>
-                         )
+                            filteredRoom.length === 0 && (
+                                <div>Nincs ilyen elérhető szoba vagy töltse ki az összes mező</div>
+                            )
                         }
 
                     </div>
@@ -210,7 +205,7 @@ export const RoomsFilter = () => {
 
 
                 </div>
-                </ThemeProvider>
+
             </div>
 
 
