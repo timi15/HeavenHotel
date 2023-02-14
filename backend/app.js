@@ -48,11 +48,6 @@ app.get("/rooms", (req,res)=>{
 })
 
 
-
-
-
-
-
 app.listen(8080, 'localhost', ()=>{
     "8080 figyel"
 })

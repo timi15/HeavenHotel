@@ -5,7 +5,7 @@ export const Sight = (props) => {
     return (
         <div>
 
-            <h3>{props.place}</h3>
+            <h3><a href={props.link} target="_blank">{props.place}</a></h3>
 
             <Carousel id="carousel"  >
                 <Carousel.Item interval={5000} >

@@ -46,7 +46,7 @@ export const Rooms = () => {
                 <div className="row" >
 
                     {Array.from(rooms).map((val, index) =>
-                        <Card sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
+                        <Card id="roomCard" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
                             <CardMedia
 
                                 component="img"
@@ -79,7 +79,7 @@ export const Rooms = () => {
                             </CardContent>
 
                             <CardActions style={{justifyContent:'right'}}>
-                                <Button id="button">Módosítás</Button>
+                                <Button id='button'>Módosítás</Button>
                             </CardActions>
 
 

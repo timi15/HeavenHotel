@@ -10,7 +10,7 @@ export const GYIK = () => {
 
                 <h3>Gyakori kérdések és válaszok</h3>
             </div>
-            <div className="container" style={{ maxWidth: 700 }}>
+            <div className="container" style={{ minWidth:700 }}>
                 <h4>IDŐPONTOK</h4>
 
                 <GYIKitem question="Mikor foglalhatjuk el a szobát az érkezés napján?" answer="A megfelelő takarítás és fertőtlenítés miatt a szobát az érkezés napján 15 órától tudjuk garantálni. 12 és 15 óra között addig elfogyasztható az ebéd, mely minden csomagunk tartalma. Ez idő alatt csomagszobánk díjmentesen használható korlátozott számban." />

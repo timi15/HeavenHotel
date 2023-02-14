@@ -11,6 +11,8 @@ import Select from '@mui/material/Select';
 import { Button, Card } from 'react-bootstrap';
 import moment from "moment";
 import axios from 'axios'
+import { createTheme, ThemeProvider } from '@mui/material';
+
 
 
 export const RoomsFilter = () => {
@@ -94,9 +96,23 @@ export const RoomsFilter = () => {
 
     console.log(filteredRoom)
 
+    const theme = createTheme({
+        palette: {
+          primary: {
+            main: "#837008",
+          },
+          secondary: {
+            main: "#837008",
+          },
+        },
+        
+
+      });
+
     return (
         <>
             <div className="section" style={{ textAlign: "center" }}>
+                <ThemeProvider theme={theme}>
                 <div className="container" style={{ display: "contents" }} >
                     <div className="row" style={{ marginBottom: 10 }}>
 
@@ -172,7 +188,7 @@ export const RoomsFilter = () => {
                                             <Card.Text>
                                                 {value.description}
                                             </Card.Text>
-                                            <Button id="button" >Foglalás</Button>
+                                            <Button variant='outlined' id="button" >Foglalás</Button>
                                         </Card.Body>
                                     </Card>
 
@@ -194,6 +210,7 @@ export const RoomsFilter = () => {
 
 
                 </div>
+                </ThemeProvider>
             </div>
 
 
