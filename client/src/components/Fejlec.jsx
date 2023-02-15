@@ -1,15 +1,12 @@
 import React from 'react'
-import { TopIcon } from './TopIcon'
+import { FejlecIkonok } from './FejlecIkonok'
 
-export const Top = () => {
+export const Fejlec = () => {
     return (
-        <header id='top'>
-            <div className="section">
+        <header className='fejlec'>
+            
                 <div className="container">
                     <div className="row">
-
-
-
                         <div className="col-md-8">
 
                             <p>4400 Nyíregyháza Hotel utca 124. Tel: +36-30-234-6421</p>
@@ -17,15 +14,11 @@ export const Top = () => {
 
                         <div className="col-md-4">
 
-                            <TopIcon />
-
+                            <FejlecIkonok />
 
                         </div>
 
-
-
-                    </div>
-                </div>
+                    </div>                
 
             </div>
         </header>

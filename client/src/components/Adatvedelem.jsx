@@ -3,13 +3,37 @@ import React from 'react'
 export const Adatvedelem = () => {
     return (
         <>
-            <div id='alcim'><h3>Adatvédelmi tájékoztató</h3></div>
+            <div className='alcim'><h3>Adatvédelmi tájékoztató</h3></div>
 
-            <div id='dataManagementContainer' className="container">
+            <div  className="adatvedelem">
 
-                
+
 
                 <p>Tájékoztatjuk Önt, mint honlapunk látogatóját, valamint szolgáltatásaink igénybe vevőjét a társaság adatkezelési és adatvédelmi szabályairól.</p>
+
+                <p className="ceginfo">
+                    Név: Heaven Hotel
+                    <br></br>
+                    Székhely: 4400 Nyíregyháza Hotel utca 124.
+                    <br></br>
+                    Cégjegyzékszám: 01-01-001489
+                    <br></br>A bejegyző bíróság megnevezése: Nem ismert
+                    <br></br>
+                    Adószám: 23689160-5-04
+                    <br></br>
+                    Telefonszám: +36-30-234-6421
+                    <br></br>
+                    E-mail: sales@hotelheaven.com
+                    <br></br>
+                    Adatvédelmi tisztviselő:
+                    <br></br>
+                    <br></br>
+                    Név: Kiss Mária
+                    <br></br>
+                    Telefonszám: +36-30-932-9898
+                    <br></br>
+                    <br></br>
+                </p>
 
                 <ul>
                     <li>Milyen alapelveket követünk adatkezelésünk során?</li>

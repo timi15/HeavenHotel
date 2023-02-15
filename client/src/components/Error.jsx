@@ -3,7 +3,7 @@ import React from 'react'
 export const Error = () => {
     return (
         <>
-            <div id='alcim'>
+            <div className='alcim'>
                 <h3>404</h3>
                 <p><i>Page not found</i></p>
 

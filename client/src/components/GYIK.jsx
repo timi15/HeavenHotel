@@ -6,11 +6,11 @@ export const GYIK = () => {
 
         <>
 
-            <div id="alcim">
+            <div className='alcim'>
 
                 <h3>Gyakori kérdések és válaszok</h3>
             </div>
-            <div className="container" style={{ minWidth:700 }}>
+            <div className="container" >
                 <h4>IDŐPONTOK</h4>
 
                 <GYIKitem question="Mikor foglalhatjuk el a szobát az érkezés napján?" answer="A megfelelő takarítás és fertőtlenítés miatt a szobát az érkezés napján 15 órától tudjuk garantálni. 12 és 15 óra között addig elfogyasztható az ebéd, mely minden csomagunk tartalma. Ez idő alatt csomagszobánk díjmentesen használható korlátozott számban." />
@@ -24,12 +24,12 @@ export const GYIK = () => {
 
 
                 <h4>FOGLALÁS</h4>
-                <GYIKitem question="A foglalás regisztrációhoz kötött?" answer="Igen, weboldalunkon a foglalás regisztrációhoz kötött." />
+                <GYIKitem question="A foglalás regisztrációhoz kötött?" answer="Igen, weboldalunkon a foglalás regisztrációhoz van kötve." />
                 <GYIKitem question="Mi a foglalás menete?" answer="Közvetlen foglalást szállodánk honlapján tud rögzíteni. Amennyiben az időpont/ár kérdéses, lehetőség van ajánlatot kérni a honlapon keresztül, vagy akár telefonon keresztül is rendelkezésre állnak kollégáink munkanapokon 8.00-16.00 között." />
 
                 <h4>SZOBÁK</h4>
                 <GYIKitem question="Minden szoba klimatizált?" answer="Igen, kivétel nélkül." />
-                <GYIKitem question="Dohányzás megengedett-e a szobákban?" answer="Az egész szálloda területén tilos a dohányzás, beleértve a szobák erkélyeit is. Dohányzás kizárólag az arra kijelölt helyeken lehetséges." />
+                <GYIKitem question="Dohányzás megengedett-e a szobákban?" answer="Az egész szálloda területén tilos a dohányzás. Dohányzás kizárólag az arra kijelölt helyeken lehetséges." />
 
                 <h4>FIZETÉS</h4>
                 <GYIKitem question="Elfogadnak-e SZÉP Kártyát?" answer="OTP, MKB és K&H típusú SZÉP kártyát is elfogadunk." />
@@ -43,8 +43,8 @@ export const GYIK = () => {
 
                 <h4>EGYÉB</h4>
 
-                <GYIKitem question="Ételallergiám van, tudja-e a szálloda kezelni?" answer="Speciális étrendet természetesen tudunk biztosítani az itt tartózkodás alatt, ehhez érkezés előtt kb. egy héttel kérjük, vegyék fel a kapcsolatot Farkas Géza vendéglátó igazgatóval a +36/70 283-0632-es telefonszámon. Vegán étkezést azonban sajnos nem tudunk biztosítani." />
-                <GYIKitem question="Mit nem kell magammal vinnem? (mit biztosít a szálloda?)" answer="A szállodai szobában biztosítunk törölközőket (szobait és wellness törölközőt is), fürdőköntöst (gyermek méretűt is), valamint fürdőszobai piperecikkeket. Kérésre gyermekek részére díjmentesen biztosítunk baba ágyneműt, rácsvédőt, babakádat, wc szűkítőt, bilit, fellépőt, pelenkázót és pelenkakukát." />
+                <GYIKitem question="Ételallergiám van, tudja-e a szálloda kezelni?" answer="Speciális étrendet természetesen tudunk biztosítani az itt tartózkodás alatt, ehhez érkezés előtt kb. egy héttel kérjük, vegyék fel a kapcsolatot a hotellel az oldalon található telefonszámon keresztül. Vegán étkezést azonban sajnos nem tudunk biztosítani." />
+                <GYIKitem question="Mit nem kell magammal vinnem? (mit biztosít a szálloda?)" answer="A szállodai szobában biztosítunk törölközőket (szobait és wellness törölközőt is), fürdőköntöst (gyermek méretűt is), valamint fürdőszobai piperecikkeket." />
                 <GYIKitem question="Vihetek -e magammal háziállatot a szállodába?" answer="Háziállatot sajnos nem tudunk fogadni." />
                 <GYIKitem question="Van internet csatlakozási lehetőség a szálloda területén?" answer="A szálloda egész területén WiFi biztosított." />
                 <GYIKitem question="Mi a teendő, ha személyes tárgyat hagytam a szállodában?" answer="Amennyiben hazautazást követően bármi hiányzik, kérjük telefonáljon az értékesítő kollégáknak, akik utána néznek, hogy a szobában maradt-e. Amennyiben megtaláljuk a keresett tárgyat, utánvétellel tudjuk azt postázni." />

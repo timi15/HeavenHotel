@@ -12,7 +12,7 @@ import room7 from "../img/szobak/superiorNegyagyasSzoba.jpg"
 
 
 
-export const Rooms = () => {
+export const Szobak = () => {
 
     const [rooms, setRooms] = useState([]);
 
@@ -29,24 +29,24 @@ export const Rooms = () => {
             })
     }, []);
 
-    const roomPic =[room1, room2, room3, room4, room5, room6, room7];
+    const roomPic = [room1, room2, room3, room4, room5, room6, room7];
 
     return (
         <div className="section">
 
-            <div id='alcim'>
+            <div className='alcim'>
                 <h3>Szobáink</h3>
             </div>
             <div className="container">
 
                 <p>A szobák árai a reggeli árát tartalmazzák!</p>
 
-                
+
 
                 <div className="row" >
 
                     {Array.from(rooms).map((val, index) =>
-                        <Card  id="roomCard" data-aos="fade-up" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
+                        <Card id="roomCard" data-aos="fade-up" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
                             <CardMedia
 
                                 component="img"
@@ -78,7 +78,7 @@ export const Rooms = () => {
                                 </Typography>
                             </CardContent>
 
-                            <CardActions style={{justifyContent:'right'}}>
+                            <CardActions style={{ justifyContent: 'right' }}>
                                 <Button id='button'>Módosítás</Button>
                             </CardActions>
 

@@ -1,9 +1,9 @@
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material'
+import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Top } from './Top'
-import { LogoComponent } from './LogoComponent'
+import { Fejlec } from './Fejlec'
+import { Logo } from './Logo'
 
 
 
@@ -49,8 +49,8 @@ export const Layout = ({ children }) => {
 
     return (
         <>
-        <Top/>
-        <LogoComponent/>
+        <Fejlec/>
+        <Logo/>
             <AppBar  position="static" style={{background:"rgba(0, 0, 0, 0.31)"}}  >
                 <Container maxWidth="xl">
                     <Toolbar  disableGutters  >
@@ -92,7 +92,7 @@ export const Layout = ({ children }) => {
                             >
                                 {pages.map((page, index) => (
                                     <MenuItem key={index} onClick={() => handleCloseNavMenu(page.route)}>
-                                        <Typography id="appbar" textAlign="center">{page.name}</Typography>
+                                        <Typography id='appbar-element' textAlign="center">{page.name}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -136,7 +136,7 @@ export const Layout = ({ children }) => {
                             >
                                 {settings.map((setting, index) => (
                                     <MenuItem key={index} onClick={()=> handleCloseUserMenu(setting.route)}>
-                                        <Typography id="appbar" textAlign="center">{setting.name}</Typography>
+                                        <Typography  id='appbar-element' textAlign="center">{setting.name}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>

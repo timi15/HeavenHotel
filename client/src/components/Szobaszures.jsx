@@ -11,11 +11,11 @@ import Select from '@mui/material/Select';
 import { Button, Card } from 'react-bootstrap';
 import moment from "moment";
 import axios from 'axios'
-import { CardActions, CardContent, CardMedia, createTheme, ThemeProvider, Typography } from '@mui/material';
+import { CardActions, CardContent, Typography } from '@mui/material';
 
 
 
-export const RoomsFilter = () => {
+export const Szobaszures = () => {
 
     const [rooms, setRooms] = useState([]);
     const [filteredRoom, setFilteredRoom] = useState([]);
@@ -25,9 +25,6 @@ export const RoomsFilter = () => {
 
     const [types, setTypes] = React.useState([]);
     const [type, setType] = React.useState('');
-
-
-
 
 
     useEffect(() => {
@@ -88,6 +85,8 @@ export const RoomsFilter = () => {
 
     };
 
+    const ejszakak_szama= Math.round((Date.parse(checkOut) - Date.parse(checkIn)) / 86400000)
+
 
 
 
@@ -125,7 +124,7 @@ export const RoomsFilter = () => {
                                     onChange={handleChangeCheckOut}
                                     renderInput={(params) => <TextField {...params} />}
                                 />
-                                <p style={{ paddingTop: 12, width: 'auto' }}>amely {Math.round((Date.parse(checkOut) - Date.parse(checkIn)) / 86400000)} éjszaka</p>
+                                <p style={{ paddingTop: 12, width: 'auto' }}> {ejszakak_szama} éjszaka</p>
                             </Flex>
 
 
@@ -170,7 +169,7 @@ export const RoomsFilter = () => {
                             filteredRoom.length !== 0 && (
                                 filteredRoom.map((value, index) =>
 
-                                    <Card id="roomCard" style={{maxWidth:600}} key={index}>
+                                    <Card id="roomCard" style={{ maxWidth: 600 }} key={index}>
                                         <CardContent>
                                             <Typography gutterBottom variant="h5" component="div">
                                                 {value.room_type_name}
@@ -179,7 +178,7 @@ export const RoomsFilter = () => {
                                                 {value.description}
                                             </Typography>
                                         </CardContent>
-                                        <CardActions sx={{mb:5}}>
+                                        <CardActions sx={{ mb: 5 }}>
                                             <Button variant='outlined' id="button">Foglalás</Button>
 
                                         </CardActions>

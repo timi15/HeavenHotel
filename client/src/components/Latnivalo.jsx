@@ -2,12 +2,12 @@ import React from 'react'
 import { Carousel } from 'react-bootstrap'
 
 
-export const Sight = (props) => {
+export const Latnivalo = (props) => {
     return (
         <div data-aos="fade-up" once={true}>
             <h3 ><a href={props.link} target="_blank">{props.place}</a></h3>
 
-            <Carousel id="carousel"  >
+            <Carousel  >
                 <Carousel.Item interval={5000} >
                     <img
                         className="d-block w-100 "

@@ -1,375 +1,44 @@
-#alcim {
-    background-image: url("../../img/template.jpg");
-    background-position-y: -100px;
-    background-position-x: -100px;
-    height: 160px;
-    color: white;
-    text-align: center;
-    padding-top: 4rem;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+/*HTML ELEMENT*/
 
-
+hr {
+    width: 80%;
+    margin: 30px auto;
 }
 
 p {
     font-family: 'Times New Roman', Times, serif
 }
 
-
-/*APPBAR*/
-
-#appbar, #appbar-button {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
-    margin: 0px 40px;
-}
-
-
-#appbar-button {
-    color: #eeeeee;
-    cursor: pointer;
-    padding: 5px 15px;
-    
-}
-
-@keyframes glowing {
-    0% {
-        
-        box-shadow: 0 0 0px white;
-    }
-
-    50% {
-       
-        box-shadow: 0 0 20px white;
-    }
-
-    100% {
-        
-        box-shadow: 0 0 0px white ;
-    }
-}
-
-
-#appbar-button {
-    animation: glowing 5000ms infinite;
-    background-color: rgba(0, 0, 0, 0.31);
-}
-
-
-
-
-
-
-/*
-FOOTER
-*/
-
-
-#footer {
-
-    right: 0;
-    left: 0;
-    bottom: 0;
-    position: relative;
-    padding: 1rem;
-    background-color: rgb(209, 190, 137);
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    font-size: 13px;
-    margin-top: 60px;
-    opacity: 0.6;
-
-
-}
-
-.footer>hr {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-
-}
-
-
-
-.footer-title {
-    text-transform: uppercase;
-    font-size: 20px;
-    margin: 10px 0px 20px 0px;
+h4 {
     font-style: italic;
-    font-weight: bold;
-
-}
-
-.contact>li {
-    list-style-type: none;
-    padding: 6px 0px;
-    text-align: left;
-
-}
-
-.contact>li>i {
-    padding-right: 10px;
-
-}
-
-#information {
-    font-size: 17px;
-    text-align: center;
-    color: black;
-    text-decoration: none;
-}
-
-/*DATAMANAGEMENT*/
-
-
-#dataManagementContainer {
-    font-family: 'Times New Roman', Times, serif;
-    margin: 50px auto;
-    text-align: justify;
-}
-
-#dataManagementContainer>h6 {
-    text-align: center;
-    font-weight: bold;
-
-}
-
-#dataHr {
-    margin: 30px auto;
-
+    text-transform: capitalize;
 }
 
 
-
-/*TOP*/
-#top {
-    padding-top: 1rem;
-    height: auto;
-    text-align: center;
-    font-size: 13px;
-    background-color: rgb(209, 190, 137);
-    opacity: 0.6;
+/*ICONS*/
+i {
+    margin-right: 15px;
+    color: #837008;
 }
 
-#topIcon>i {
-    margin: 0px 10px;
-    font-size: 20px;
-}
-
-#logoHatter {
-    background-color: black;
-    text-align: center;
-}
-
-#logo {
-    height: 200px;
-
-}
-
-#about {
-    background-image: url("../../img/panorama.jpg");
-    padding: 100px;
+i:hover{
     color: white;
-    font-size: 20px;
-
-
-}
-
-hr {
-    width: 80%;
-}
-
-
-/* OPINIONS*/
-
-#opinionsContainer {
-    text-align: justify;
-    border: solid 3px rgb(182, 155, 6);
-    margin-top: 30px;
-
-}
-
-#opinionsColumn {
-    margin: 50px 20px;
-    text-align: center;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#opinionsColumn>h3 {
-    text-transform: uppercase;
-    padding-bottom: 50px;
-
-}
-
-/*OPINION*/
-
-#opinionContact {
-    font-size: 20px;
-
-}
-
-#opinionName {
-    font-style: italic;
-    font-weight: bold;
-
-}
-
-
-/*CONTACT*/
-
-
-#contactColunm {
-    flex-direction: column;
-
-
-
-}
-
-#googleMap {
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-
-
-/*ERROR*/
-
-.err {
-    text-align: center;
-    color: red;
-    border: 9px double red;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgba(172, 64, 64, 0.284);
-}
-
-
-
-/* SIGHT */
-
-#sightRow {
-    padding: 0px 50px;
-}
-
-#palakatDiv {
-    text-align: center;
-    justify-content: center;
-}
-
-#slider {
-    max-width: 250px;
-}
-
-#sightCarousel a {
-    color: rgb(163, 139, 3);
-}
-
-#sightCarousel {
-    text-align: justify;
-}
-
-#sightCarousel img {
-    border: solid 3px rgb(131, 112, 8);
-    border-radius: 5px;
-
-}
-
-
-/*ROOMS*/
-
-.MuiTypography-subtitle2 {
-    text-align: justify;
-}
-
-
-.MuiTypography-root {
-    padding-bottom: 10px;
-}
-
-.MuiTypography-h6 {
-    text-transform: uppercase;
-    text-align: center;
-    font-style: italic;
-
-}
-
-#roomCard{
-    background-color: #ffe4c491;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-
-.MuiCardActions-root > Button{ 
-    margin-left:auto;
-    margin-right: auto;
-    
-}
-
-
-/*gallery*/
-
-.galleryContainer {
-    margin: 30px 50px;
-}
-
-.imgcontainer {
-    display: flex;
-    width: 100%;
-    padding: 4% 2%;
-    box-sizing: border-box;
-    height: 100px;
-    margin-top: 30px
-}
-
-.box>img {
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    border-radius: 10px;
 }
 
 
 
 
 
+/*TEXTFIELD*/
 
+.MuiTextField-root>label {
 
-#szobaFooldalon {
-    background-image: url("../../img/hatterjpg.jpg");
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center
+    color: #837008;
 }
 
-/*ACCORDION*/
-.accordion-button {
-    background-color: rgb(131, 112, 8) !important;
-    color: white !important;
-    border: 5px solid rgb(240, 237, 223) !important;
-    font-size: 20px !important;
-
-
+.MuiTextField-root>.MuiInputBase-root {
+    color: #837008;
 }
-
-
-
-.accordion-button:focus {
-    box-shadow: none !important;
-}
-
-
-
-
-
-.bemutatkozas {
-    text-align: justify;
-}
-
 
 /*BUTTON*/
 
@@ -421,36 +90,367 @@ hr {
     transform: scale(0.9);
 }
 
+/*ALCIMEK*/
 
-/*rgb(131, 112, 8)*/
-#aszfContainer {
+.alcim {
+    background-image: url("../../img/template.jpg");
+    background-position-y: -100px;
+    background-position-x: -100px;
+    height: 160px;
+    color: white;
+    text-align: center;
+    padding-top: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+
+}
+
+
+/*APPBAR*/
+
+#appbar-element,
+#appbar-button {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin: 0px 40px;
+}
+
+
+#appbar-button {
+    color: #eeeeee;
+    cursor: pointer;
+    padding: 5px 15px;
+    animation: glowing 5000ms infinite;
+    background-color: rgba(0, 0, 0, 0.31);
+
+}
+
+@keyframes glowing {
+    0% {
+
+        box-shadow: 0 0 0px white;
+    }
+
+    50% {
+
+        box-shadow: 0 0 20px white;
+    }
+
+    100% {
+
+        box-shadow: 0 0 0px white;
+    }
+}
+
+
+
+/*
+FOOTER
+*/
+
+
+footer {
+
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: relative;
+    padding: 1rem;
+    background-color: rgb(209, 190, 137);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-size: 13px;
+    margin-top: 60px;
+    opacity: 0.6;
+
+
+}
+
+.footer>hr {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.footer-title {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 10px 0px 20px 0px;
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+.footer-elerhetoseg>li {
+    list-style-type: none;
+    padding: 6px 0px;
+    text-align: left;
+
+}
+
+
+
+
+
+
+.information {
+    font-size: 17px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+.information:hover {
+    color: #837008;
+
+}
+
+/*ADATVEDELEM*/
+
+
+.adatvedelem {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 50px;
     text-align: justify;
 }
 
-#aszfContainer h5 {
-    margin-top: 40px;
-    margin-bottom: 30px;
+.ceginfo {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
 }
 
 
-#login button {
-    margin-left: 130px;
+
+/*FEJLEC*/
+.fejlec {
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 13px;
+    background-color: rgb(209, 190, 137);
+    opacity: 0.6;
+
 }
 
-#signuplink {
+.fejlec-icons>i {
+    margin: 0px 10px;
+    font-size: 20px;
+}
+
+.logo {
+    background-color: black;
+    text-align: center;
+}
+
+#logo {
+    height: 200px;
+
+}
+
+/*ROLUNK*/
+
+.rolunk {
+    background-image: url("../../img/panorama.jpg");
+    padding: 100px;
+    color: white;
+    font-size: 20px;
+
+}
+
+
+
+/* VENDEGEINK MONDTAK*/
+
+.vendegeinkMondtak {
+    text-align: justify;
+    border: solid 3px rgb(182, 155, 6);
+    margin-top: 30px;
+
+}
+
+.columnVendeg {
+    margin: 50px 20px;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.columnVendeg>h3 {
+    text-transform: uppercase;
+    padding-bottom: 50px;
+
+}
+
+/*VENDEG VELEMENY*/
+
+.tartalom {
+    font-size: 20px;
+
+}
+
+.szemely {
+    font-style: italic;
+    font-weight: bold;
+
+}
+
+
+/*KAPCSOLAT*/
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.contact-element {
+    list-style: none;
+}
+
+
+
+
+/*ERROR*/
+
+.err {
+    text-align: center;
+    color: red;
+    border: 9px double red;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(172, 64, 64, 0.284);
+}
+
+
+
+/* SIGHT */
+
+.latnivalo {
+    padding: 0px 50px;
+}
+
+.plakat {
+    text-align: center;
+    justify-content: center;
+}
+
+.sightCarousel a {
+    color: rgb(163, 139, 3);
+}
+
+.sightCarousel {
+    text-align: justify;
+}
+
+.sightCarousel img {
+    border: solid 3px rgb(131, 112, 8);
+    border-radius: 5px;
+
+}
+
+
+/*SZOBAK*/
+
+.MuiTypography-subtitle2 {
+    text-align: justify;
+}
+
+
+.MuiTypography-root {
+    padding-bottom: 10px;
+}
+
+.MuiTypography-h6 {
+    text-transform: uppercase;
+    text-align: center;
+    font-style: italic;
+
+}
+
+#roomCard {
+    background-color: #ffe4c491;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.MuiCardActions-root>Button {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.szobaFooldalon {
+    background-image: url("../../img/hatterjpg.jpg");
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
+/*GALÉRIA*/
+
+.galeria {
+    margin: 30px 50px;
+}
+
+.imgcontainer {
+    display: flex;
+    width: 100%;
+    padding: 4% 2%;
+    box-sizing: border-box;
+    height: 100px;
+    margin-top: 30px
+}
+
+.galeria-elem>img {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border-radius: 10px;
+}
+
+
+
+
+/*GYIK  / ACCORDION*/
+.accordion-button {
+    background-color: rgb(131, 112, 8) !important;
+    color: white !important;
+    border: 5px solid rgb(240, 237, 223) !important;
+    font-size: 20px !important;
+
+
+}
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+
+
+
+/*ASZF*/
+
+
+.aszf {
+    text-align: justify;
+    margin: 50px;
+}
+
+.aszf h5 {
+    font-weight: bold;
+    border: 1px solid #837008;
+    padding: 5px;
+}
+
+
+/*REGISZTRACIO  --  BEJELENTKEZES*/
+
+.loginLink_singupLink {
     margin-top: 20px;
     text-align: right;
 }
-
-/*TEXTFIELD*/
-
-.MuiTextField-root > label {
-
-    color: #837008;
-}
-
-.MuiTextField-root>.MuiInputBase-root {
-    color: #837008;
-}
-
-

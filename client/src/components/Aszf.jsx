@@ -3,9 +3,9 @@ import React from 'react'
 export const Aszf = () => {
     return (
 
-        <div class="aszfdiv">
-            <h3 id="alcim">Általános Szerződési Feltételek </h3>
-            <div id='aszfContainer' className="container">
+        <div class="section">
+            <h3 className='alcim'>Általános Szerződési Feltételek </h3>
+            <div className="aszf">
 
 
                 <h5>1. Általános rendelkezések</h5>
@@ -19,7 +19,7 @@ export const Aszf = () => {
                 <h5>3. A szolgáltatás igénybevételének módja és feltételei</h5>
 
                 <p>3.1. Szóban leadott foglalás, megállapodás, módosítás, vagy annak a Szolgáltató általi szóbeli visszaigazolása nem szerződés értékű.</p>
-                
+
                 <p>3.2. A Szerződés módosításához és/vagy kiegészítéséhez a Felek által aláírt írásbeli megállapodás szükséges.</p>
 
 

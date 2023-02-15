@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import logo from "../img/logo1.png";
 
-export const LogoComponent = () => {
+export const Logo = () => {
   return (
-    <div id='logoHatter' className="section"   >
+    <div  className="logo"   >
 
       
       <Link  to="/"><img  data-aos="flip-right"   id='logo' src={logo} alt="logo"  /></Link>

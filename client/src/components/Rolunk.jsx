@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const About = () => {
+export const Rolunk = () => {
     return (
-        <div id='about' className="section">
+        
 
-            <div className="container">
+            <div className="rolunk">
                 <div className="row">
 
                     <div className="col-md-6">
@@ -21,7 +21,7 @@ export const About = () => {
                 </div>
             </div>
 
-        </div>
+       
 
 
 

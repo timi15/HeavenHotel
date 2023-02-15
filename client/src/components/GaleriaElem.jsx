@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Box = (props) => {
+export const GaleriaElem = (props) => {
     return (
-        <div class="box">
+        <div class="galeria-elem">
             <img src={props.url}  style={{height:250}} />
             
         </div>
