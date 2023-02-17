@@ -20,21 +20,21 @@ export const Footer = () => {
                                     <ul className="footer-elerhetoseg">
                                         <li>
 
-                                            
-                                                <i className="fa fa-map-marker fa-lg" ></i>4400 Nyíregyháza Hotel
-                                                utca 124.
-                                            
+
+                                            <i className="fa fa-map-marker fa-lg" ></i>4400 Nyíregyháza Hotel
+                                            utca 124.
+
 
                                         </li>
                                         <li>
-                                            <a style={{color: "black", textDecoration:"none"}} href="tel:+36302466287">
+                                            <a style={{ color: "black", textDecoration: "none" }} href="tel:+36302466287">
                                                 <i className="fa fa-phone fa-lg"></i>+36-30-234-6421
 
                                             </a>
 
                                         </li>
-                                        <li>
-                                            <a style={{color: "black", textDecoration:"none"}}   href="mailto: vargatimi505@gmail.com">
+                                        <li >
+                                            <a style={{ color: "black", textDecoration: "none" }} href="mailto: vargatimi505@gmail.com">
                                                 <i className="fa fa-envelope fa-lg"></i>sales@hotelheaven.com
                                             </a>
 
@@ -61,7 +61,7 @@ export const Footer = () => {
                                     <h3 className="footer-title">Információk</h3>
                                     <hr />
                                     <Link className='information' to="adatkezelesi_tajekoztato" target='_top'><p>Adatkezelési tájékoztató</p></Link>
-                                    <Link className='information' to="altalanos_szerzodesi_feltetelek" target='_top'><p>Általános Szerződési Feltételek</p></Link>
+                                    <Link className='information' to="altalanos_szerzodesi_feltetelek" target='_top'><p>Általános Szerződési Feltételek (ÁSZF)</p></Link>
                                     <Link className='information' to="gyakori_kerdesek_es_valaszok" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
 
                                 </div>

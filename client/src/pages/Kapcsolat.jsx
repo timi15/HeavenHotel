@@ -1,16 +1,22 @@
 
-import { TextField } from '@mui/material'
+import { Alert, TextField } from '@mui/material'
 import React, { useState } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Toast } from 'react-bootstrap';
+import { Uzenet } from '../components/Uzenet';
 
 export const Kapcsolat = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [show, setShow] = useState(false)
 
   const handleClick = () => {
     localStorage.setItem("message", JSON.stringify({ name, email, message }));
+    setShow(true);
+    setName("");
+    setEmail("");
+    setMessage("");
   }
 
 
@@ -69,6 +75,12 @@ export const Kapcsolat = () => {
           <div className='col-md-6 col-xs-6' style={{ textAlign: 'center' }}  >
 
 
+            {
+              show && 
+                (<Alert>Az ünezenet sikeresen el lett küldve.</Alert>)
+                
+              
+            }
 
             <div style={{ marginBottom: 30, marginTop: 20 }}><h5>Írj nekünk üzenetet!</h5></div>
 
@@ -76,8 +88,8 @@ export const Kapcsolat = () => {
 
             <TextField id="outlined-basic" label="E-mail cím" variant="outlined" style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setEmail(e.target.value)} />
 
-            <TextField id="outlined-basic" label="Üzenet" variant="outlined" multiline rows={5} style={{ width: '100%', marginBottom: '20px' }}
-              onChange={({ target: { value } }) => setMessage(value)} />
+            <TextField id="outlined-basic" label="Üzenet" variant="outlined" multiline rows={5} style={{ width: '100%', marginBottom: '20px' }} 
+              onChange={(e) => setMessage(e.target.value)} />
 
             <Button variant='outlined' id='button' onClick={() => handleClick()} >Küldés</Button>
 
