@@ -19,7 +19,7 @@ export const Layout = ({ children }) => {
     ];
     const settings = [
         { name: 'Bejelentkezés', route: '/bejelentkezes' },
-       
+
     ];
 
 
@@ -49,14 +49,14 @@ export const Layout = ({ children }) => {
 
     return (
         <>
-        <Fejlec/>
-        <Logo/>
-            <AppBar  position="static" style={{background:"rgba(0, 0, 0, 0.31)"}}  >
+            <Fejlec />
+            <Logo />
+            <AppBar position="static" style={{ background: "rgba(0, 0, 0, 0.31)" }}  >
                 <Container maxWidth="xl">
-                    <Toolbar  disableGutters  >
-                    
-                    
-                        
+                    <Toolbar disableGutters  >
+
+
+
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -70,7 +70,7 @@ export const Layout = ({ children }) => {
                                 <MenuIcon />
                             </IconButton>
                             <Menu
-                                
+
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
@@ -86,8 +86,8 @@ export const Layout = ({ children }) => {
                                 onClose={() => handleCloseNavMenu()}
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
-                                    
-                                    
+
+
                                 }}
                             >
                                 {pages.map((page, index) => (
@@ -97,15 +97,15 @@ export const Layout = ({ children }) => {
                                 ))}
                             </Menu>
                         </Box>
-                        
-                        
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center"}}>
+
+
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center" }}>
                             {pages.map((page, index) => (
                                 <Button
                                     id="appbar-button"
                                     key={index}
                                     onClick={() => handleCloseNavMenu(page.route)}
-                                    sx={{ my: 2,   display: 'block' }}
+                                    sx={{ my: 2, display: 'block' }}
                                 >
                                     {page.name}
                                 </Button>
@@ -113,11 +113,11 @@ export const Layout = ({ children }) => {
                         </Box>
 
                         <Box sx={{ flexGrow: 0 }}>
-                            
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar  src="/broken-image.jpg"  />
-                                </IconButton>
-                            
+
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar src="/broken-image.jpg" />
+                            </IconButton>
+
                             <Menu
                                 sx={{ mt: '45px' }}
                                 id="menu-appbar"
@@ -135,19 +135,24 @@ export const Layout = ({ children }) => {
                                 onClose={handleCloseUserMenu}
                             >
                                 {settings.map((setting, index) => (
-                                    <MenuItem key={index} onClick={()=> handleCloseUserMenu(setting.route)}>
-                                        <Typography  id='appbar-element' textAlign="center">{setting.name}</Typography>
-                                    </MenuItem>
+                                    
+
+
+                                        <MenuItem key={index} onClick={() => handleCloseUserMenu(setting.route)}>
+                                            
+                                            <Typography id='appbar-element' textAlign="center">{setting.name}</Typography>
+                                        </MenuItem>
+                                    
                                 ))}
                             </Menu>
                         </Box>
                     </Toolbar>
                 </Container>
             </AppBar>
-            
+
             {children}
 
-            
+
         </>
     )
 }
