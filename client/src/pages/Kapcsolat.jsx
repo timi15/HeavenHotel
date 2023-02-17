@@ -1,25 +1,63 @@
 
 import { Alert, TextField } from '@mui/material'
-import React, { useState } from 'react'
-import { Button, Toast } from 'react-bootstrap';
-import { Uzenet } from '../components/Uzenet';
+import React, { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap';
+
+
 
 export const Kapcsolat = () => {
+
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+  const [showError, setShowError] = useState(false);
+
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(false);
+      setShowError(false);
+    }, 5000);
+  }, [show, showError]);
+
+
+
+  const validate = () => {
+    let errors = {};
+    if (name.length == 0) {
+      errors.name = 'Kérjük, töltse ki a mezőt!';
+    }
+    if (email.length == 0) {
+      errors.email = 'Kérjük, töltse ki a mezőt!';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = 'Az e-mail-cím nem megfelelő!';
+    }
+    if (message.length == 0) {
+      errors.message = 'Kérjük, töltse ki a mezőt!';
+    }
+    return errors;
+  };
 
   const handleClick = () => {
-    localStorage.setItem("message", JSON.stringify({ name, email, message }));
-    setShow(true);
-    setName("");
-    setEmail("");
-    setMessage("");
+    const errors = validate();
+
+    if (Object.keys(errors).length === 0) {
+      // Submit the form data  
+      localStorage.setItem("message", JSON.stringify({ name, email, message }));
+      setShow(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      setErrors(errors);
+      setShowError(true);
+
+    }
+
   }
-
-
 
 
   return (
@@ -76,24 +114,33 @@ export const Kapcsolat = () => {
 
 
             {
-              show && 
-                (<Alert>Az ünezenet sikeresen el lett küldve.</Alert>)
-                
-              
+              show && (<Alert>Az üzenet sikeresen elküldve</Alert>)
             }
 
+
             <div style={{ marginBottom: 30, marginTop: 20 }}><h5>Írj nekünk üzenetet!</h5></div>
+            <form >
 
-            <TextField id="outlined-basic" label="Név" variant="outlined" style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setName(e.target.value)} />
+              <div>
+                {showError && (errors.name && <Alert severity='error'>{errors.name}</Alert>)}
+                <TextField id="outlined-basic" label="Név" type={'text'} variant="outlined" value={name} style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setName(e.target.value)} />
+              </div>
 
-            <TextField id="outlined-basic" label="E-mail cím" variant="outlined" style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setEmail(e.target.value)} />
+              <div>
+                {showError && (errors.email && <Alert severity='error'>{errors.email}</Alert>)}
+                <TextField id="outlined-basic" label="E-mail cím" type={'email'} variant="outlined" value={email} style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setEmail(e.target.value)} />
+              </div>
 
-            <TextField id="outlined-basic" label="Üzenet" variant="outlined" multiline rows={5} style={{ width: '100%', marginBottom: '20px' }} 
-              onChange={(e) => setMessage(e.target.value)} />
+              <div>
+                {showError && (errors.message && <Alert severity='error'>{errors.message}</Alert>)}
+                <TextField id="outlined-basic" label="Üzenet" type={'text'} variant="outlined" value={message} multiline rows={5} style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setMessage(e.target.value)} />
+              </div>
 
-            <Button variant='outlined' id='button' onClick={() => handleClick()} >Küldés</Button>
+
+              <Button variant='outlined' id='button' onClick={() => handleClick()} >Küldés</Button>
 
 
+            </form>
 
           </div>
 
