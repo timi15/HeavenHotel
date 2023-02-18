@@ -20,7 +20,7 @@ export const Kapcsolat = () => {
     setTimeout(() => {
       setShow(false);
       setShowError(false);
-    }, 5000);
+    }, 6000);
   }, [show, showError]);
 
 
@@ -29,7 +29,7 @@ export const Kapcsolat = () => {
     let errors = {};
     if (name.length == 0) {
       errors.name = 'Kérjük, töltse ki a mezőt!';
-    }
+    } 
     if (email.length == 0) {
       errors.email = 'Kérjük, töltse ki a mezőt!';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -45,7 +45,6 @@ export const Kapcsolat = () => {
     const errors = validate();
 
     if (Object.keys(errors).length === 0) {
-      // Submit the form data  
       localStorage.setItem("message", JSON.stringify({ name, email, message }));
       setShow(true);
       setName("");
@@ -114,7 +113,7 @@ export const Kapcsolat = () => {
 
 
             {
-              show && (<Alert>Az üzenet sikeresen elküldve</Alert>)
+              show && (<Alert>Az üzenet sikeresen el lett küldve!</Alert>)
             }
 
 
@@ -123,17 +122,17 @@ export const Kapcsolat = () => {
 
               <div>
                 {showError && (errors.name && <Alert severity='error'>{errors.name}</Alert>)}
-                <TextField id="outlined-basic" label="Név" type={'text'} variant="outlined" value={name} style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setName(e.target.value)} />
+                <TextField id="outlined-basic" label="Név" type={'text'} required variant="outlined" value={name} style={{ width: '100%', marginBottom: 20, marginTop:10 }} onChange={(e) => setName(e.target.value)} />
               </div>
 
               <div>
                 {showError && (errors.email && <Alert severity='error'>{errors.email}</Alert>)}
-                <TextField id="outlined-basic" label="E-mail cím" type={'email'} variant="outlined" value={email} style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setEmail(e.target.value)} />
+                <TextField id="outlined-basic" label="E-mail cím" type={'email'} required variant="outlined" value={email} style={{ width: '100%', marginBottom: 20, marginTop:10 }} onChange={(e) => setEmail(e.target.value)} />
               </div>
 
               <div>
                 {showError && (errors.message && <Alert severity='error'>{errors.message}</Alert>)}
-                <TextField id="outlined-basic" label="Üzenet" type={'text'} variant="outlined" value={message} multiline rows={5} style={{ width: '100%', marginBottom: '20px' }} onChange={(e) => setMessage(e.target.value)} />
+                <TextField id="outlined-basic" label="Üzenet" type={'text'} required variant="outlined" value={message} multiline rows={5} style={{ width: '100%', marginBottom: 20, marginTop:10 }} onChange={(e) => setMessage(e.target.value)} />
               </div>
 
 
