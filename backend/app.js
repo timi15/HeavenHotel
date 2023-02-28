@@ -3,13 +3,16 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const app = express()
 
+const bcrypt = require("bcryptjs");
+
 const db = require("./service/connection")
 const addRoutes = require('./route/route')
 
 app.use(bodyParser.json())
-app.use(cors());
+app.use(cors({ credentials: true, origin: ['http://localhost:3000']}));
 
 addRoutes(app)
+
 
 db.connect((err) => {
     if (err) console.log(err);

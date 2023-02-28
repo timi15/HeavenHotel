@@ -19,13 +19,16 @@
 
 */
 
-const { room_type, rooms, users, user } = require('../middlewares/userMWs/user')
+const { roomTypes, rooms, users, register, login, logout } = require('../middlewares/user')
 
 function addRoutes(app) {
-    app.get("/roomtype", room_type())
-    app.get("/rooms", rooms())
-    app.get("/users", users())
-    app.put("/users", user())
+    app.get("/roomtype", roomTypes());
+    app.get("/rooms", rooms());
+    app.get("/users", users());
+    app.post("/register", register());
+    app.post("/login", login());
+    app.get("/logout", logout());
+
 }
 
 module.exports = addRoutes;
