@@ -16,7 +16,7 @@ h4 {
     text-transform: capitalize;
 }
 
-.link  :hover{
+.link :hover {
     color: white;
 }
 
@@ -29,7 +29,7 @@ i {
     color: white;
 }
 
-i:hover{
+i:hover {
     color: white;
 }
 
@@ -50,22 +50,27 @@ i:hover{
 
 /*cimek*/
 
-.gyik > h4, .footer-title, .velemenyek, .card-title, .elerhetosegFelirat, .alcim{
+.gyik>h4,
+.footer-title,
+.velemenyek,
+.card-title,
+.elerhetosegFelirat,
+.alcim ,
+.feluletCim{
     font-family: 'Rozha One', serif;
 }
 
 /*BUTTON*/
 
 #button {
-    font-size: 14px;
-    letter-spacing: 5px;
+    font-size: 12px;
+    letter-spacing: 4px;
     font-family: 'Rozha One';
     text-transform: uppercase;
     display: inline-block;
     text-align: center;
     font-weight: bold;
     padding: 0.7em 2em;
-    max-width: 47%;
     border: 3px double #434A42;
     border-radius: 2px;
     position: relative;
@@ -131,7 +136,7 @@ i:hover{
     letter-spacing: 2px;
     text-transform: capitalize;
     font-size: 17px;
-    margin: 0px 40px;
+    margin: 0 15px
 }
 
 
@@ -196,7 +201,7 @@ footer {
 
 .footer-title {
     font-size: 20px;
-    margin: 20px  0;
+    margin: 20px 0;
     font-weight: bold;
 
 
@@ -285,7 +290,7 @@ footer {
 
 .vendegeinkMondtak {
     text-align: justify;
-    border:  7px double #434A42;
+    border: 7px double #434A42;
     margin-top: 30px;
 
 }
@@ -369,7 +374,7 @@ footer {
 }
 
 .sightCarousel img {
-    border:  7px double #434A42;
+    border: 7px double #434A42;
     border-radius: 5px;
 
 }
@@ -406,7 +411,7 @@ footer {
 
 }
 
-.fizetendo{
+.fizetendo {
     color: red;
 }
 
@@ -420,16 +425,16 @@ footer {
 
 /* SZOBÁK */
 
-.card-title{
+.card-title {
     font-size: 20px;
 }
 
-.card-text{
+.card-text {
     font-size: 15px;
 }
 
-.card{
-    padding:5px
+.card {
+    padding: 5px
 }
 
 
@@ -496,3 +501,20 @@ footer {
     margin-top: 20px;
     text-align: right;
 }
+
+/*FELULET*/
+.felulet {
+    background-color: #F4F1DE;
+    text-align: center;
+    border: 7px double #434A42;
+    border-radius: 11px;
+    height: 400px;
+    padding-top: 80px;
+    margin-bottom: 20px;
+}
+
+#feluletIcon {
+    font-size: 60px;
+    color: #434A42;
+}
+

@@ -17,10 +17,12 @@ import { Adatvedelem } from './components/Adatvedelem';
 import { Kapcsolat } from './pages/Kapcsolat';
 import { Foglalas } from './pages/Foglalas';
 import { Kezdooldal } from './pages/Kezdooldal';
+import {Adminfelulet} from "./pages/admin/Adminfelulet"
 import { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { RoomTypeContext } from './context/room/RoomTypeContext';
 import { RoomContext } from "./context/room/RoomContext"
+import { Felhasznalok } from './pages/admin/Felhasznalok';
 
 
 function App() {
@@ -76,6 +78,10 @@ function App() {
 
             <Route path='/regisztracio' element={<Regisztracio />} />
             <Route path='/bejelentkezes' element={<Bejelentkezes />} />
+
+
+            <Route path='/adminfelulet' element={<Adminfelulet/>}/>
+            <Route path='/adminfelulet/felhasznalok' element={<Felhasznalok/>}/>
 
 
 

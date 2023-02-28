@@ -15,7 +15,8 @@ export const Layout = ({ children }) => {
         { name: 'Szobák', route: '/szobak' },
         { name: 'Látnivalók', route: '/latnivalok' },
         { name: 'Foglalás', route: '/foglalas' },
-        { name: 'Kapcsolat', route: '/kapcsolatok' }
+        { name: 'Kapcsolat', route: '/kapcsolatok' },
+        { name: 'Adminfelület', route: '/adminfelulet' }
     ];
     const settings = [
         { name: 'Bejelentkezés', route: '/bejelentkezes' },
