@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios";
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 
@@ -9,25 +9,13 @@ import room4 from "../img/szobak/standardKetagyasSzoba.jpg"
 import room5 from "../img/szobak/superiorHaromagyasSzoba.jpg"
 import room6 from "../img/szobak/standardNegyagyasSzoba.jpg"
 import room7 from "../img/szobak/superiorNegyagyasSzoba.jpg"
+import { RoomTypeContext } from '../context/room/RoomTypeContext';
 
 
 
 export const Szobak = () => {
 
-    const [rooms, setRooms] = useState([]);
-
-    useEffect(() => {
-        axios.get("http://localhost:8080/roomtype", {
-            headers: {
-                'Access-Control-Allow-Origin': "localhost:3000"
-            }
-        })
-            .then((res) => {
-                console.log(res.data);
-                setRooms(res.data)
-
-            })
-    }, []);
+    const {roomTypes} = useContext(RoomTypeContext); 
 
     const roomPic = [room1, room2, room3, room4, room5, room6, room7];
 
@@ -35,7 +23,7 @@ export const Szobak = () => {
         <div className="section">
 
             <div className='alcim'>
-                <h3>Szobáink</h3>
+                <h3>Szobatípusaink</h3>
             </div>
             <div className="container">
 
@@ -45,7 +33,7 @@ export const Szobak = () => {
 
                 <div className="row" >
 
-                    {Array.from(rooms).map((val, index) =>
+                    {Array.from(roomTypes).map((val, index) =>
                         <Card id="roomCard" data-aos="fade-up" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
                             <CardMedia
 
@@ -77,10 +65,6 @@ export const Szobak = () => {
                                     Szobaár: {val.price_night} Ft. / Éjszakától
                                 </Typography>
                             </CardContent>
-
-                            <CardActions style={{ justifyContent: 'right' }}>
-                                <Button id='button'>Módosítás</Button>
-                            </CardActions>
 
 
                         </Card>

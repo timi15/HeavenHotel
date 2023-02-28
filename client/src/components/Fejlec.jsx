@@ -4,21 +4,21 @@ import { FejlecIkonok } from './FejlecIkonok'
 export const Fejlec = () => {
     return (
         <header className='fejlec'>
-            
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8">
 
-                            <p>4400 Nyíregyháza Hotel utca 124. Tel: +36-30-234-6421</p>
-                        </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-8">
 
-                        <div className="col-md-4">
+                        <p>4400 Nyíregyháza, Hotel utca 124. Tel: +36-30-234-6421</p>
+                    </div>
 
-                            <FejlecIkonok />
+                    <div className="col-md-4">
 
-                        </div>
+                        <FejlecIkonok />
 
-                    </div>                
+                    </div>
+
+                </div>
 
             </div>
         </header>

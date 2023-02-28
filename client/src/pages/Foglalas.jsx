@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -10,56 +10,29 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button } from 'react-bootstrap';
 import moment from "moment";
-import axios from 'axios'
+import { RoomContext } from '../context/room/RoomContext';
+import { RoomTypeContext } from '../context/room/RoomTypeContext';
 
 
 
 export const Foglalas = () => {
 
+    const {rooms} = useContext(RoomContext);
+    const {roomTypes} = useContext(RoomTypeContext);
+
+
     //useStates
-    const [rooms, setRooms] = useState([]);
+    
     const [filteredRoom, setFilteredRoom] = useState([]);
 
     const [checkIn, setCheckIn] = React.useState(new Date());
     const [checkOut, setCheckOut] = React.useState(new Date());
-
-    const [types, setTypes] = React.useState([]);
+    
     const [type, setType] = React.useState('');
 
     //useEffects
     useEffect(() => {
         setCheckOut(moment(new Date()).add(1, 'days').format());
-
-
-        const fillTypes = async () => {
-            const response1 = await axios.get("http://localhost:8080/roomtype", {
-                headers: {
-                    'Access-Control-Allow-Origin': "localhost:3000"
-                }
-            })
-                .then((res) => {
-                    console.log(res.data);
-                    setTypes(res.data)
-
-                })
-        };
-
-        const fillRooms = async () => {
-            const response2 = await axios.get("http://localhost:8080/rooms", {
-                headers: {
-                    'Access-Control-Allow-Origin': "localhost:3000"
-                }
-            })
-                .then((res) => {
-                    console.log(res.data);
-                    setRooms(res.data)
-
-                })
-        };
-
-        fillTypes();
-        fillRooms();
-
     }, []);
 
     useEffect(() => {
@@ -89,10 +62,10 @@ export const Foglalas = () => {
 
 
 
-    console.log(new Date(checkIn).toLocaleDateString("sv-SE"), new Date(checkOut).toLocaleDateString("sv-SE"), type)
-    console.log(rooms)
+   // console.log(new Date(checkIn).toLocaleDateString("sv-SE"), new Date(checkOut).toLocaleDateString("sv-SE"), type)
+   // console.log(rooms)
 
-    console.log(filteredRoom)
+   // console.log(filteredRoom)
 
 
 
@@ -100,9 +73,6 @@ export const Foglalas = () => {
     const showResult = () => {
         const result = document.getElementById("result");
         if (filteredRoom.length === 0) {
-            result.style.color = "red";
-            result.style.fontSize = "40px";
-            result.style.textTransform = "uppercase";
             result.innerText = "Nincs ilyen szoba"
         } else {
             filteredRoom.map((value, index) => {
@@ -131,7 +101,7 @@ export const Foglalas = () => {
             <div className="container">
                 <div className="row" style={{ marginBottom: 10 }}>
 
-                    
+
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
 
                         <Flex gap={20} width={"100%"} justifyContent="safe center" >
@@ -173,7 +143,7 @@ export const Foglalas = () => {
                             <MenuItem value="">
                                 <em>nincs kiválasztva</em>
                             </MenuItem>
-                            {Array.from(types).map((val, index) =>
+                            {Array.from(roomTypes).map((val, index) =>
                                 <MenuItem key={index} value={val.room_type_name}>{val.room_type_name}</MenuItem>
                             )}
                         </Select>

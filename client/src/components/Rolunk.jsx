@@ -4,7 +4,8 @@ export const Rolunk = () => {
     return (
         
 
-            <div className="rolunk">
+            <div className="section">
+                <div className="rolunk">
                 <div className="row">
 
                     <div className="col-md-6">
@@ -19,6 +20,7 @@ export const Rolunk = () => {
                             Reméljük, hogy Önt is hamarosan Vendégeink között üdvözölhetjük!</p>
                     </div>
                 </div>
+            </div>
             </div>
 
        
