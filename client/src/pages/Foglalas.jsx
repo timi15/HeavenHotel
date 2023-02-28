@@ -77,11 +77,13 @@ export const Foglalas = () => {
         } else {
             filteredRoom.map((value, index) => {
                 result.innerHTML = `<div >
-                <div  id="roomCard" class="card">
+                <div  id="roomCard" class="card ">
                     <div class="card-body">
-                        <h1 class="card-title">${value.room_type_name}</h1>
-                        <h6 class="card-subtitle " >${value.price_night} Ft / éjszaka</h6>
-                        <p class="card-text">${value.description}</p>
+                        <h1 class="card-title mb-5">${value.room_type_name}</h1>                        
+                        <p class="card-text mb-2">${value.description}</p>
+                        <p class="card-text mb-2" >${value.price_night } Ft / éjszaka</p>
+                        <p class="card-text mb-5 fizetendo" >Fizetendő összeg: ${value.price_night * ejszakak_szama} Ft / éjszaka</p>
+                        
 
                         <Button id="button" style='background-color:transparent'>Foglalás</Button>
                     </div>

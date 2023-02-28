@@ -77,27 +77,27 @@ export const Kapcsolat = () => {
           <div className='col-md-6 col-xs-6 contact'>
 
             <div className="column">
-              <div><h5>Elérhetőségeink</h5></div>
+              <div><h5 className='elerhetosegFelirat mb-3'>Elérhetőségeink</h5></div>
               <ul className="contact-element">
                 <li>
 
-                  <i className="fa fa-map-marker fa-sm"  ></i>4400 Nyíregyháza Hotel
+                  <i className="fa fa-map-marker fa-sm mb-3"></i>4400 Nyíregyháza Hotel
                   utca 124.
 
                 </li>
                 <li>
 
-                  <i className="fa fa-phone fa-sm"></i>+36-30-234-6421
+                  <i className="fa fa-phone fa-sm mb-3" ></i>+36-30-234-6421
 
                 </li>
                 <li>
 
-                  <i className="fa fa-envelope fa-sm"></i>sales@hotelheaven.com
+                  <i className="fa fa-envelope fa-sm mb-3"></i>sales@hotelheaven.com
 
                 </li>
                 <li>
 
-                  <i className="fa fa-clock-o fa-sm"></i>0-24h
+                  <i className="fa fa-clock-o fa-sm mb-3"></i>0-24h
 
 
                 </li>
@@ -117,7 +117,7 @@ export const Kapcsolat = () => {
             }
 
 
-            <div style={{ marginBottom: 30, marginTop: 20 }}><h5>Írj nekünk üzenetet!</h5></div>
+            <div style={{ marginBottom: 30, marginTop: 20 }}><h5 className='elerhetosegFelirat mb-5'>Írj nekünk üzenetet!</h5></div>
             <form >
 
               <div>

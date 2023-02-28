@@ -29,12 +29,13 @@ export const Bejelentkezes = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    backgroundColor: 'beige'
+                    backgroundColor: '#F4F1DE',
+                    borderRadius:5,                   
 
                 }}
             >
 
-                <Typography variant="h5">
+                <Typography  variant="h4" style={{fontFamily:"Rozha One"}}>
                     Bejelentkezés
                 </Typography>
 

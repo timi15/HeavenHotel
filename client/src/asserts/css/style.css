@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+
 /*HTML ELEMENT*/
 
 hr {
@@ -15,14 +17,16 @@ h4 {
 }
 
 .link  :hover{
-    color: #837008;
+    color: white;
 }
+
+
 
 
 /*ICONS*/
 i {
     margin-right: 15px;
-    color: #837008;
+    color: white;
 }
 
 i:hover{
@@ -37,29 +41,36 @@ i:hover{
 
 .MuiTextField-root>label {
 
-    color: #837008;
+    color: #434A42;
 }
 
 .MuiTextField-root>.MuiInputBase-root {
-    color: #837008;
+    color: #434A42;
+}
+
+/*cimek*/
+
+.gyik > h4, .footer-title, .velemenyek, .card-title, .elerhetosegFelirat, .alcim{
+    font-family: 'Rozha One', serif;
 }
 
 /*BUTTON*/
 
 #button {
-    font-size: 12px;
-    letter-spacing: 2px;
+    font-size: 14px;
+    letter-spacing: 5px;
+    font-family: 'Rozha One';
     text-transform: uppercase;
     display: inline-block;
     text-align: center;
     font-weight: bold;
     padding: 0.7em 2em;
-    border: 3px solid rgb(131, 112, 8);
+    max-width: 47%;
+    border: 3px double #434A42;
     border-radius: 2px;
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-    color: #837008;
-    text-decoration: none;
+    color: #434A42;
     transition: 0.3s ease all;
     z-index: 1;
 }
@@ -73,7 +84,7 @@ i:hover{
     bottom: 0;
     opacity: 0;
     content: '';
-    background-color: rgb(131, 112, 8);
+    background-color: #434A42;
     z-index: -1;
 }
 
@@ -106,6 +117,7 @@ i:hover{
     padding-top: 4rem;
     text-transform: uppercase;
     margin-bottom: 30px;
+    letter-spacing: 5px;
 
 
 }
@@ -115,8 +127,10 @@ i:hover{
 
 #appbar-element,
 #appbar-button {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-family: 'Rozha One';
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-size: 17px;
     margin: 0px 40px;
 }
 
@@ -161,13 +175,13 @@ footer {
     bottom: 0;
     position: relative;
     padding: 1rem;
-    background-color: rgb(209, 190, 137);
+    background-color: #918b76;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
     font-size: 13px;
     margin-top: 60px;
-    opacity: 0.6;
+    opacity: 0.8;
 
 
 }
@@ -181,11 +195,10 @@ footer {
 
 
 .footer-title {
-    text-transform: uppercase;
     font-size: 20px;
-    margin: 10px 0px 20px 0px;
-    font-style: italic;
+    margin: 20px  0;
     font-weight: bold;
+
 
 }
 
@@ -209,7 +222,7 @@ footer {
 }
 
 .information:hover {
-    color: #837008;
+    color: white;
 
 }
 
@@ -226,6 +239,7 @@ footer {
     text-align: center;
     font-weight: bold;
     font-style: italic;
+    color: #434A42
 }
 
 
@@ -235,8 +249,8 @@ footer {
     padding-top: 1rem;
     text-align: center;
     font-size: 13px;
-    background-color: rgb(209, 190, 137);
-    opacity: 0.6;
+    background-color: #918b76;
+    opacity: 0.8;
 
 }
 
@@ -246,7 +260,7 @@ footer {
 }
 
 .logo {
-    background-color: black;
+    background-color: #434A42;
     text-align: center;
 }
 
@@ -271,7 +285,7 @@ footer {
 
 .vendegeinkMondtak {
     text-align: justify;
-    border: solid 3px rgb(182, 155, 6);
+    border:  7px double #434A42;
     margin-top: 30px;
 
 }
@@ -285,7 +299,7 @@ footer {
 }
 
 .columnVendeg>h3 {
-    text-transform: uppercase;
+    text-transform: capitalize;
     padding-bottom: 50px;
 
 }
@@ -347,7 +361,7 @@ footer {
 }
 
 .sightCarousel a {
-    color: rgb(163, 139, 3);
+    color: #434A42;
 }
 
 .sightCarousel {
@@ -355,13 +369,13 @@ footer {
 }
 
 .sightCarousel img {
-    border: solid 3px rgb(131, 112, 8);
+    border:  7px double #434A42;
     border-radius: 5px;
 
 }
 
 
-/*SZOBAK*/
+/*SZOBATÍPUSOK*/
 
 .MuiTypography-subtitle2 {
     text-align: justify;
@@ -380,8 +394,9 @@ footer {
 }
 
 #roomCard {
-    background-color: #ffe4c491;
+    background-color: #F4F1DE;
     border-radius: 10px;
+    border: 7px double #434A42;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
@@ -389,6 +404,10 @@ footer {
     margin-left: auto;
     margin-right: auto;
 
+}
+
+.fizetendo{
+    color: red;
 }
 
 .szobaFooldalon {
@@ -399,7 +418,19 @@ footer {
     justify-content: center
 }
 
+/* SZOBÁK */
 
+.card-title{
+    font-size: 20px;
+}
+
+.card-text{
+    font-size: 15px;
+}
+
+.card{
+    padding:5px
+}
 
 
 /*GALÉRIA*/
@@ -426,8 +457,11 @@ footer {
 
 
 /*GYIK  / ACCORDION*/
+
+
 .accordion-button {
-    background-color: rgb(131, 112, 8) !important;
+    background-color: #434A42 !important;
+    opacity: 0.9;
     color: white !important;
     border: 5px solid rgb(240, 237, 223) !important;
     font-size: 20px !important;

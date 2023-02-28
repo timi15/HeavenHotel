@@ -45,7 +45,7 @@ export const Szobak = () => {
 
                             <CardContent>
 
-                                <Typography variant="h6" component="div">
+                                <Typography variant="h6" component="div" style={{fontFamily:"Rozha One", textTransform:"lowercase"}}>
                                     {val.room_type_name}
                                 </Typography>
 
