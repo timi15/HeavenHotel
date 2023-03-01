@@ -76,7 +76,7 @@ export const Foglalas = () => {
             result.innerText = "Nincs ilyen szoba"
         } else {
             filteredRoom.map((value, index) => {
-                result.innerHTML = `<div >
+               return result.innerHTML = `<div >
                 <div  id="roomCard" class="card ">
                     <div class="card-body">
                         <h1 class="card-title mb-5">${value.room_type_name}</h1>                        

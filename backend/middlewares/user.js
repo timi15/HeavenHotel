@@ -35,6 +35,42 @@ module.exports.users = () => {
     }
 }
 
+module.exports.user = () => {
+    return (req, res, next) => {
+        myQuery = "SELECT * FROM user WHERE user_id LIKE ?;";
+
+        db.query(myQuery, [req.params.id], (err, result, fields) => {
+            if (err) throw err;
+            else res.send(result)
+        })
+    }
+}
+
+
+
+module.exports.userModify = () => {
+    return (req, res, next) => {
+        const { user_id, email, name, address, phone_number,  } = req.body;
+        
+        db.query("UPDATE user SET email = ?, name = ?, address = ?, phone_number = ?  WHERE user_id LIKE ?;",
+            [email, name, address, phone_number, user_id],
+            (err) => {
+                if (err) return res.send(err);
+                res.send("Updated...");
+            });
+    }
+
+}
+
+module.exports.userDelete= ()=>{
+    return (req, res, next)=>{
+        db.query("DELETE FROM user WHERE user_id LIKE ?;", [req.params.id], (err) => {
+            if (err) res.send(err);
+            res.status(200).send();
+        })
+    }
+}
+
 module.exports.register = () => {
     return (req, res, next) => {
         const { email, password, name, address, phoneNumber } = req.body;
@@ -54,23 +90,23 @@ module.exports.register = () => {
     }
 }
 
-module.exports.login=()=>{
-    return (req,res, next)=>{
+module.exports.login = () => {
+    return (req, res, next) => {
         db.query("SELECT * FROM user WHERE email = ?;", [req.body.email], (err, data) => {
             if (err) return res.status(500).json(err);
             if (data.length === 0) return res.status(204).json("User not found.");
-    
+
             const isCorrectPassword = bcrypt.compareSync(req.body.password, data[0].password);
             console.log(isCorrectPassword);
-    
+
             if (!isCorrectPassword)
                 return res.status(400).send("Wrong username or password.");
-    
-    
+
+
             const token = jwt.sign({ id: data[0].user_id }, "secret");
-    
+
             const { email, is_admin: isAdmin } = data[0];
-    
+
             res.cookie("access_token", token, {
                 httpOnly: true
             }).status(200).json({ email, isAdmin });
@@ -78,8 +114,8 @@ module.exports.login=()=>{
     }
 }
 
-module.exports.logout=()=>{
-    return (req, res, next)=>{
+module.exports.logout = () => {
+    return (req, res, next) => {
         res.clearCookie("access_token", {
             sameSite: "none",
             secure: true

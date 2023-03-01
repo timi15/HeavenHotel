@@ -17,18 +17,23 @@ import { Adatvedelem } from './components/Adatvedelem';
 import { Kapcsolat } from './pages/Kapcsolat';
 import { Foglalas } from './pages/Foglalas';
 import { Kezdooldal } from './pages/Kezdooldal';
-import {Adminfelulet} from "./pages/admin/Adminfelulet"
+import { Adminfelulet } from "./pages/admin/Adminfelulet"
 import { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { RoomTypeContext } from './context/room/RoomTypeContext';
 import { RoomContext } from "./context/room/RoomContext"
 import { FelhasznalokKezelese } from './pages/admin/FelhasznalokKezelese';
 import { Error } from './components/Error';
+import { AuthContext } from './context/auth/AuthContext';
+import { UserContext } from './context/user/UserContext';
 
 
 function App() {
   const { handleSet: handleSetRoomTypes } = useContext(RoomTypeContext);
   const { handleSet: handleSetRooms } = useContext(RoomContext);
+  const { handleSet: handleSetUsers } = useContext(UserContext);
+
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     axios.get("http://localhost:8080/roomtype", {
@@ -58,6 +63,25 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    axios.get("http://localhost:8080/users", {
+      headers: {
+        'Access-Control-Allow-Origin': "localhost:3000"
+      }
+    })
+      .then((res) => {
+        handleSetUsers(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
+
+
+
+
   return (
 
     <ThemeProvider theme={appTheme}>
@@ -80,13 +104,16 @@ function App() {
             <Route path='/regisztracio' element={<Regisztracio />} />
             <Route path='/bejelentkezes' element={<Bejelentkezes />} />
 
+            {
+              currentUser != null && currentUser['isAdmin'] === 1 && (
+                <>
+                  <Route path='/adminfelulet' element={<Adminfelulet />} />
+                  <Route path='/adminfelulet/felhasznalok' element={<FelhasznalokKezelese />} />
+                </>
+              )
+            }
 
-            <Route path='/adminfelulet' element={<Adminfelulet/>}/>
-            <Route path='/adminfelulet/felhasznalok' element={<FelhasznalokKezelese/>}/>
-
-
-
-            <Route path='*' element={<Error/>} />
+            <Route path='*' element={<Error />} />
 
           </Routes>
 

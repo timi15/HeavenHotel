@@ -7,7 +7,7 @@ export const Error = () => {
         <div className="section">
             <div className="container" >
                 <div className="error">
-                    <h1 >4<i class="fa fa-exclamation-circle" aria-hidden="true"></i>4</h1>
+                    <h1 >4<i className="fa fa-exclamation-circle" aria-hidden="true"></i>4</h1>
                     <p>Rossz ajtón kopogtattál!</p>
                     <p>Ez az oldal sajnos nem található!</p>
                     <Link to="/">

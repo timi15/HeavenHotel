@@ -5,7 +5,7 @@ import { Carousel } from 'react-bootstrap'
 export const Latnivalo = (props) => {
     return (
         <div data-aos="fade-up" once={true}>
-            <h3 className='link'><a  href={props.link} target="_blank">{props.place}</a></h3>
+            <h3 className='link'><a  href={props.link} target="_blank" rel="noreferrer" >{props.place}</a></h3>
 
             <Carousel  >
                 <Carousel.Item interval={5000} >

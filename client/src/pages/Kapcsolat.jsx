@@ -27,15 +27,15 @@ export const Kapcsolat = () => {
 
   const validate = () => {
     let errors = {};
-    if (name.length == 0) {
+    if (name.length === 0) {
       errors.name = 'Kérjük, töltse ki a mezőt!';
     } 
-    if (email.length == 0) {
+    if (email.length === 0) {
       errors.email = 'Kérjük, töltse ki a mezőt!';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       errors.email = 'Az e-mail-cím nem megfelelő!';
     }
-    if (message.length == 0) {
+    if (message.length === 0) {
       errors.message = 'Kérjük, töltse ki a mezőt!';
     }
     return errors;

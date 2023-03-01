@@ -30,7 +30,10 @@ export const Bejelentkezes = () => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     backgroundColor: '#F4F1DE',
-                    borderRadius:5,                   
+                    borderRadius:5,   
+                    borderWidth:7,
+                    borderStyle:"double",
+                    borderColor:"#434A42"                
 
                 }}
             >
@@ -84,7 +87,7 @@ export const Bejelentkezes = () => {
                     </div>
                     < div className="loginLink_singupLink">
 
-                        <Link to="/regisztracio" variant="body2" style={{ width: 170, color: ' rgb(131, 112, 8)', marginTop: 10, }}>
+                        <Link to="/regisztracio" variant="body2" style={{ width: 170, color: "#434A42", marginTop: 10, }}>
                             Még nincs fiókja? Regisztráljon itt!
                         </Link>
                     </div>

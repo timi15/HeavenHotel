@@ -1,24 +1,53 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
+import {  useParams } from "react-router-dom";
+import { UserContext } from '../../context/user/UserContext';
 
 export const FelhasznalokKezelese = () => {
 
-    const [users, setUsers] = useState([]);
+    const { users } = useContext(UserContext);
+
+    const [formData, setFormData] = useState({});
+
+    const { id } = useParams();
+
+
+    const { handleChange: handleModify } = useContext(UserContext);
+
+    const handleChange = async (e, index) => {
+        const { name, value } = e.target;
+    
+        setFormData({
+          ...formData,
+          [index]: {
+            ...formData[index],
+            [name]: value,
+          },
+        });
+      };
+
+    const handleSubmit = () => {
+
+        handleModify(id, formData).then(val => {
+            if (val)
+                alert("módosítva")
+            else
+                alert("Error...");
+        })
+
+    }
 
     useEffect(() => {
-        axios.get("http://localhost:8080/users", {
-            headers: {
-                'Access-Control-Allow-Origin': "localhost:3000"
-            }
-        })
-            .then((res) => {
-                setUsers(res.data);
-            }).catch((err) => {
-                console.log(err);
-            });
+        axios.get(`http://localhost:8080/users/${id}`)
+          .then(({ data }) =>
+            setFormData(data)
+          )
+          .catch(err => console.log(err));
+    
+      }, []);
 
-    }, [])
+
 
     return (
 
@@ -31,8 +60,8 @@ export const FelhasznalokKezelese = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>E-mail-cím</th>
                                 <th>Név</th>
+                                <th>E-mail-cím</th>
                                 <th>Lakcím</th>
                                 <th>Telefonszám</th>
                                 <th>Admin</th>
@@ -47,12 +76,52 @@ export const FelhasznalokKezelese = () => {
                                 users.map((value, index) =>
                                     <tr key={index}>
                                         <td>{value.user_id}</td>
-                                        <td>{value.email}</td>
-                                        <td>{value.name}</td>
-                                        <td>{value.address}</td>
-                                        <td>{value.phone_number}</td>
+                                        <td>
+                                            <input
+                                                className="form-control-plaintext"
+                                                type="text"
+                                                name="name"
+                                                defaultValue={value.name}
+                                                onChange={(e) => handleChange(e, index)}
+                                                
+
+                                            />
+                                        </td>
+                                        <td>
+                                            <input
+                                                className="form-control-plaintext"
+                                                type="text"
+                                                name="email"
+                                                defaultValue={value.email}
+                                                onChange={(e) => handleChange(e, index)}
+
+                                            />
+                                        </td>
+
+                                        <td>
+                                            <input
+                                                className="form-control-plaintext"
+                                                type="text"
+                                                name="address"
+                                                defaultValue={value.address}
+                                                onChange={(e) => handleChange(e, index)}
+
+                                            />
+                                        </td>
+                                        <td>
+                                            <input
+                                                className="form-control-plaintext"
+                                                type="number"
+                                                name="phone_number"
+                                                defaultValue={value.phone_number}
+                                                onChange={(e) => handleChange(e, index)}
+                                                
+
+                                            />
+                                        </td>
+
                                         <td>{value.is_admin ? <input type="checkbox" checked /> : <input type="checkbox" />}</td>
-                                        <td><Button variant='outlined' id="button">Módosítás</Button></td>
+                                        <td><Button variant='outlined' id="button" onClick={() => handleSubmit()}>Módosítás</Button></td>
                                         <td><Button variant='outlined' id="button">Törlés</Button></td>
                                     </tr>
                                 )
@@ -61,7 +130,7 @@ export const FelhasznalokKezelese = () => {
                         </tbody>
 
                     </table>
-                    </div>
+                </div>
             </div>
         </div>
 

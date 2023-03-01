@@ -8,10 +8,10 @@ export const Auth = ({children}) => {
        JSON.parse(localStorage.getItem("user")) || null
     );
 
+
     const login = async (inputs) => {
-        const res = await axios.post("http://localhost:8080/login", inputs, {withCredentials: true});
+        const res = await axios.post("http://localhost:8080/login", inputs, {withCredentials: true}); 
         setCurrentUser(res.data);
-        console.log(res.data)
     }
 
     const logout = async () => {

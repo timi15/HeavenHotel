@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Alert, Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
+import {  Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import axios from "axios"
@@ -33,7 +33,10 @@ export const Regisztracio = () => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     backgroundColor: '#F4F1DE',
-                    borderRadius:5
+                    borderRadius:5,
+                    borderWidth:7,
+                    borderStyle:"double",
+                    borderColor:"#434A42"   
                 }}
             >
 
@@ -99,8 +102,8 @@ export const Regisztracio = () => {
                     </div>
 
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox style={{ color: ' rgb(131, 112, 8)' }} />} label={<div>
-                            <span>Elfogadom az</span> <Link to="/altalanos_szerzodesi_feltetelek" target="_blank" style={{ color: ' rgb(131, 112, 8)' }}>ÁSZF-et</Link> <span>és az</span> <Link to="/adatkezelesi_tajekoztato" target="_blank" style={{ color: ' rgb(131, 112, 8)' }}>adatvédelmi tájékoztatót</Link>.</div>} />
+                        <FormControlLabel control={<Checkbox style={{ color: '#434A42' }} />} label={<div>
+                            <span>Elfogadom az</span> <Link to="/altalanos_szerzodesi_feltetelek" target="_blank" style={{ color: "#434A42" }}>ÁSZF-et</Link> <span>és az</span> <Link to="/adatkezelesi_tajekoztato" target="_blank" style={{ color: "#434A42" }}>adatvédelmi tájékoztatót</Link>.</div>} />
                     </FormGroup>
 
                     <div style={{ textAlign: 'center' }}>
@@ -117,7 +120,7 @@ export const Regisztracio = () => {
                     </div>
                     < div className="loginLink_singupLink">
 
-                        <Link to="/bejelentkezes" variant="body2" style={{ width: 170, color: ' rgb(131, 112, 8)', marginTop: 10, }}>
+                        <Link to="/bejelentkezes" variant="body2" style={{ width: 170, color: "#434A42", marginTop: 10, }}>
                             Már van fiókja? Lépjen be itt!
                         </Link>
                     </div>

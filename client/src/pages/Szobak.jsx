@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import axios from "axios";
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import React, { useContext } from 'react';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 import room1 from "../img/szobak/superiorEgyagyasSzoba.jpg"
 import room2 from "../img/szobak/standardKetagyasSzoba.jpg"
