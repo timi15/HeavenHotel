@@ -7,7 +7,7 @@ import kep from "../img/szepkartya.jpg"
 export const Footer = () => {
     return (
         <>
-            <footer >
+            <footer className='page-footer' >
 
                 <div className="section">
                     <div className="container">

@@ -7,7 +7,7 @@ export const Felulet = (props) => {
             <i className={props.icon} id="feluletIcon"></i>
             <h4 className='feluletCim mb-5'>{props.cim}</h4>
             <Link to={props.link}>
-                <button id='button'>Tovább a kezelőfelületre </button>
+                <button id='button'>Tovább <br /> a kezelőfelületre </button>
             </Link>
             
         </div>

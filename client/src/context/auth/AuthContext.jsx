@@ -11,6 +11,7 @@ export const Auth = ({children}) => {
     const login = async (inputs) => {
         const res = await axios.post("http://localhost:8080/login", inputs, {withCredentials: true});
         setCurrentUser(res.data);
+        console.log(res.data)
     }
 
     const logout = async () => {

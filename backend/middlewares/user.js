@@ -69,7 +69,7 @@ module.exports.login=()=>{
     
             const token = jwt.sign({ id: data[0].user_id }, "secret");
     
-            const { email, admin: isAdmin } = data[0];
+            const { email, is_admin: isAdmin } = data[0];
     
             res.cookie("access_token", token, {
                 httpOnly: true
