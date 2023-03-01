@@ -339,15 +339,31 @@ footer {
 
 /*ERROR*/
 
-.err {
+.error {
     text-align: center;
-    color: red;
-    border: 9px double red;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgba(172, 64, 64, 0.284);
+    margin: 50px auto;
+    background-color: #F4F1DE;
+    max-width: 900px;
+    border: 7px double #434A42;
+    border-radius: 10px;
+
 }
+
+.error>h1 {
+    font-size: 200px;
+    font-family: 'Rozha One', serif;
+}
+
+.error>h1>i {
+    color: #434A42;
+}
+
+.error>p {
+    font-family: 'Rozha One', serif;
+    font-size: 25px;
+}
+
+
 
 
 
@@ -521,9 +537,9 @@ footer {
 
 
 
-.table > thead{
+.table>thead {
     font-size: 20px;
     font-family: 'Rozha One', serif;
-    color:#434A42;
-    
+    color: #434A42;
+
 }

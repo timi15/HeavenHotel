@@ -23,6 +23,7 @@ import axios from 'axios';
 import { RoomTypeContext } from './context/room/RoomTypeContext';
 import { RoomContext } from "./context/room/RoomContext"
 import { FelhasznalokKezelese } from './pages/admin/FelhasznalokKezelese';
+import { Error } from './components/Error';
 
 
 function App() {
@@ -85,7 +86,7 @@ function App() {
 
 
 
-            <Route path='*' element={<Kezdooldal />} />
+            <Route path='*' element={<Error/>} />
 
           </Routes>
 
