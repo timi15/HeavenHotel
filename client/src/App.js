@@ -110,7 +110,7 @@ function App() {
                 <>
                   <Route path='/adminfelulet' element={<Adminfelulet />} />
                   <Route path='/adminfelulet/felhasznalok' element={<FelhasznalokKezelese />} />
-                  <Route path='/adminfelulet/felhasznalok/modostias/:id' element={<FelhasznaloModositas />} />
+                  <Route path='/adminfelulet/felhasznalok/modositas/:id' element={<FelhasznaloModositas />} />
                 </>
               )
             }
