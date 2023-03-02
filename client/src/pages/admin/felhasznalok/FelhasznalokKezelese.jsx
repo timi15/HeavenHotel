@@ -10,7 +10,7 @@ export const FelhasznalokKezelese = () => {
 
 
     const handleChange =(id)=>{
-        navigate(`/adminfelulet/felhasznalok/modostias/${id}`)
+        navigate(`/adminfelulet/felhasznalok/modositas/${id}`)
         
     }
 
