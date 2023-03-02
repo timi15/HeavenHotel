@@ -11,10 +11,10 @@ export const Users = ({children}) => {
       setUsers(users);
   }
 
-  const handleChange = async (id, user) => {
-    setUsers(users.map((value) => value.id !== user.id ? value : user));
+  const handleChange = async (user_id, user) => {
+    setUsers(users.map((value) => value.user_id !== user.user_id ? value : user));
     try {
-        const res = await axios.put(`http://localhost:8080/users/${id}`, user, {
+        const res = await axios.put(`http://localhost:8080/users/${user_id}`, user, {
             headers: {
                 "Content-Type": "application/json"
             }

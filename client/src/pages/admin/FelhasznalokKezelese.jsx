@@ -10,7 +10,7 @@ export const FelhasznalokKezelese = () => {
 
     const [formData, setFormData] = useState({});
 
-    const { id } = useParams();
+    const { user_id } = useParams();
 
 
     const { handleChange: handleModify } = useContext(UserContext);
@@ -18,18 +18,12 @@ export const FelhasznalokKezelese = () => {
     const handleChange = async (e, index) => {
         const { name, value } = e.target;
     
-        setFormData({
-          ...formData,
-          [index]: {
-            ...formData[index],
-            [name]: value,
-          },
-        });
+        setFormData({...formData, [index]: {...formData[index],[name]: value,}, });
       };
 
     const handleSubmit = () => {
 
-        handleModify(id, formData).then(val => {
+        handleModify(user_id, formData).then(val => {
             if (val)
                 alert("módosítva")
             else
@@ -39,13 +33,15 @@ export const FelhasznalokKezelese = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/users/${id}`)
+        axios.get(`http://localhost:8080/users/${user_id}`)
           .then(({ data }) =>
             setFormData(data)
+           
           )
           .catch(err => console.log(err));
     
       }, []);
+      
 
 
 
