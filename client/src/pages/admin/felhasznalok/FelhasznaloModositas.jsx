@@ -22,7 +22,7 @@ export const FelhasznaloModositas = () => {
         if (Object.entries(formData).length === 6 && !isEmpty())
             handleModify(id, formData).then(val => {
                 if (val)
-                    navigate("/");
+                    navigate("/adminfelulet/felhasznalok");
                 else
                     alert("Error...");
             })
