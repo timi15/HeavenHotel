@@ -20,11 +20,11 @@ NYÍREGYHÁZA
 
  - Telepítsük fel. A letöltött futtatható állományt indítsuk el, és kövessük a képernyőn megjelenő utasításokat. Windows alatt a javasolt telepítési könyvtár c:\xampp.
 
-  töltse le a Windows telepítőt a Node.js webhelyről. Miután kiválasztotta az igényeinek megfelelő verziót, futtassa a telepítőt.
+ - Töltse le a Windows telepítőt a Node.js webhelyről. Miután kiválasztotta az igényeinek megfelelő verziót, futtassa a telepítőt.
 
  - Indítunk kettő Visual Studio Code alkalmazást, egyikben a Front mappát nyitjuk meg, a másikban a backend mappát kell megnyitni az Open Folder menüponttal.
 
-  mindkét Visual Studio Code-ban indítunk egy Terminált a Terminal menu/New Terminal-lal. (Vagy a Command Line is megfelel)
+ - Mindkét Visual Studio Code-ban indítunk egy Terminált a Terminal menu/New Terminal-lal. (Vagy a Command Line is megfelel)
 
  - Sikeres telepítések után a xampp-ot indítsuk el és az Apache-t és MysQL-t is Startoljuk, és a MysQL Admin gombját válasszuk.
 
