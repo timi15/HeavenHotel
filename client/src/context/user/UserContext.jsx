@@ -25,10 +25,10 @@ export const Users = ({children}) => {
     }
 };
 
-const handleDelete = async (id) => {
-    setUsers(users.filter((value) => value.id !== id));
+const handleRemove = async (user_id) => {
+    setUsers(users.filter((value) => value.user_id !== user_id));
     try {
-        const res = await axios.delete(`http://localhost:8080/users/${id}`);
+        const res = await axios.delete(`http://localhost:8080/users/${user_id}`);
         return true;
     } catch (err) {
         return false;
@@ -36,7 +36,7 @@ const handleDelete = async (id) => {
 };
 
   return (
-    <UserContext.Provider value={{users, handleSet, handleChange, handleDelete}}>
+    <UserContext.Provider value={{users, handleSet, handleChange, handleRemove}}>
       {children}
     </UserContext.Provider>
   )

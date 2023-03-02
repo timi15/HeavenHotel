@@ -50,10 +50,10 @@ module.exports.user = () => {
 
 module.exports.userModify = () => {
     return (req, res, next) => {
-        const { user_id, email, name, address, phone_number,  } = req.body;
+        const {  email, name, address, phone_number, is_admin  } = req.body;
         
-        db.query("UPDATE user SET email = ?, name = ?, address = ?, phone_number = ?  WHERE user_id LIKE ?;",
-            [email, name, address, phone_number, user_id],
+        db.query("UPDATE user SET email = ?, name = ?, address = ?, phone_number = ?, is_admin = ?  WHERE user_id LIKE ?;",
+            [email, name, address, phone_number, is_admin, req.params.id],
             (err) => {
                 if (err) return res.send(err);
                 res.send("Updated...");

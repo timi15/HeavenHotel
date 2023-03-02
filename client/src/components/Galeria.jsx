@@ -8,7 +8,7 @@ export const Galeria = () => {
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
-            items: 3
+            items: 4
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -16,7 +16,7 @@ export const Galeria = () => {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 1
+            items: 2
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -29,7 +29,7 @@ export const Galeria = () => {
     return (
 
         
-            <div className="container">
+            
                 <div className="galeria">
                     <Carousel responsive={responsive} autoPlay={true} arrows={false} autoPlaySpeed={2000}  infinite={true}   >
                         <div >
@@ -59,7 +59,7 @@ export const Galeria = () => {
                         </div>
                     </Carousel>
                 </div>
-            </div>
+            
         
 
 

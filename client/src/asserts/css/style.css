@@ -57,7 +57,8 @@ i:hover {
 .elerhetosegFelirat,
 .alcim,
 .feluletCim,
-.kezelofeluletFelirat {
+.kezelofeluletFelirat,
+.modositas {
     font-family: 'Rozha One', serif;
 }
 
@@ -514,7 +515,7 @@ footer {
 .loginLink_singupLink {
     margin-top: 20px;
     text-align: right;
-    
+
 }
 
 /*FELULET*/
@@ -537,9 +538,48 @@ footer {
 
 
 
-.table>thead {
+table>thead {
     font-size: 20px;
     font-family: 'Rozha One', serif;
     color: #434A42;
 
+}
+
+td {
+    font-size: 17px;
+    text-align: center;
+}
+
+/*EDIT USER*/
+
+.editUser {
+    text-align: center;
+}
+
+.editForm {
+    padding: 50px;
+    max-width: 700px;
+    background-color: #F4F1DE;
+    border: 7px double #434A42;
+    border-radius: 10px;
+    margin: 50px auto;
+    height: auto;
+    display: block;
+
+}
+
+.editForm > *{
+    margin: 10px;
+}
+
+
+.editForm>input {
+    width: 100%;
+    display: inline-block;
+    border: 1px double  #434A42;
+    border-radius: 4px;
+}
+
+.editForm > label {
+    font-family: 'Rozha One', serif;
 }

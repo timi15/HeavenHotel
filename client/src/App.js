@@ -22,10 +22,11 @@ import { useContext, useEffect } from 'react';
 import axios from 'axios';
 import { RoomTypeContext } from './context/room/RoomTypeContext';
 import { RoomContext } from "./context/room/RoomContext"
-import { FelhasznalokKezelese } from './pages/admin/FelhasznalokKezelese';
+import { FelhasznalokKezelese } from './pages/admin/felhasznalok/FelhasznalokKezelese';
 import { Error } from './components/Error';
 import { AuthContext } from './context/auth/AuthContext';
 import { UserContext } from './context/user/UserContext';
+import { FelhasznaloModositas } from './pages/admin/felhasznalok/FelhasznaloModositas';
 
 
 function App() {
@@ -109,6 +110,7 @@ function App() {
                 <>
                   <Route path='/adminfelulet' element={<Adminfelulet />} />
                   <Route path='/adminfelulet/felhasznalok' element={<FelhasznalokKezelese />} />
+                  <Route path='/adminfelulet/felhasznalok/modostias/:id' element={<FelhasznaloModositas />} />
                 </>
               )
             }
