@@ -13,7 +13,7 @@ addRoutes(app)
 
 db.connect((err) => {
     if (err) console.log(err);
-    console.log("The connection is success...");
+    console.log("The connection is successfull...");
 })
 
 app.listen(8080, 'localhost', () => {

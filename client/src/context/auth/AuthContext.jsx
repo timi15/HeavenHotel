@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 
 export const AuthContext = createContext();
 
@@ -9,14 +10,30 @@ export const Auth = ({children}) => {
     );
 
 
-    const login = async (inputs) => {
-        const res = await axios.post("http://localhost:8080/login", inputs, {withCredentials: true}); 
+    const login = async (formData) => {
+        const res = await axios.post("http://localhost:8080/login", formData, {withCredentials: true}); 
         setCurrentUser(res.data);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Ön sikeresen bejelentkezett fiókjába!',
+            showConfirmButton: false,
+            timer: 2500
+          })
+    
     }
 
     const logout = async () => {
         const res = await axios.get("http://localhost:8080/logout")
         setCurrentUser(null);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Ön sikeresen kijelentkezett fiókjából!',
+            showConfirmButton: false,
+            timer: 2500
+          });
+          window.location.reload();
     }
 
     useEffect(() => {

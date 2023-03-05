@@ -2,6 +2,7 @@
 import { Alert, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 
 
@@ -29,7 +30,7 @@ export const Kapcsolat = () => {
     let errors = {};
     if (name.length === 0) {
       errors.name = 'Kérjük, töltse ki a mezőt!';
-    } 
+    }
     if (email.length === 0) {
       errors.email = 'Kérjük, töltse ki a mezőt!';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -46,7 +47,14 @@ export const Kapcsolat = () => {
 
     if (Object.keys(errors).length === 0) {
       localStorage.setItem("message", JSON.stringify({ name, email, message }));
-      setShow(true);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Üzenetét sikeresen elküldtük.',
+        text: 'Hotelünk hamarosan felveszi Önnel a kapcsolatot...',
+        showConfirmButton: false,
+        timer: 4000
+      })
       setName("");
       setEmail("");
       setMessage("");
@@ -112,9 +120,7 @@ export const Kapcsolat = () => {
           <div className='col-md-6 col-xs-6' style={{ textAlign: 'center' }}  >
 
 
-            {
-              show && (<Alert>Az üzenet sikeresen el lett küldve!</Alert>)
-            }
+
 
 
             <div style={{ marginBottom: 30, marginTop: 20 }}><h5 className='elerhetosegFelirat mb-5'>Írj nekünk üzenetet!</h5></div>
@@ -122,21 +128,21 @@ export const Kapcsolat = () => {
 
               <div>
                 {showError && (errors.name && <Alert severity='error'>{errors.name}</Alert>)}
-                <TextField id="outlined-basic" label="Név" type={'text'} required variant="outlined" value={name} style={{ width: '100%', marginBottom: 20, marginTop:10 }} onChange={(e) => setName(e.target.value)} />
+                <TextField id="outlined-basic" label="Név" type={'text'} required variant="outlined" value={name} style={{ width: '100%', marginBottom: 20, marginTop: 10 }} onChange={(e) => setName(e.target.value)} />
               </div>
 
               <div>
                 {showError && (errors.email && <Alert severity='error'>{errors.email}</Alert>)}
-                <TextField id="outlined-basic" label="E-mail cím" type={'email'} required variant="outlined" value={email} style={{ width: '100%', marginBottom: 20, marginTop:10 }} onChange={(e) => setEmail(e.target.value)} />
+                <TextField id="outlined-basic" label="E-mail cím" type={'email'} required variant="outlined" value={email} style={{ width: '100%', marginBottom: 20, marginTop: 10 }} onChange={(e) => setEmail(e.target.value)} />
               </div>
 
               <div>
                 {showError && (errors.message && <Alert severity='error'>{errors.message}</Alert>)}
-                <TextField id="outlined-basic" label="Üzenet" type={'text'} required variant="outlined" value={message} multiline rows={5} style={{ width: '100%', marginBottom: 20, marginTop:10 }} onChange={(e) => setMessage(e.target.value)} />
+                <TextField id="outlined-basic" label="Üzenet" type={'text'} required variant="outlined" value={message} multiline rows={5} style={{ width: '100%', marginBottom: 20, marginTop: 10 }} onChange={(e) => setMessage(e.target.value)} />
               </div>
 
 
-              <Button variant='outlined' id='button' onClick={() => handleClick()} >Küldés</Button>
+              <Button variant='outlined' id='button' onClick={() => handleClick()} > Küldés</Button>
 
 
             </form>

@@ -1,24 +1,76 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import {  Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
+import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
-import axios from "axios"
+import axios from "axios";
+import Swal from 'sweetalert2';
 
 export const Regisztracio = () => {
     const [formData, setFormData] = useState({});
 
+    const nameformat = /^[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó\D]*$/;
+    const passformat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,16}$/;
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const addressformat = /^([0-9]{4}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[,]{1}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[\wa-zíéáűúőó]*[ ]{1}[\w][a-z íéáűúőó\./\-0-9]*)$/;
+
+
     const navigate = useNavigate();
 
+
     const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post("http://localhost:8080/register", formData, {
-            headers:{
-                "Content-Type": "application/json"
+
+        if (Object.entries(formData).length === 5) {
+            if (
+                formData.name.match(nameformat) &&
+                formData.email.match(mailformat) &&
+                formData.address.match(addressformat) &&
+                formData.password.match(passformat) &&
+                document.getElementById("szerzodes").checked === true) {
+
+                e.preventDefault();
+                axios.post("http://localhost:8080/register", formData, {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(() =>
+                        navigate("/bejelentkezes"),
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: "Sikeres regisztráció!",
+                            text: 'Jelentkezzen be fiókjába!',
+                            showConfirmButton: false,
+                            timer: 5000
+                        }));
+
+
+
+            } else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: "Helytelen formátum!",
+                    text: 'Kérjük, ellenőrizze le hogy helyesen adta meg az adatait',
+                    showConfirmButton: false,
+                    timer: 5000
+                })
             }
-        })
-            .then(() => navigate("/bejelentkezes"));
+
+        }
+        else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Helytelen formátum!',
+                text: "Kérjük, az összes mezőt töltse ki!",
+                showConfirmButton: false,
+                timer: 5000
+            })
+        }
+
     }
 
     return (
@@ -33,14 +85,15 @@ export const Regisztracio = () => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     backgroundColor: '#F4F1DE',
-                    borderRadius:5,
-                    borderWidth:7,
-                    borderStyle:"double",
-                    borderColor:"#434A42"   
+                    borderRadius: 5,
+                    borderWidth: 7,
+                    borderStyle: "double",
+                    borderColor: "#434A42"
                 }}
             >
+                <i style={{ color: "#434A42", fontSize: 60 }} className="fa fa-user-circle mb-3" aria-hidden="true"></i>
 
-                <Typography  variant="h4" style={{fontFamily:"Rozha One"}}>
+                <Typography variant="h4" style={{ fontFamily: "Rozha One" }}>
                     Regisztráció
                 </Typography>
 
@@ -49,6 +102,8 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
+                            placeholder='pl.: Teszt Elek'
+                            required
                             margin="normal"
                             fullWidth
                             label="Név"
@@ -61,6 +116,8 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
+                            placeholder='pl.: 06301234567'
+                            required
                             margin="normal"
                             fullWidth
                             name="phoneNumber"
@@ -71,6 +128,8 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
+                            placeholder='pl.: tesztelek01@gmail.com'
+                            required
                             margin="normal"
                             fullWidth
                             name="email"
@@ -82,6 +141,8 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
+                            placeholder='4400 Nyíregyháza, Kitalált utca 12.'
+                            required
                             margin="normal"
                             fullWidth
                             label="Lakcím"
@@ -92,6 +153,8 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
+                            placeholder='min 8, max 16 karakter'
+                            required
                             margin="normal"
                             fullWidth
                             name="password"
@@ -102,7 +165,7 @@ export const Regisztracio = () => {
                     </div>
 
                     <FormGroup>
-                        <FormControlLabel control={<Checkbox style={{ color: '#434A42' }} />} label={<div>
+                        <FormControlLabel control={<Checkbox id='szerzodes' style={{ color: '#434A42' }} />} label={<div>
                             <span>Elfogadom az</span> <Link to="/altalanos_szerzodesi_feltetelek" target="_blank" style={{ color: "#434A42" }}>ÁSZF-et</Link> <span>és az</span> <Link to="/adatkezelesi_tajekoztato" target="_blank" style={{ color: "#434A42" }}>adatvédelmi tájékoztatót</Link>.</div>} />
                     </FormGroup>
 

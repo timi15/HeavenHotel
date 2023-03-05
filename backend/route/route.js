@@ -19,7 +19,7 @@
 
 */
 
-const { roomTypes, rooms, users, register, login, logout, userModify, userDelete, user } = require('../middlewares/user')
+const { roomTypes, rooms, users, register, login, logout, userModify, userDelete, user } = require('../controllers/user')
 
 function addRoutes(app) {
     app.get("/roomtype", roomTypes());

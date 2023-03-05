@@ -469,7 +469,7 @@ footer {
     border-radius: 10px;
 }
 
-.galeria-elem{
+.galeria-elem {
     text-align: center;
     width: 200px;
 }
@@ -571,7 +571,7 @@ td {
 
 }
 
-.editForm > *{
+.editForm>* {
     margin: 10px;
 }
 
@@ -579,10 +579,10 @@ td {
 .editForm>input {
     width: 100%;
     display: inline-block;
-    border: 1px double  #434A42;
+    border: 1px double #434A42;
     border-radius: 4px;
 }
 
-.editForm > label {
+.editForm>label {
     font-family: 'Rozha One', serif;
 }

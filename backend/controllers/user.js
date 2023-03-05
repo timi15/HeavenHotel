@@ -74,6 +74,7 @@ module.exports.userDelete= ()=>{
 module.exports.register = () => {
     return (req, res, next) => {
         const { email, password, name, address, phoneNumber } = req.body;
+        
 
         db.query("SELECT * FROM user WHERE email LIKE ?;", [email], (err, rows) => {
             if (err) return res.status(500).json('Error')
@@ -95,6 +96,8 @@ module.exports.login = () => {
         db.query("SELECT * FROM user WHERE email = ?;", [req.body.email], (err, data) => {
             if (err) return res.status(500).json(err);
             if (data.length === 0) return res.status(204).json("User not found.");
+
+            
 
             const isCorrectPassword = bcrypt.compareSync(req.body.password, data[0].password);
             console.log(isCorrectPassword);

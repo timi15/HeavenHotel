@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react'
 import Box from '@mui/material/Box';
-import {  TextField, Typography } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import { AuthContext } from '../context/auth/AuthContext';
+import Swal from 'sweetalert2';
 
 export const Bejelentkezes = () => {
 
@@ -15,9 +16,38 @@ export const Bejelentkezes = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        login(formData)
-            .then(() => navigate("/"));
+        if (Object.entries(formData).length === 0) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Error',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        } else {
+            login(formData)
+                .then(() => navigate("/"))
+                .catch((err) => {
+                    if (err.response.status === 400) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Sikertelen bejelentkezés!',
+                            text: "Hibás jelszó vagy e-mail-cím!",
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }
+                });
+        }
+
+
     }
+
+
+
+
+
 
     return (
         <Container component="main" style={{ maxWidth: 800 }}>
@@ -30,20 +60,22 @@ export const Bejelentkezes = () => {
                     flexDirection: 'column',
                     alignItems: 'center',
                     backgroundColor: '#F4F1DE',
-                    borderRadius:5,   
-                    borderWidth:7,
-                    borderStyle:"double",
-                    borderColor:"#434A42"                
+                    borderRadius: 5,
+                    borderWidth: 7,
+                    borderStyle: "double",
+                    borderColor: "#434A42"
 
                 }}
             >
 
-                <Typography  variant="h4" style={{fontFamily:"Rozha One"}}>
+                <i style={{color:"#434A42", fontSize:60}} className="fa fa-unlock-alt mb-3" aria-hidden="true"></i>
+
+                <Typography variant="h4" style={{ fontFamily: "Rozha One" }}>
                     Bejelentkezés
                 </Typography>
 
 
-                <Box component="form"  sx={{ mt: 1 }}>
+                <Box component="form" sx={{ mt: 1 }}>
 
 
 
