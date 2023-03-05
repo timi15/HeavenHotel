@@ -33,7 +33,8 @@ export const Auth = ({children}) => {
             showConfirmButton: false,
             timer: 2500
           });
-          window.location.reload();
+          
+          window.location.href="/";
     }
 
     useEffect(() => {

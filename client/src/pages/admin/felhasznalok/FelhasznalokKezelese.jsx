@@ -1,20 +1,21 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import { UserContext } from '../../../context/user/UserContext';
+import Swal from "sweetalert2";
 
 export const FelhasznalokKezelese = () => {
 
-    const { users,  handleRemove } = useContext(UserContext);
+    const { users, handleRemove } = useContext(UserContext);
     const navigate = useNavigate();
 
 
-    const handleChange =(id)=>{
+    const handleChange = (id) => {
         navigate(`/adminfelulet/felhasznalok/modositas/${id}`)
-        
+
     }
 
-    const handleDelete=(id)=>{
+    const handleDelete = (id) => {
         handleRemove(id)
 
     }
@@ -56,8 +57,27 @@ export const FelhasznalokKezelese = () => {
 
 
                                         <td>{value.is_admin ? <input type="checkbox" disabled checked /> : <input type="checkbox" disabled />}</td>
-                                        <td><Button variant='outlined' id="button" onClick={()=> handleChange(value.user_id)} >Módosítás</Button></td>
-                                        <td><Button variant='outlined' id="button" onClick={()=> handleDelete(value.user_id)}>Törlés</Button></td>
+                                        <td><Button variant='outlined' id="button" onClick={() => handleChange(value.user_id)} >Módosítás</Button></td>
+                                        <td>
+                                            <Button
+                                                variant='outlined'
+                                                id="button"
+                                                onClick={() => {
+                                                    handleDelete(value.user_id);
+                                                    Swal.fire({
+                                                        position: 'center',
+                                                        icon: 'success',
+                                                        title: "Sikeresen törölte a felhasználót!",
+                                                        showConfirmButton: false,
+                                                        timer: 3000
+                                                    })
+                                                }}
+
+
+                                            >
+                                                Törlés
+                                            </Button>
+                                        </td>
                                     </tr>
                                 )
                             }

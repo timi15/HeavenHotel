@@ -43,7 +43,7 @@ export const Regisztracio = () => {
                             title: "Sikeres regisztráció!",
                             text: 'Jelentkezzen be fiókjába!',
                             showConfirmButton: false,
-                            timer: 5000
+                            timer: 4000
                         }));
 
 
@@ -53,9 +53,9 @@ export const Regisztracio = () => {
                     position: 'center',
                     icon: 'error',
                     title: "Helytelen formátum!",
-                    text: 'Kérjük, ellenőrizze le hogy helyesen adta meg az adatait',
+                    text: 'Kérjük, ellenőrizze, hogy helyesen adta meg az adatait',
                     showConfirmButton: false,
-                    timer: 5000
+                    timer: 4000
                 })
             }
 
@@ -67,7 +67,7 @@ export const Regisztracio = () => {
                 title: 'Helytelen formátum!',
                 text: "Kérjük, az összes mezőt töltse ki!",
                 showConfirmButton: false,
-                timer: 5000
+                timer: 4000
             })
         }
 

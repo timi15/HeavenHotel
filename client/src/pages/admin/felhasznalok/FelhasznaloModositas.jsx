@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../../context/user/UserContext';
+import Swal from "sweetalert2"
 
 export const FelhasznaloModositas = () => {
     const [formData, setFormData] = useState({});
@@ -21,13 +22,41 @@ export const FelhasznaloModositas = () => {
     const handleSubmit = () => {
         if (Object.entries(formData).length === 6 && !isEmpty())
             handleModify(id, formData).then(val => {
-                if (val)
+                if (val) {
                     navigate("/adminfelulet/felhasznalok");
-                else
-                    alert("Error...");
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: "Sikeres módosítás!",
+                        showConfirmButton: false,
+                        timer: 4000
+                    })
+                }
+
+
+                else {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: "Sikertelen módosítás!",
+                        text:"A módsoítás közben valamilyen hiba történt.",
+                        showConfirmButton: false,
+                        timer: 5000
+                    })
+                }
+
             })
-        else
-            alert("Error...");
+        else{
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: "Hiba!",
+                text: 'Kérjük, az összes mezőt töltse ki!',
+                showConfirmButton: false,
+                timer: 5000
+            })
+        }
+            
     }
 
     const isEmpty = () => {
