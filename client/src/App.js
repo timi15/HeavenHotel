@@ -27,6 +27,8 @@ import { Error } from './components/Error';
 import { AuthContext } from './context/auth/AuthContext';
 import { UserContext } from './context/user/UserContext';
 import { FelhasznaloModositas } from './pages/admin/felhasznalok/FelhasznaloModositas';
+import { SzobatipusokKezelese } from './pages/admin/szobatipusok/SzobatipusokKezelese';
+import { SzobatipusModositas } from './pages/admin/szobatipusok/SzobatipusModositas';
 
 
 function App() {
@@ -37,7 +39,7 @@ function App() {
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/roomtype", {
+    axios.get("http://localhost:8080/roomtypes", {
       headers: {
         'Access-Control-Allow-Origin': "localhost:3000"
       }
@@ -109,8 +111,12 @@ function App() {
               currentUser != null && currentUser['isAdmin'] === 1 && (
                 <>
                   <Route path='/adminfelulet' element={<Adminfelulet />} />
+
                   <Route path='/adminfelulet/felhasznalok' element={<FelhasznalokKezelese />} />
                   <Route path='/adminfelulet/felhasznalok/modositas/:id' element={<FelhasznaloModositas />} />
+
+                  <Route path='/adminfelulet/szobak' element={<SzobatipusokKezelese />} />
+                  <Route path='/adminfelulet/szobak/modositas/:id' element={<SzobatipusModositas />} />
                 </>
               )
             }

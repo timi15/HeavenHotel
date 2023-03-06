@@ -19,16 +19,20 @@
 
 */
 
-const { roomTypes, rooms, users, register, login, logout, userModify, userDelete, user } = require('../controllers/user')
+const { getUserByUserId, getUsers, userModificationByUserId, userDeleteByUserId } = require('../controllers/user.js');
+const { register, login, logout } = require('../controllers/auth.js');
+const { getRooms, getRoomTypes, roomModificationById } = require('../controllers/room.js')
 
 function addRoutes(app) {
-    app.get("/roomtype", roomTypes());
-    app.get("/rooms", rooms());
+    app.get("/roomtypes", getRoomTypes());
+    app.put("/roomtypes/:id", roomModificationById())
 
-    app.get("/users", users());
-    app.get("/users/:id", user());
-    app.put("/users/:id", userModify() );
-    app.delete("/users/:id", userDelete());
+    app.get("/rooms", getRooms());
+
+    app.get("/users", getUsers());
+    app.get("/users/:id", getUserByUserId());
+    app.put("/users/:id", userModificationByUserId());
+    app.delete("/users/:id", userDeleteByUserId());
 
     app.post("/register", register());
     app.post("/login", login());
