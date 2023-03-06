@@ -20,7 +20,8 @@ export const Bejelentkezes = () => {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
-                title: 'Error',
+                title: 'Sikertelen bejelentkezés!',
+                text: "Hibás jelszó vagy e-mail-cím!",
                 showConfirmButton: false,
                 timer: 2500
             })
