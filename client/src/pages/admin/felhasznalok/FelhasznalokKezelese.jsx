@@ -63,13 +63,27 @@ export const FelhasznalokKezelese = () => {
                                                 variant='outlined'
                                                 id="button"
                                                 onClick={() => {
-                                                    handleDelete(value.user_id);
+
                                                     Swal.fire({
-                                                        position: 'center',
-                                                        icon: 'success',
-                                                        title: "Sikeresen törölte a felhasználót!",
-                                                        showConfirmButton: false,
-                                                        timer: 3000
+                                                        title: 'Biztos a törlésben?',
+                                                        text: "A felhasználó véglegesen törölve lesz!",
+                                                        icon: 'warning',
+                                                        showCancelButton: true,
+                                                        cancelButtonText: "Mégse",
+                                                        confirmButtonColor: '#3085d6',
+                                                        cancelButtonColor: '#d33',
+                                                        confirmButtonText: 'Igen, törlés!'
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            handleDelete(value.user_id);
+                                                            Swal.fire({
+                                                                title:'Sikeresen törölte a felhasználót!',
+                                                                icon:"success",
+                                                                timer: 3000
+                                                            }                                                                
+                                                                
+                                                            )
+                                                        }
                                                     })
                                                 }}
 

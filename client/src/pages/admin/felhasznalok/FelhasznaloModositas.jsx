@@ -40,14 +40,14 @@ export const FelhasznaloModositas = () => {
                         position: 'center',
                         icon: 'error',
                         title: "Sikertelen módosítás!",
-                        text:"A módsoítás közben valamilyen hiba történt.",
+                        text: "A módsoítás közben valamilyen hiba történt.",
                         showConfirmButton: false,
                         timer: 5000
                     })
                 }
 
             })
-        else{
+        else {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -57,7 +57,7 @@ export const FelhasznaloModositas = () => {
                 timer: 5000
             })
         }
-            
+
     }
 
     const isEmpty = () => {
@@ -68,11 +68,11 @@ export const FelhasznaloModositas = () => {
 
     useEffect(() => {
         axios.get(`http://localhost:8080/users/${id}`)
-            .then(({ data }) =>{
+            .then(({ data }) => {
                 setFormData(data);
                 setCurrent(data)
             }
-                
+
             )
             .catch(err => console.log(err));
 
@@ -86,11 +86,11 @@ export const FelhasznaloModositas = () => {
                     <hr />
                 </div>
                 <label htmlFor="email">E-mail:</label>
-                <input type="email" name="email"  placeholder={current[0]?.email} value={formData?.email || ""} onChange={(e) => handleChange(e)} />
+                <input type="email" name="email" placeholder={current[0]?.email} value={formData?.email || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="name">Név:</label>
-                <input type="text" name="name"  placeholder={current[0]?.name} value={formData?.name || ""} onChange={(e) => handleChange(e)} />
+                <input type="text" name="name" placeholder={current[0]?.name} value={formData?.name || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="address">Lakcím:</label>
-                <input type="text" name="address"  placeholder={current[0]?.address}value={formData?.address || ""} onChange={(e) => handleChange(e)} />
+                <input type="text" name="address" placeholder={current[0]?.address} value={formData?.address || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="phone_number">Telefonszám:</label>
                 <input type="text" placeholder={current[0]?.phone_number} name="phone_number" value={formData?.phone_number || ""} onChange={(e) => handleChange(e)} />
                 <div>
@@ -99,8 +99,35 @@ export const FelhasznaloModositas = () => {
                     <input style={{ marginLeft: 20 }} id="admin" type="radio" name="is_admin" value="1" checked={formData?.is_admin === "1"} onChange={(e) => handleChange(e)} />
                     <label style={{ fontFamily: 'Rozha One' }} htmlFor="admin">Admin</label>
                 </div>
-                <button id='button' className='mt-5' onClick={() => handleSubmit()}>Módosítás</button>
+                <button
+                    id='button'
+                    className='mt-5'
+                    onClick={() =>
+                        Swal.fire({
+                            title: 'Biztos módosítani szeretné?',
+                            text: "A módosítás nem visszavonható művelet!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            cancelButtonText:"Mégse",
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Igen, módosítás!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                handleSubmit()
+                                Swal.fire(
+                                    {
+                                        title:"Sikeresen módosította a felhasználót!",
+                                        icon:"succes",
+                                        timer: 3000
+                                    }
+                                )
+                            }
+                        })}
+                >
+                    Módosítás
+                </button>
             </div>
-        </div>
+        </div >
     )
 }

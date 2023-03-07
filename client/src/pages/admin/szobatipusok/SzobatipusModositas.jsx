@@ -82,20 +82,37 @@ export const SzobatipusModositas = () => {
     return (
         <div className=" container editUser">
             <div className="editForm">
-                <h1 className=' modositas mb-5'>Módosítás - <i style={{ color: "#434A42", fontSize:25 }}> {current[0]?.["room_type_name"]} </i></h1>
+                <h1 className=' modositas mb-5'>Módosítás - <i style={{ color: "#434A42", fontSize: 25 }}> {current[0]?.["room_type_name"]} </i></h1>
                 <div style={{ textAlign: "center" }}>
                     <hr />
                 </div>
                 <label htmlFor="room_type_name">Szobatípus:</label>
-                <input type="text" name="room_type_name" placeholder={current[0]?.room_type_name} value={formData?.room_type_name }  onChange={(e) => handleChange(e)} />
+                <input type="text" name="room_type_name" placeholder={current[0]?.room_type_name} value={formData?.room_type_name} onChange={(e) => handleChange(e)} />
                 <label htmlFor="description">Leírás:</label>
-                <textarea className='w-100' name="description" placeholder={current[0]?.description} rows="10" value={formData?.description } onChange={(e) => handleChange(e)}></textarea>
+                <textarea className='w-100' name="description" placeholder={current[0]?.description} rows="10" value={formData?.description} onChange={(e) => handleChange(e)}></textarea>
                 <label htmlFor="space">Férőhely:</label>
-                <input type="number" name="space" placeholder={current[0]?.space} value={formData?.space } min="0" onChange={(e) => handleChange(e)} />
+                <input type="number" name="space" placeholder={current[0]?.space} value={formData?.space} min="0" onChange={(e) => handleChange(e)} />
                 <label htmlFor="price_night">Ár/éj:</label>
-                <input type="number" name="price_night" placeholder={current[0]?.price_night} value={formData?.price_night } min="0" onChange={(e) => handleChange(e)} />
+                <input type="number" name="price_night" placeholder={current[0]?.price_night} value={formData?.price_night} min="0" onChange={(e) => handleChange(e)} />
 
-                <button id='button' className='mt-5' onClick={() => handleSubmit()}>Módosítás</button>
+                <button
+                    id='button'
+                    className='mt-5'
+                    onClick={() =>
+                        Swal.fire({
+                            title: 'Biztos módosítani szeretné?',
+                            text: "A módosítás nem visszavonható művelet!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            cancelButtonText: "Mégse",
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Igen, módosítás!'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                handleSubmit();
+                            }
+                        })}>Módosítás</button>
             </div>
         </div>
     )
