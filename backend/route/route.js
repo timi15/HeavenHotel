@@ -21,11 +21,12 @@
 
 const { getUserByUserId, getUsers, userModificationByUserId, userDeleteByUserId } = require('../controllers/user.js');
 const { register, login, logout } = require('../controllers/auth.js');
-const { getRooms, getRoomTypes, roomModificationById } = require('../controllers/room.js')
+const { getRooms, getRoomTypes, roomModificationById, getRoomTypeById } = require('../controllers/room.js')
 
 function addRoutes(app) {
     app.get("/roomtypes", getRoomTypes());
-    app.put("/roomtypes/:id", roomModificationById())
+    app.get("/roomtypes/:id", getRoomTypeById())
+    app.put("/roomtypes/:id", roomModificationById());
 
     app.get("/rooms", getRooms());
 

@@ -39,7 +39,7 @@ export const SzobatipusokKezelese = () => {
                                         <td>{value.room_type_name}</td>
                                         <td>{value.description}</td>
                                         <td>{value.space}</td>
-                                        <td>{value.price_night} Ft/éj</td>
+                                        <td >{value.price_night} Ft/éj</td>
 
                                         <td><Button variant='outlined' id="button" onClick={() => handleChange(value.room_type_id)} >Módosítás</Button></td>
 

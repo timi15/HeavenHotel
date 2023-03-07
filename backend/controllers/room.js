@@ -10,6 +10,17 @@ module.exports.getRoomTypes = () => {
     }
 }
 
+module.exports.getRoomTypeById = () => {
+    return (req, res, next) => {
+        myQuery = "SELECT * FROM room_type WHERE room_type_id LIKE ?;";
+
+        db.query(myQuery, [req.params.id], (err, result, fields) => {
+            if (err) throw err;
+            else res.send(result)
+        })
+    }
+}
+
 module.exports.roomModificationById = () => {
     return (req, res, next) => {
         const {  room_type_name, description, space, price_night } = req.body;

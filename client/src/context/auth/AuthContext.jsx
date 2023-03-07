@@ -26,15 +26,9 @@ export const Auth = ({children}) => {
     const logout = async () => {
         const res = await axios.get("http://localhost:8080/logout")
         setCurrentUser(null);
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Ön sikeresen kijelentkezett fiókjából!',
-            showConfirmButton: false,
-            timer: 2500
-          });
+        window.location.href="/bejelentkezes";
           
-          window.location.href="/";
+          
     }
 
     useEffect(() => {
