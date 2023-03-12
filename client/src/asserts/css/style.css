@@ -48,9 +48,10 @@ i:hover {
     color: #434A42;
 }
 
-.MuiTypography-root:invalid{
+.MuiTypography-root:invalid {
     color: "error";
 }
+
 /*cimek*/
 
 .gyik>h4,
@@ -145,12 +146,22 @@ i:hover {
 }
 
 
+#appbar-button:after {
+    display: block;
+}
+
+#appbar-button:hover {
+    color: #fff;
+    box-shadow: inset 200px 0 0 0 #434A42;
+}
+
 #appbar-button {
-    color: #eeeeee;
+    color: white;
+    text-transform: uppercase;
     cursor: pointer;
     padding: 5px 15px;
-    animation: glowing 5000ms infinite;
-    background-color: rgba(0, 0, 0, 0.31);
+    box-shadow: inset 0 0 0 0 black;
+    transition: color 1s ease-in-out, box-shadow .3s ease-in-out;
 
 }
 

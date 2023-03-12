@@ -30,6 +30,7 @@ export const Layout = ({ children }) => {
     ];
     const settings = [
         { name: 'Bejelentkezés', route: '/bejelentkezes' },
+        { name: 'Regisztráció', route: '/regisztracio' },
     ];
 
     const loggedIn = [
@@ -66,7 +67,7 @@ export const Layout = ({ children }) => {
         <>
             <Fejlec />
             <Logo />
-            <AppBar position="static" style={{ background: "rgba(0, 0, 0, 0.31)" }}  >
+            <AppBar position="static" style={{borderStyle:"double", borderColor:"beige", borderWidth:7, background: "rgba(0, 0, 0, 0.31)" }}  >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters  >
 
