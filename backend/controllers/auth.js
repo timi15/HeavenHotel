@@ -26,12 +26,10 @@ module.exports.login = () => {
     return (req, res, next) => {
         db.query("SELECT * FROM user WHERE email = ?;", [req.body.email], (err, data) => {
             if (err) return res.status(500).json(err);
-            if (data.length === 0) return res.status(204).json("User not found.");
-
-            
+            if (data.length === 0) return res.status(204).send("User not found.");
 
             const isCorrectPassword = bcrypt.compareSync(req.body.password, data[0].password);
-            console.log(isCorrectPassword);
+
 
             if (!isCorrectPassword)
                 return res.status(400).send("Wrong username or password.");

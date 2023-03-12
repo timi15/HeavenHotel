@@ -5,8 +5,10 @@ import { Checkbox, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import axios from "axios";
-import { passwordStrength } from 'check-password-strength'
+import { passwordStrength } from 'check-password-strength';
+import { PasswordCustom } from '../PasswordCustom';
 import Swal from 'sweetalert2';
+
 
 
 export const Regisztracio = () => {
@@ -163,7 +165,7 @@ export const Regisztracio = () => {
 
                     {
                         show && (
-                            <div>{passwordStrength(formData?.password).value}</div>
+                            <div style={{textAlign:"right"}}>{passwordStrength(formData?.password, PasswordCustom ).value}</div>
                         )
                     }
 

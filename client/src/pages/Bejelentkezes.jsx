@@ -27,29 +27,24 @@ export const Bejelentkezes = () => {
             })
         } else {
             login(formData)
-                .then(() => navigate("/"))
-                .catch((err) => {
-                    if (err.response.status === 400) {
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'error',
-                            title: 'Sikertelen bejelentkezés!',
-                            text: "Hibás jelszó vagy e-mail-cím!",
-                            showConfirmButton: false,
-                            timer: 2500
-                        })
+                .then((res) => {
+                    if (res.status === 200) {
+                        navigate("/")                    
                     }
+                })
+                .catch((err) => {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Sikertelen bejelentkezés!',
+                        text: "Hibás jelszó vagy e-mail-cím!",
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
+
                 });
         }
-
-
     }
-
-
-
-
-
-
     return (
         <Container component="main" style={{ maxWidth: 800 }}>
 
@@ -64,13 +59,13 @@ export const Bejelentkezes = () => {
                     borderRadius: 5,
                     borderWidth: 7,
                     borderStyle: "double",
-                    borderColor: "#434A42"              
+                    borderColor: "#434A42"
 
                 }}
-                
+
             >
 
-                <i style={{color:"#434A42", fontSize:60}} className="fa fa-unlock-alt mb-3" aria-hidden="true"></i>
+                <i style={{ color: "#434A42", fontSize: 60 }} className="fa fa-unlock-alt mb-3" aria-hidden="true"></i>
 
                 <Typography variant="h4" style={{ fontFamily: "Rozha One" }}>
                     Bejelentkezés
