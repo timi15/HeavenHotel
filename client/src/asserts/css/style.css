@@ -48,6 +48,9 @@ i:hover {
     color: #434A42;
 }
 
+.MuiTypography-root:invalid{
+    color: "error";
+}
 /*cimek*/
 
 .gyik>h4,
@@ -520,6 +523,8 @@ footer {
     text-align: right;
 
 }
+
+
 
 /*FELULET*/
 .felulet {

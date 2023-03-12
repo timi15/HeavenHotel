@@ -66,7 +66,6 @@ export const Kapcsolat = () => {
 
   }
 
-
   return (
 
 
@@ -115,13 +114,7 @@ export const Kapcsolat = () => {
             </div>
           </div>
 
-
-
           <div className='col-md-6 col-xs-6' style={{ textAlign: 'center' }}  >
-
-
-
-
 
             <div style={{ marginBottom: 30, marginTop: 20 }}><h5 className='elerhetosegFelirat mb-5'>Írj nekünk üzenetet!</h5></div>
             <form >

@@ -2,8 +2,6 @@ import React from 'react'
 
 export const Rolunk = () => {
     return (
-        
-
             <div className="section">
                 <div className="rolunk">
                 <div className="row">
@@ -22,10 +20,5 @@ export const Rolunk = () => {
                 </div>
             </div>
             </div>
-
-       
-
-
-
     )
 }

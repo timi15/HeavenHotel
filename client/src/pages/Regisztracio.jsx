@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
+import { Checkbox, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import axios from "axios";
+import { passwordStrength } from 'check-password-strength'
 import Swal from 'sweetalert2';
+
 
 export const Regisztracio = () => {
     const [formData, setFormData] = useState({});
 
+    const [show, setShow] = useState(false);
+
+
     const nameformat = /^[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó\D]*$/;
-    const passformat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,16}$/;
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const addressformat = /^([0-9]{4}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[,]{1}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[\wa-zíéáűúőó]*[ ]{1}[\w][a-z íéáűúőó\./\-0-9]*)$/;
 
@@ -26,7 +30,7 @@ export const Regisztracio = () => {
                 formData.name.match(nameformat) &&
                 formData.email.match(mailformat) &&
                 formData.address.match(addressformat) &&
-                formData.password.match(passformat) &&
+                passwordStrength(formData?.password) === "strong" &&
                 document.getElementById("szerzodes").checked === true) {
 
                 e.preventDefault();
@@ -35,19 +39,19 @@ export const Regisztracio = () => {
                         "Content-Type": "application/json"
                     }
                 })
-                    .then(() =>
-                        navigate("/bejelentkezes"),
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: "Sikeres regisztráció!",
-                            text: 'Jelentkezzen be fiókjába!',
-                            showConfirmButton: false,
-                            timer: 4000
-                        }));
-
-
-
+                    .then((res) => {
+                        if (res.status === 200) {
+                            navigate("/bejelentkezes")
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: "Sikeres regisztráció!",
+                                text: 'Jelentkezzen be fiókjába!',
+                                showConfirmButton: false,
+                                timer: 4000
+                            })
+                        }
+                    });
             } else {
                 Swal.fire({
                     position: 'center',
@@ -73,6 +77,8 @@ export const Regisztracio = () => {
 
     }
 
+
+
     return (
 
         <Container style={{ maxWidth: 800 }}>
@@ -80,7 +86,7 @@ export const Regisztracio = () => {
             <Box
                 sx={{
                     margin: 5,
-                    padding: 5,
+                    padding: 10,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -100,74 +106,74 @@ export const Regisztracio = () => {
 
                 <Box sx={{ mt: 1 }}>
 
-                    <div>
-                        <TextField
-                            placeholder='pl.: Teszt Elek'
-                            required
-                            margin="normal"
-                            fullWidth
-                            label="Név"
-                            name="name"
-                            onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
-                        />
-                    </div>
+                    <TextField
+                        placeholder='pl.: Teszt Elek'
+                        required
+                        margin="normal"
+                        fullWidth
+                        label="Név"
+                        name="name"
+                        onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
+                    />
+
+                    <TextField
+                        placeholder='pl.: 06301234567'
+                        required
+                        margin="normal"
+                        fullWidth
+                        name="phoneNumber"
+                        label="Telefonszám"
+                        onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
+                    />
+
+                    <TextField
+                        placeholder='pl.: tesztelek01@gmail.com'
+                        required
+                        margin="normal"
+                        fullWidth
+                        name="email"
+                        label="E-mail cím"
+                        type="email"
+                        onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
+                    />
+
+                    <TextField
+                        placeholder='4400 Nyíregyháza, Kitalált utca 12.'
+                        required
+                        margin="normal"
+                        fullWidth
+                        label="Lakcím"
+                        name="address"
+                        onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
+                    />
+
+                    <TextField
+                        placeholder='min 8, max 16 karakter'
+                        required
+                        margin="normal"
+                        fullWidth
+                        name="password"
+                        label="Jelszó"
+                        type="password"
+                        
+                        onMouseEnter={() => setShow(true)}
+                        onMouseLeave={() => setShow(false)}
+                        onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
+                    />
+
+                    {
+                        show && (
+                            <div>{passwordStrength(formData?.password).value}</div>
+                        )
+                    }
 
 
+                    <Checkbox id='szerzodes'  style={{ color: '#434A42' }} />
+                    <label htmlFor="aszf">
+                        {<div style={{ marginTop: 30 }}><span>Elfogadom az</span> <Link to="/altalanos_szerzodesi_feltetelek" target="_blank" style={{ color: "#434A42" }}>ÁSZF-et</Link> <span>és az</span> <Link to="/adatkezelesi_tajekoztato" target="_blank" style={{ color: "#434A42" }}>adatvédelmi tájékoztatót</Link>.</div>}
+                    </label>
 
-                    <div>
-                        <TextField
-                            placeholder='pl.: 06301234567'
-                            required
-                            margin="normal"
-                            fullWidth
-                            name="phoneNumber"
-                            label="Telefonszám"
-                            onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
-                        />
-                    </div>
 
-                    <div>
-                        <TextField
-                            placeholder='pl.: tesztelek01@gmail.com'
-                            required
-                            margin="normal"
-                            fullWidth
-                            name="email"
-                            label="E-mail cím"
-                            type="email"
-                            onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
-                        />
-                    </div>
-
-                    <div>
-                        <TextField
-                            placeholder='4400 Nyíregyháza, Kitalált utca 12.'
-                            required
-                            margin="normal"
-                            fullWidth
-                            label="Lakcím"
-                            name="address"
-                            onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
-                        />
-                    </div>
-
-                    <div>
-                        <TextField
-                            placeholder='min 8, max 16 karakter'
-                            required
-                            margin="normal"
-                            fullWidth
-                            name="password"
-                            label="Jelszó"
-                            type="password"
-                            onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
-                        />
-                    </div>
-
-                    <FormGroup>
-                        <FormControlLabel control={<Checkbox id='szerzodes' style={{ color: '#434A42' }} />} label={<div>
-                            <span>Elfogadom az</span> <Link to="/altalanos_szerzodesi_feltetelek" target="_blank" style={{ color: "#434A42" }}>ÁSZF-et</Link> <span>és az</span> <Link to="/adatkezelesi_tajekoztato" target="_blank" style={{ color: "#434A42" }}>adatvédelmi tájékoztatót</Link>.</div>} />
-                    </FormGroup>
 
                     <div style={{ textAlign: 'center' }}>
                         <Button

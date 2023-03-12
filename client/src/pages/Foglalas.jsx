@@ -160,18 +160,8 @@ export const Foglalas = () => {
                 </div>
 
                 <div className="row" id="result" style={{ justifyContent: "center", marginTop: 50 }}>
-
-
-
                 </div>
             </div>
-
-
-
-
-
-
-
         </div>
     )
 }

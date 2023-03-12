@@ -64,9 +64,10 @@ export const Bejelentkezes = () => {
                     borderRadius: 5,
                     borderWidth: 7,
                     borderStyle: "double",
-                    borderColor: "#434A42"
+                    borderColor: "#434A42"              
 
                 }}
+                
             >
 
                 <i style={{color:"#434A42", fontSize:60}} className="fa fa-unlock-alt mb-3" aria-hidden="true"></i>

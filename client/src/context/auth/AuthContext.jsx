@@ -9,7 +9,6 @@ export const Auth = ({children}) => {
        JSON.parse(localStorage.getItem("user")) || null
     );
 
-
     const login = async (formData) => {
         const res = await axios.post("http://localhost:8080/login", formData, {withCredentials: true}); 
         setCurrentUser(res.data);
@@ -27,8 +26,6 @@ export const Auth = ({children}) => {
         const res = await axios.get("http://localhost:8080/logout")
         setCurrentUser(null);
         window.location.href="/bejelentkezes";
-          
-          
     }
 
     useEffect(() => {

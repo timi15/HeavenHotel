@@ -7,8 +7,6 @@ import { Logo } from './Logo'
 import { AuthContext } from '../context/auth/AuthContext'
 
 
-
-
 export const Layout = ({ children }) => {
 
     const { currentUser, logout } = useContext(AuthContext);
@@ -64,7 +62,6 @@ export const Layout = ({ children }) => {
     };
 
 
-
     return (
         <>
             <Fejlec />
@@ -72,9 +69,6 @@ export const Layout = ({ children }) => {
             <AppBar position="static" style={{ background: "rgba(0, 0, 0, 0.31)" }}  >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters  >
-
-
-
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -104,8 +98,6 @@ export const Layout = ({ children }) => {
                                 onClose={() => handleCloseNavMenu()}
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
-
-
                                 }}
                             >
                                 {currentUser != null && currentUser['isAdmin'] === 1 && (adminPages.map((page, index) => (

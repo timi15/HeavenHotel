@@ -14,8 +14,6 @@ import kep8 from "../img/latnivalok/muzeumfalu2.jpg"
 import kep9 from "../img/latnivalok/muzeumfalu3.jpg"
 
 
-
-
 export const Latnivalok = () => {
     return (
         <>

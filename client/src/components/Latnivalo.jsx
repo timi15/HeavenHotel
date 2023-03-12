@@ -34,8 +34,6 @@ export const Latnivalo = (props) => {
                 </Carousel.Item>
             </Carousel>
 
-
-
             <p style={{ marginTop: 20 }}>{props.content}</p>
 
         </div>

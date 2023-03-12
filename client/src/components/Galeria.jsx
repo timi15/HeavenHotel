@@ -23,13 +23,7 @@ export const Galeria = () => {
           items: 1
         }
       };
-
-
-
     return (
-
-        
-            
                 <div className="galeria">
                     <Carousel responsive={responsive} autoPlay={true} arrows={false} autoPlaySpeed={2000}  infinite={true}   >
                         
@@ -51,9 +45,5 @@ export const Galeria = () => {
                         
                     </Carousel>
                 </div>
-            
-        
-
-
     )
 }

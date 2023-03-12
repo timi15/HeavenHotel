@@ -67,19 +67,7 @@ export const Szobak = () => {
 
 
                         </Card>
-
-
-
                     )}
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
 
