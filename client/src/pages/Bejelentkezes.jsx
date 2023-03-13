@@ -28,9 +28,14 @@ export const Bejelentkezes = () => {
         } else {
             login(formData)
                 .then((res) => {
-                    if (res.status === 200) {
-                        navigate("/")                    
-                    }
+                    navigate("/")
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Ön sikeresen bejelentkezett fiókjába!',
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
                 })
                 .catch((err) => {
                     Swal.fire({

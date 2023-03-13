@@ -174,7 +174,6 @@ export const Layout = ({ children }) => {
 
                                 {currentUser !== null && (loggedIn.map((setting, index) => (
                                     <MenuItem key={index} onClick={() => logout()}>
-
                                         <Typography id='appbar-element' textAlign="center">{setting.name}</Typography>
                                     </MenuItem>
                                 )))}
