@@ -5,14 +5,17 @@ import { Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import axios from "axios";
+import { passwordStrength } from 'check-password-strength';
+import { PasswordCustom } from '../PasswordCustom';
+import { validate } from 'react-email-validator';
 import Swal from 'sweetalert2';
 
 export const Regisztracio = () => {
     const [formData, setFormData] = useState({});
 
+    const [show, setShow] = useState(false);
+
     const nameformat = /^[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó\D]*$/;
-    const passformat = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,16}$/;
-    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const addressformat = /^([0-9]{4}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[,]{1}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[\wa-zíéáűúőó]*[ ]{1}[\w][a-z íéáűúőó\./\-0-9]*)$/;
 
 
@@ -23,10 +26,10 @@ export const Regisztracio = () => {
 
         if (Object.entries(formData).length === 5) {
             if (
-                formData.name.match(nameformat) &&
-                formData.email.match(mailformat) &&
-                formData.address.match(addressformat) &&
-                formData.password.match(passformat) &&
+                formData?.name.match(nameformat) &&
+                validate(formData?.email) &&
+                formData?.address.match(addressformat) &&
+                passwordStrength(formData?.password, PasswordCustom).value === "Erős" &&
                 document.getElementById("szerzodes").checked === true) {
 
                 e.preventDefault();
@@ -160,9 +163,17 @@ export const Regisztracio = () => {
                             name="password"
                             label="Jelszó"
                             type="password"
+                            onKeyDown={() => setShow(true)}
+                            onMouseLeave={() => setShow(false)}
                             onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
                         />
                     </div>
+
+                    {
+                        show && (
+                            <div style={{textAlign:"right"}}>{passwordStrength(formData?.password, PasswordCustom ).value}</div>
+                        )
+                    }
 
                     <FormGroup>
                         <FormControlLabel control={<Checkbox id='szerzodes' style={{ color: '#434A42' }} />} label={<div>
