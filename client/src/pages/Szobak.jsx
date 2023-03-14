@@ -14,7 +14,7 @@ import { RoomTypeContext } from '../context/room/RoomTypeContext';
 
 export const Szobak = () => {
 
-    const {roomTypes} = useContext(RoomTypeContext); 
+    const { roomTypes } = useContext(RoomTypeContext);
 
     const roomPic = [room1, room2, room3, room4, room5, room6, room7];
 
@@ -32,6 +32,7 @@ export const Szobak = () => {
 
                 <div className="row" >
 
+
                     {Array.from(roomTypes).map((val, index) =>
                         <Card id="roomCard" data-aos="fade-up" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
                             <CardMedia
@@ -44,7 +45,7 @@ export const Szobak = () => {
 
                             <CardContent>
 
-                                <Typography variant="h6" component="div" style={{fontFamily:"Rozha One", textTransform:"lowercase"}}>
+                                <Typography variant="h6" component="div" style={{ fontFamily: "Rozha One", textTransform: "lowercase" }}>
                                     {val.room_type_name}
                                 </Typography>
 
@@ -68,6 +69,7 @@ export const Szobak = () => {
 
                         </Card>
                     )}
+
                 </div>
             </div>
 

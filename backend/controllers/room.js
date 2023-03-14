@@ -36,7 +36,7 @@ module.exports.roomModificationById = () => {
 }
 
 module.exports.getRooms = () => {
-    return (req, res, next) => {
+    return  (req, res, next) => {
         myQuery = "SELECT * FROM room INNER JOIN room_type ON room.room_type_id = room_type.room_type_id;";
 
         db.query(myQuery, (err, result, fields) => {

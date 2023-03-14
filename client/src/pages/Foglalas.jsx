@@ -51,7 +51,7 @@ export const Foglalas = () => {
         });
     }, []);
 
-   // console.log(new Date(formData?.checkInDate).toLocaleDateString("sv-SE"), new Date(formData?.checkOutDate).toLocaleDateString("sv-SE"), type)
+    console.log(new Date(formData?.checkInDate).toLocaleDateString("sv-SE"), new Date(formData?.checkOutDate).toLocaleDateString("sv-SE"), type)
 
     return (
 
@@ -94,7 +94,7 @@ export const Foglalas = () => {
                                 label="Szobatípus"
                                 value={type}
                                 onChange={handleChangeRoomType}
-                                
+
                             >
                                 <MenuItem value="">
                                     <em>nincs kiválasztva</em>
