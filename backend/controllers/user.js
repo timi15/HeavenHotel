@@ -3,7 +3,7 @@ const db = require("../service/connection");
 
 
 module.exports.getUsers = () => {
-    return (req, res, next) => {
+    return (req, res) => {
         myQuery = "SELECT * FROM user;";
 
         db.query(myQuery, (err, result, fields) => {
@@ -14,7 +14,7 @@ module.exports.getUsers = () => {
 }
 
 module.exports.getUserByUserId = () => {
-    return (req, res, next) => {
+    return (req, res) => {
         myQuery = "SELECT * FROM user WHERE user_id LIKE ?;";
 
         db.query(myQuery, [req.params.id], (err, result, fields) => {

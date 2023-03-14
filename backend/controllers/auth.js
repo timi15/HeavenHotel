@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const db = require("../service/connection");
 
 module.exports.register = () => {
-    return (req, res, next) => {
+    return (req, res) => {
         const { email, password, name, address, phoneNumber } = req.body;
         
 
@@ -23,7 +23,7 @@ module.exports.register = () => {
 }
 
 module.exports.login = () => {
-    return (req, res, next) => {
+    return (req, res) => {
         db.query("SELECT * FROM user WHERE email = ?;", [req.body.email], (err, data) => {
             if (err) return res.status(500).json(err);
             if (data.length === 0) return res.status(204).send("User not found.");
@@ -47,7 +47,7 @@ module.exports.login = () => {
 }
 
 module.exports.logout = () => {
-    return (req, res, next) => {
+    return (req, res) => {
         res.clearCookie("access_token", {
             sameSite: "none",
             secure: true
