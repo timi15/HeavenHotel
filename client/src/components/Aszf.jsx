@@ -10,7 +10,7 @@ export const Aszf = () => {
 
                 <h5>1. Általános rendelkezések</h5>
 
-                <p>1.1. Az Általános Szállodai Szerződéses Feltételek (továbbiakban ÁSZF) azt a szerződéses tartalmat foglalják össze, melyek alapján a Heaven Hotel Kft. – Heaven Hotel **** - (4400 Nyíregyháza Hotel utca), továbbiakban Szolgáltató) általánosságban elszállásolási szerződést köt Vendégeivel.</p>
+                <p>1.1. Az Általános Szállodai Szerződéses Feltételek (továbbiakban ÁSZF) azt a szerződéses tartalmat foglalják össze, melyek alapján a Heaven Hotel Kft. – Heaven Hotel **** - (4400 Nyíregyháza, Hotel utca 124.), továbbiakban Szolgáltató) általánosságban elszállásolási szerződést köt Vendégeivel.</p>
 
                 <h5>2. Szerződő felek</h5>
 
@@ -23,7 +23,7 @@ export const Aszf = () => {
                 <p>3.2. A Szerződés módosításához és/vagy kiegészítéséhez a Felek által aláírt írásbeli megállapodás szükséges.</p>
 
 
-                <h5>4. Az elszállásolás kezdete és vége /check-in; check-out/</h5>
+                <h5>4. Az elszállásolás kezdete és vége </h5>
 
 
                 <p>4.1. A Vendégnek joga van a bérelt helyiségeket a megállapodás szerinti nap 15.00 órától elfoglalni.</p>

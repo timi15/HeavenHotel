@@ -17,6 +17,8 @@ export const Foglalas = () => {
     const { roomTypes } = useContext(RoomTypeContext);
     const { currentUser } = useContext(AuthContext);
 
+    const [availableRooms, setAvailableRooms] = useState([]);
+
     const [checkInDate, setCheckInDate] = useState(new Date());
     const [checkOutDate, setCheckOutDate] = useState(new Date());
     const [type, setType] = useState('');
@@ -39,8 +41,28 @@ export const Foglalas = () => {
         setType(event.target.value);
     };
 
+
+
     const handleSubmit = () => {
-        console.log(checkInDate, checkOutDate, type);
+        // console.log(checkInDate, checkOutDate, type);
+        axios.post("http://localhost:8080/reservations/availablerooms", { type, checkInDate, checkOutDate }, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((res) => {
+            if (res.status === 200) {
+                setAvailableRooms(res.data)
+            }
+        }).catch((err) => {
+            Swal.fire(
+                {
+                    icon: "warning",
+                    title: "Sajnos nincs szabad szoba!",
+                    text: "Kérem, válasszon másik időintervallumot!",
+                    confirmButtonText: 'Megértettem!'
+                }
+            )
+        })
     };
 
     const reservation = (roomId, priceNight) => {
@@ -136,7 +158,7 @@ export const Foglalas = () => {
 
 
 
-                    <Button onClick={() => {setShow(true); handleSubmit()}} id="button" variant="outlined" style={{ margin: 15 }}>
+                    <Button onClick={() => { setShow(true); handleSubmit() }} id="button" variant="outlined" style={{ margin: 15 }}>
                         Szabad szobák keresése
                     </Button>
                 </form>
@@ -145,16 +167,21 @@ export const Foglalas = () => {
 
                 <div className="row">
                     {
-                        (show && rooms.length !==0 && (
-                            rooms.map((value, index) =>
+                        (show && (
+                            availableRooms.map((value, index) =>
 
-                                <Card className='room' data-aos="fade-up" sx={{ maxWidth: "100%", margin: 2, padding: 2, backgroundColor: "#F4F1DE", borderColor: "#434A42", borderRadius: 10, borderWidth: 7, borderStyle: "double" }} key={index}>
+                                <Card className='room' sx={{ maxWidth: "100%", margin: 2, padding: 2, backgroundColor: "#F4F1DE", borderColor: "#434A42", borderRadius: 10, borderWidth: 7, borderStyle: "double" }} key={index}>
 
                                     <CardContent>
+
+                                        <Typography variant='subtitle2'>
+                                           Foglalni kívánt időszak: {new Date(checkInDate).toLocaleDateString("sv-SE")}   { new Date(checkOutDate).toLocaleDateString("sv-SE")}
+                                        </Typography>
 
                                         <Typography variant="h5" component="div" style={{ fontFamily: "Rozha One", textTransform: "lowercase", textAlign: "center" }}>
                                             {value.room_type_name}
                                         </Typography>
+                                        
 
                                         <hr style={{ margin: 'auto', padding: 15 }} />
                                         <Typography variant="body1" textAlign={'justify'} >
@@ -171,7 +198,7 @@ export const Foglalas = () => {
                                         <Typography variant="body1" color="text.secondary">
                                             Szobaár: {value.price_night} Ft. / Éjszakától
                                         </Typography>
-                                        <Typography variant="body1" color="red" style={{textAlign:"center"}}>
+                                        <Typography variant="body1" color="red" style={{ textAlign: "center" }}>
                                             Fizetendő összeg: {value.price_night * nightNumber} Ft
                                         </Typography>
                                     </CardContent>
@@ -184,8 +211,6 @@ export const Foglalas = () => {
                                 </Card>
 
                             )
-                        )) || (show && rooms.length  === 0  &&(
-                            <div>Sajnos ebben az intervallumban nincs szabad szobánk</div>
                         ))
                     }
                 </div>

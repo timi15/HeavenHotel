@@ -22,7 +22,7 @@
 const { getUserByUserId, getUsers, userModificationByUserId, userDeleteByUserId } = require('../controllers/user.js');
 const { register, login, logout } = require('../controllers/auth.js');
 const { getRooms, getRoomTypes, roomModificationById, getRoomTypeById } = require('../controllers/room.js');
-const {  createBooking, getAllBookings } = require('../controllers/booking.js');
+const {  createBooking, getAllBookings, getAvailableRooms } = require('../controllers/booking.js');
 
 function addRoutes(app) {
     app.get("/roomtypes", getRoomTypes());
@@ -32,7 +32,7 @@ function addRoutes(app) {
     app.get("/rooms", getRooms());
 
     app.post("/reservations", createBooking())
-    app.get("/reservations", getAllBookings())
+    app.post("/reservations/availablerooms", getAvailableRooms())
 
     app.get("/users", getUsers());
     app.get("/users/:id", getUserByUserId());
