@@ -13,8 +13,8 @@ sendMail =(email, checkInDate, checkOutDate, nightNumber, amount )=> {
         service:"gmail",
         secure: false,
         auth: {
-            user: 'sealsheavenhotel@gmail.com',
-            pass: 'yzkxowdbqihxxtug'
+            user: 'saleshotelheaven01@gmail.com',
+            pass: 'lxeehudyrtcdgscd'
         },
         tls: {
             rejectUnauthorized: false
@@ -22,7 +22,7 @@ sendMail =(email, checkInDate, checkOutDate, nightNumber, amount )=> {
     }));
 
     const mailOptions = {
-        from: 'sealsheavenhotel@gmail.com',
+        from: 'saleshotelheaven01@gmail.com',
         to: `${email}`,
         subject: 'Sikeres foglalás',
         html: message

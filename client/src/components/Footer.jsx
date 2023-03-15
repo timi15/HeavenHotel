@@ -34,8 +34,8 @@ export const Footer = () => {
 
                                         </li>
                                         <li >
-                                            <a style={{ color: "black", textDecoration: "none" }} href="mailto: sealsheavenhotel@gmail.com">
-                                                <i className="fa fa-envelope fa-lg"></i>sealsheavenhotel@gmail.com
+                                            <a style={{ color: "black", textDecoration: "none" }} href="mailto: saleshotelheaven01@gmail.com">
+                                                <i className="fa fa-envelope fa-lg"></i>saleshotelheaven01@gmail.com
                                             </a>
 
                                         </li>
