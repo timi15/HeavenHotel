@@ -27,15 +27,15 @@ export const Footer = () => {
 
                                         </li>
                                         <li>
-                                            <a style={{ color: "black", textDecoration: "none" }} href="tel:+36302466287">
+                                            <a style={{ color: "black", textDecoration: "none" }} href="tel:+36302346421">
                                                 <i className="fa fa-phone fa-lg"></i>+36-30-234-6421
 
                                             </a>
 
                                         </li>
                                         <li >
-                                            <a style={{ color: "black", textDecoration: "none" }} href="mailto: vargatimi505@gmail.com">
-                                                <i className="fa fa-envelope fa-lg"></i>sales@hotelheaven.com
+                                            <a style={{ color: "black", textDecoration: "none" }} href="mailto: sealsheavenhotel@gmail.com">
+                                                <i className="fa fa-envelope fa-lg"></i>sealsheavenhotel@gmail.com
                                             </a>
 
                                         </li>

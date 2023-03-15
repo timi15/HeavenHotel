@@ -76,9 +76,10 @@ export const Foglalas = () => {
                 timer: 5000
             })
         } else {
-            const userId = currentUser['userId']
+            const userId = currentUser['userId'];
+            const email= currentUser['email'];
             const amount = priceNight * nightNumber;
-            axios.post("http://localhost:8080/reservations", { userId, roomId, checkInDate, checkOutDate, nightNumber, amount }, {
+            axios.post("http://localhost:8080/reservations", { email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount }, {
                 headers: {
                     "Content-Type": "application/json"
                 }

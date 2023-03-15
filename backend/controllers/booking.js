@@ -1,9 +1,45 @@
 const db = require("../service/connection");
 const moment = require('moment');
+const nodemailer = require("nodemailer");
+const smtpTransport = require('nodemailer-smtp-transport');
+
+moment.locale("hu")
+
+sendMail =(email, checkInDate, checkOutDate, nightNumber, amount )=> {
+
+    const message=`<h4>Tisztelt ${email}!</h4><p>Köszönjük, hogy nálunk fogalalt, melyet ezen levéllel visszaigazolunk.</p><p ><b>Foglalás adatai:</b></p><ul><li><p>Érkezés: <b>${moment(checkInDate).format('LL')}</b> </p></li> <li><p>Távozás: <b>${moment(checkOutDate).format('LL')}</b> </p></li><li><p>Éjszakák száma: <b>${nightNumber}</b> </p></li><li><p>Fizetendő összeg: <b>${amount} Ft</b> </p></li></ul><br><p>Tisztelettel <br>Heaven Hotel csapata</p><br><hr ><p > Ha bármilyen kérdése van, keresse recepciónkat az alábbi telefonszámon: +36-30-234-6421</p>`
+
+    const transporter = nodemailer.createTransport(smtpTransport({
+        service:"gmail",
+        secure: false,
+        auth: {
+            user: 'sealsheavenhotel@gmail.com',
+            pass: 'yzkxowdbqihxxtug'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    }));
+
+    const mailOptions = {
+        from: 'sealsheavenhotel@gmail.com',
+        to: `${email}`,
+        subject: 'Sikeres foglalás',
+        html: message
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
 
 module.exports.createBooking = () => {
     return (req, res) => {
-        const { userId, roomId, checkInDate, checkOutDate, nightNumber, amount } = req.body;
+        const {email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount } = req.body;
 
         const checkIn = moment(checkInDate);
         const checkOut = moment(checkOutDate);
@@ -36,6 +72,8 @@ module.exports.createBooking = () => {
                 }
 
                 res.status(201).send({ message: 'Reservation created' });
+                sendMail(email, checkInDate, checkOutDate, nightNumber, amount);
+
             });
         });
     }
@@ -61,3 +99,4 @@ module.exports.getAvailableRooms = () => {
         })
     }
 }
+
