@@ -47,12 +47,6 @@ export const Footer = () => {
                                         </li>
                                     </ul>
 
-
-
-
-
-
-
                                 </div>
                             </div>
 
@@ -60,9 +54,9 @@ export const Footer = () => {
                                 <div className="footer" >
                                     <h3 className="footer-title">Információk</h3>
                                     <hr />
-                                    <Link className='information' to="adatkezelesi_tajekoztato" target='_top'><p>Adatkezelési tájékoztató</p></Link>
-                                    <Link className='information' to="altalanos_szerzodesi_feltetelek" target='_top'><p>Általános Szerződési Feltételek (ÁSZF)</p></Link>
-                                    <Link className='information' to="gyakori_kerdesek_es_valaszok" target='_top'><p>Gyakori kérdések és válaszok</p></Link>
+                                    <Link className='information' to="adatkezelesi_tajekoztato" target='_top'><p className='hover-underline-animation'> Adatkezelési tájékoztató</p></Link>
+                                    <Link className='information' to="altalanos_szerzodesi_feltetelek" target='_top'><p className='hover-underline-animation'>Általános Szerződési Feltételek (ÁSZF)</p></Link>
+                                    <Link className='information' to="gyakori_kerdesek_es_valaszok" target='_top'><p className='hover-underline-animation'>Gyakori kérdések és válaszok</p></Link>
 
                                 </div>
                             </div>

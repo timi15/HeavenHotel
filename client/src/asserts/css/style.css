@@ -28,9 +28,7 @@ h4 {
     text-transform: capitalize;
 }
 
-.link :hover {
-    color: white;
-}
+
 
 
 
@@ -177,22 +175,6 @@ i:hover {
 
 }
 
-@keyframes glowing {
-    0% {
-
-        box-shadow: 0 0 0px white;
-    }
-
-    50% {
-
-        box-shadow: 0 0 20px white;
-    }
-
-    100% {
-
-        box-shadow: 0 0 0px white;
-    }
-}
 
 
 
@@ -241,9 +223,6 @@ footer {
 
 
 
-
-
-
 .information {
     font-size: 17px;
     text-align: center;
@@ -281,13 +260,26 @@ footer {
     font-size: 13px;
     background-color: #918b76;
     opacity: 0.8;
-
 }
 
-.fejlec-icons>i {
-    margin: 0px 10px;
-    font-size: 20px;
+@media only screen and (max-width: 777px) {
+    .fejlec{
+        height: 130px;
+    }
 }
+
+.fejlecSpan{
+    font-size: 16px;
+    margin-right: 20px;
+    color: white;
+    font-weight: bold;
+    
+}
+
+.fejlecLink :hover{
+    color: #434A42;
+}
+
 
 .logo {
     background-color: #434A42;
@@ -407,8 +399,10 @@ footer {
 }
 
 .sightCarousel a {
+    text-decoration: none;
     color: #434A42;
 }
+
 
 .sightCarousel {
     text-align: justify;
@@ -524,7 +518,7 @@ footer {
 
 .accordion-button:after {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
-  }
+}
 
 
 
@@ -620,3 +614,28 @@ td {
 .editForm>label {
     font-family: 'Rozha One', serif;
 }
+
+ /*under-line-animation*/
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }

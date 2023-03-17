@@ -69,8 +69,7 @@ export const Bejelentkezes = () => {
                 }}
 
             >
-
-                <i style={{ color: "#434A42", fontSize: 60 }} className="fa fa-unlock-alt mb-3" aria-hidden="true"></i>
+                <i style={{ color: "#434A42", fontSize: 60 }} className="fa fa-sign-in mb-3" aria-hidden="true"></i>
 
                 <Typography variant="h4" style={{ fontFamily: "Rozha One" }}>
                     Bejelentkezés
