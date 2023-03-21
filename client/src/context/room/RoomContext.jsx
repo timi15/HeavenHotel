@@ -24,19 +24,9 @@ export const Room = ({ children }) => {
         }
     };
 
-    const handleDelete = async (id) => {
-        setRooms(rooms.filter((value) => value.id !== id));
-        try {
-            const res = await axios.delete(`http://localhost:8080/rooms/${id}`);
-            return true;
-        } catch (err) {
-            return false;
-        }
-    };
-
     return (
 
-        <RoomContext.Provider value={{rooms, handleSet, handleChange, handleDelete}}>
+        <RoomContext.Provider value={{rooms, handleSet, handleChange}}>
             {children}
         </RoomContext.Provider>
     

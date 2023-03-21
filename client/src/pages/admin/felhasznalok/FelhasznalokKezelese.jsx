@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../../../context/user/UserContext';
 import Swal from "sweetalert2";
 
@@ -27,20 +27,24 @@ export const FelhasznalokKezelese = () => {
 
         <>
             <h1 className='kezelofeluletFelirat mb-5 alcim'>Regisztrált felhasználók</h1>
-            <div className="container mt-5 mb-5" style={{ textAlign: 'center' }}>
-
+            <div className="container mt-5 mb-5" >
+                <div style={{ marginBottom: 50 }}>
+                    <Link to="/adminfelulet">
+                        <Button id='button' variant='outlined'>Vissza az adminfelületre</Button>
+                    </Link>
+                </div>
                 <div className="table-responsive">
-                    <table className="table table-sm  table-hover ">
+                    <table className="table table-sm  table-hover" style={{ maxWidth: '100%', textAlign:"center" }}>
                         <thead >
                             <tr>
-                                <th>ID</th>
-                                <th>Név</th>
-                                <th>E-mail-cím</th>
-                                <th>Lakcím</th>
-                                <th>Telefonszám</th>
-                                <th>Adminisztrátor</th>
-                                <th></th>
-                                <th></th>
+                                <th style={{ width: "2%" }}>ID</th>
+                                <th style={{ width: "15%" }}>Név</th>
+                                <th style={{ width: "15%" }}>E-mail-cím</th>
+                                <th style={{ width: "40%" }}> Lakcím</th>
+                                <th style={{ width: "8%" }}>Telefonszám</th>
+                                <th style={{ width: "10%" }}>Admin</th>
+                                <th style={{ width: "5%" }}></th>
+                                <th style={{ width: "5%" }}></th>
                             </tr>
                         </thead>
 
@@ -77,11 +81,11 @@ export const FelhasznalokKezelese = () => {
                                                         if (result.isConfirmed) {
                                                             handleDelete(value.user_id);
                                                             Swal.fire({
-                                                                title:'Sikeresen törölte a felhasználót!',
-                                                                icon:"success",
+                                                                title: 'Sikeresen törölte a felhasználót!',
+                                                                icon: "success",
                                                                 timer: 3000
-                                                            }                                                                
-                                                                
+                                                            }
+
                                                             )
                                                         }
                                                     })

@@ -20,7 +20,7 @@ module.exports.getRoomTypeById = () => {
     }
 }
 
-module.exports.roomModificationById = () => {
+module.exports.roomTypeModificationById = () => {
     return (req, res) => {
         const {  room_type_name, description, space, price_night } = req.body;        
         db.query("UPDATE room_type SET room_type_name = ?, description = ?, space = ?, price_night = ? WHERE room_type_id LIKE ?;",
@@ -42,4 +42,27 @@ module.exports.getRooms = () => {
         })
 
     }
+}
+
+module.exports.getRoomById = () => {
+    return (req, res) => {
+        myQuery = "SELECT room_id, room_number, room.room_type_id FROM room  WHERE room_id LIKE ?;";
+        db.query(myQuery, [req.params.id], (err, result, fields) => {
+            if (err) throw err;
+            else res.send(result)
+        })
+    }
+}
+
+module.exports.roomModificationById = () => {
+    return (req, res) => {
+        const {  room_number, room_type_id } = req.body;        
+        db.query("UPDATE room SET room_number = ?, room_type_id= ? WHERE room_id LIKE ?;",
+            [room_number, room_type_id, req.params.id],
+            (err) => {
+                if (err) return res.send(err);
+                res.send("Updated...");
+            });
+    }
+
 }

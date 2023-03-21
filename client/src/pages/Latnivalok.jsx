@@ -25,7 +25,7 @@ export const Latnivalok = () => {
                         <Latnivalo link="https://muzeumfalu.hu/" place="Sóstói múzeumfalu" pic1={kep7} pic2={kep8} pic3={kep9} content="Magyarország egyik legnagyobb regionális szabadtéri múzeuma, amely egy 19. századi falusi környezetbe repít vissza, ahol megismerhetjük, hogyan éltek a szegény- és középparasztok, illetve a kisnemesek abban az időben. Az öt tájegység bemutatásán kívül a skanzen központjában kialakítottak egy orsós faluközpontot, melynek főterén áll a templom a harangtoronnyal, környezetében pedig egy iskola, egy szatócsbolt, egy paplak, egy tűzoltószertár, egy kocsma és különböző műhelyek sorakoznak. A hagyományoknak megfelelően minden évben rengeteg turistát vonz a május elsejei májusfaállítás és a majális, de a pünkösdi királyválasztás és a Szent István-napi kenyérünnep is." />
                     </div >
                     <div className="col-md-4 col-sx-2 plakat">
-                        <Link to="foglalas"><img src={plakat} alt="plakat" width={250} style={{ marginTop: 50 }} /></Link>
+                        <Link to="/foglalas"><img src={plakat} alt="plakat" width={250} style={{ marginTop: 50 }} /></Link>
                     </div>
                 </div>
             </div>

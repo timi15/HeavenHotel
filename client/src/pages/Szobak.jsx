@@ -18,11 +18,32 @@ export const Szobak = () => {
     return (
         <div className="section">
             <div className='alcim'>
-                <h3>Szobatípusaink</h3>
+                <h3>Szobáink</h3>
             </div>
             <div className="container">
-                <p>A szobák árai a reggeli árát tartalmazzák!</p>
+                <div className="row">
+                    <h5 className='roomPage'>Szobák</h5>
+                    <p>A szobák árai a reggeli árát tartalmazzák!</p>
+                    <p>Kérjük előzetesen értesítsenek bennünket felmerülő kéréseikről, igényeikről (mint pl.: virágcsokor, újság stb.), hogy érkezésükre gondoskodni tudjunk ezek bekészítéséről.</p>
+                    <p style={{textDecoration:"underline"}}><strong>Szobák felszereltsége:</strong></p>
+                    <p>
+                        <ul style={{listStyleType:"circle"}}>
+                            <li>Légkondicionálás</li>
+                            <li>Hangszigetelt nyílászárók</li>
+                            <li>Telefon</li>
+                            <li>Széles sávú Internet kapcsolat, saját laptop használatával</li>
+                            <li>LCD TV (műholdas TV csatornák, távirányító)</li>
+                            <li>Mini bár</li>
+                            <li>Széf (laptop elhelyezésére is alkalmas mérettel)</li>
+                            <li>Beépített zuhanysarok a fürdőszobában</li>
+                            <li>Higiéniai és kozmetikai ápoló készlet</li>
+                            <li>Hajszárító</li>
+                        </ul>
+                    </p>
+                </div>
+
                 <div className="row" >
+                    <h5 className='roomPage'>Szobatípusok</h5>
                     {Array.from(roomTypes).map((val, index) =>
                         <Card id="roomCard" data-aos="fade-up" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
                             <CardMedia

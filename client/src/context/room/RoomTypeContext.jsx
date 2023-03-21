@@ -10,6 +10,7 @@ export const RoomType = ({ children }) => {
         setRoomTypes(roomTypes);
     };
 
+
     const handleChange = async (id, roomType) => {
         setRoomTypes(roomTypes.map((value) => value.id !== roomType.id ? value : roomType));
         try {

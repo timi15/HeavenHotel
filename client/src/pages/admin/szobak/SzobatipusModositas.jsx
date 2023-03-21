@@ -4,10 +4,11 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 import { RoomTypeContext } from '../../../context/room/RoomTypeContext';
 
 export const SzobatipusModositas = () => {
+
     const [formData, setFormData] = useState({});
     const [current, setCurrent] = useState({});
     const { id } = useParams();
@@ -21,7 +22,7 @@ export const SzobatipusModositas = () => {
     }
 
     const handleSubmit = () => {
-        if (Object.entries(formData).length === 4 && !isEmpty())
+        if (Object.entries(formData).length === 5 && !isEmpty())
             handleModify(id, formData).then(val => {
                 if (val) {
                     navigate("/adminfelulet/szobak");
@@ -63,7 +64,7 @@ export const SzobatipusModositas = () => {
 
     const isEmpty = () => {
         console.log(Object.entries(formData).filter(([key, value]) => typeof value === "string" ? value.trim().length !== 0 : value));
-        return Object.entries(formData).filter(([key, value]) => typeof value === "string" ? value.trim().length !== 0 : value).length !== 4;
+        return Object.entries(formData).filter(([key, value]) => typeof value === "string" ? value.trim().length !== 0 : value).length !== 5;
 
     }
 
@@ -80,20 +81,20 @@ export const SzobatipusModositas = () => {
     }, []);
 
     return (
-        <div className=" container editUser">
+        <div className=" container edit">
             <div className="editForm">
                 <h1 className=' modositas mb-5'>Módosítás - <i style={{ color: "#434A42", fontSize: 25 }}> {current[0]?.["room_type_name"]} </i></h1>
                 <div style={{ textAlign: "center" }}>
                     <hr />
                 </div>
                 <label htmlFor="room_type_name">Szobatípus:</label>
-                <input type="text" name="room_type_name" placeholder={current[0]?.room_type_name} value={formData?.room_type_name} onChange={(e) => handleChange(e)} />
+                <input type="text" name="room_type_name" placeholder={current[0]?.room_type_name} value={formData?.room_type_name || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="description">Leírás:</label>
-                <textarea className='w-100' name="description" placeholder={current[0]?.description} rows="10" value={formData?.description} onChange={(e) => handleChange(e)}></textarea>
+                <textarea className='w-100' name="description" placeholder={current[0]?.description} rows="10" value={formData?.description || ""} onChange={(e) => handleChange(e)}></textarea>
                 <label htmlFor="space">Férőhely:</label>
-                <input type="number" name="space" placeholder={current[0]?.space} value={formData?.space} min="0" onChange={(e) => handleChange(e)} />
+                <input type="number" name="space" placeholder={current[0]?.space} value={formData?.space || 0} min="0" onChange={(e) => handleChange(e)} />
                 <label htmlFor="price_night">Ár/éj:</label>
-                <input type="number" name="price_night" placeholder={current[0]?.price_night} value={formData?.price_night} min="0" onChange={(e) => handleChange(e)} />
+                <input type="number" name="price_night" placeholder={current[0]?.price_night} value={formData?.price_night || 0} min="0" onChange={(e) => handleChange(e)} />
 
                 <button
                     id='button'
@@ -110,9 +111,17 @@ export const SzobatipusModositas = () => {
                             confirmButtonText: 'Igen, módosítás!'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                handleSubmit();
+                                handleSubmit()
+                                Swal.fire(
+                                    {
+                                        title: "Sikeresen módosította a szobatípust!",
+                                        icon: "success",
+                                        timer: 3000
+                                    }
+                                )
                             }
-                        })}>Módosítás</button>
+                        })
+                    }>Módosítás</button>
             </div>
         </div>
     )

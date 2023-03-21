@@ -263,20 +263,20 @@ footer {
 }
 
 @media only screen and (max-width: 777px) {
-    .fejlec{
+    .fejlec {
         height: 130px;
     }
 }
 
-.fejlecSpan{
+.fejlecSpan {
     font-size: 16px;
     margin-right: 20px;
     color: white;
     font-weight: bold;
-    
+
 }
 
-.fejlecLink :hover{
+.fejlecLink :hover {
     color: #434A42;
 }
 
@@ -453,7 +453,7 @@ footer {
 }
 
 .szobaFooldalon {
-    background-image: url("../../img/hatterjpg.jpg");
+    background-image: url("../../img/hatter.jpg");
     height: 150px;
     display: flex;
     align-items: center;
@@ -474,7 +474,23 @@ footer {
     padding: 5px
 }
 
+.roomPage {
+    font-family: 'Rozha One', serif;
+    font-size: 24px;
+    color: #434A42;
+    border: 5px double #434A42;
+    padding: 10px;
+    margin-bottom: 15px;
 
+}
+
+
+.roomTreatment{
+    font-family: 'Rozha One', serif;
+    margin: 50px 20px;
+    font-weight: bold;
+    text-decoration: underline;
+}
 /*GALÉRIA*/
 
 .galeria {
@@ -567,8 +583,6 @@ footer {
 
 /*TABLAZAT*/
 
-
-
 table>thead {
     font-size: 20px;
     font-family: 'Rozha One', serif;
@@ -581,9 +595,11 @@ td {
     text-align: center;
 }
 
-/*EDIT USER*/
 
-.editUser {
+
+/*EDIT FORM*/
+
+.edit {
     text-align: center;
 }
 
@@ -615,14 +631,14 @@ td {
     font-family: 'Rozha One', serif;
 }
 
- /*under-line-animation*/
+/*under-line-animation*/
 .hover-underline-animation {
     display: inline-block;
     position: relative;
-    
-  }
-  
-  .hover-underline-animation::after {
+
+}
+
+.hover-underline-animation::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -633,9 +649,22 @@ td {
     background-color: white;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
-  }
-  
-  .hover-underline-animation:hover::after {
+}
+
+.hover-underline-animation:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}
+
+
+/*COPYRIGHT*/
+
+.copyright{
+    font-family: 'Rozha One', serif;
+    font-size: 13px;
+    color: white;
+    opacity: 0.5;
+    border-top: 7px double beige;
+    padding-top: 10px;
+
+}

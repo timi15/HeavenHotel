@@ -27,10 +27,11 @@ import { Error } from './components/Error';
 import { AuthContext } from './context/auth/AuthContext';
 import { UserContext } from './context/user/UserContext';
 import { FelhasznaloModositas } from './pages/admin/felhasznalok/FelhasznaloModositas';
-import { SzobatipusokKezelese } from './pages/admin/szobatipusok/SzobatipusokKezelese';
-import { SzobatipusModositas } from './pages/admin/szobatipusok/SzobatipusModositas';
+import { SzobakKezelese } from './pages/admin/szobak/SzobakKezelese';
+import { SzobatipusModositas } from './pages/admin/szobak/SzobatipusModositas';
 import { BookingContext } from './context/booking/BookingContext';
 import { FoglalasokKezelese } from './pages/admin/foglalasok/FoglalasokKezelese';
+import { SzobaModositas } from './pages/admin/szobak/SzobaModositas';
 
 
 function App() {
@@ -113,7 +114,6 @@ function App() {
             <Route path='/' element={<Kezdooldal />} />
             <Route path='/szobak' element={<Szobak />} />
             <Route path='/latnivalok' element={<Latnivalok />} />
-            <Route path='/latnivalok/foglalas' element={<Foglalas />} />
             <Route path='/foglalas' element={<Foglalas />} />
             <Route path='/kapcsolatok' element={<Kapcsolat />} />
 
@@ -132,8 +132,9 @@ function App() {
                   <Route path='/adminfelulet/felhasznalok' element={<FelhasznalokKezelese />} />
                   <Route path='/adminfelulet/felhasznalok/modositas/:id' element={<FelhasznaloModositas />} />
 
-                  <Route path='/adminfelulet/szobak' element={<SzobatipusokKezelese />} />
-                  <Route path='/adminfelulet/szobak/modositas/:id' element={<SzobatipusModositas />} />
+                  <Route path='/adminfelulet/szobak' element={<SzobakKezelese />} />
+                  <Route path='/adminfelulet/szobatipusok/modositas/:id' element={<SzobatipusModositas />} />
+                  <Route path='/adminfelulet/szobak/modositas/:id' element={<SzobaModositas />} />
 
                   <Route path='/adminfelulet/foglalasok' element={<FoglalasokKezelese/>} />
                 </>

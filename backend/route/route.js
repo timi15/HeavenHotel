@@ -1,15 +1,17 @@
 const { getUserByUserId, getUsers, userModificationByUserId, userDeleteByUserId } = require('../controllers/user.js');
 const { register, login, logout } = require('../controllers/auth.js');
-const { getRooms, getRoomTypes, roomModificationById, getRoomTypeById } = require('../controllers/room.js');
+const { getRooms, getRoomTypes, getRoomTypeById, getRoomById, roomTypeModificationById, roomModificationById } = require('../controllers/room.js');
 const {  createBooking, getAllBookings, getAvailableRooms, bookingDeleteByBookingId } = require('../controllers/booking.js');
 
 function addRoutes(app) {
     
     app.get("/roomtypes", getRoomTypes());
     app.get("/roomtypes/:id", getRoomTypeById());
-    app.put("/roomtypes/:id", roomModificationById());
+    app.put("/roomtypes/:id", roomTypeModificationById());
 
     app.get("/rooms", getRooms());
+    app.get("/rooms/:id", getRoomById());
+    app.put("/rooms/:id", roomModificationById());
 
     app.get("/reservations", getAllBookings());
     app.post("/reservations", createBooking());
