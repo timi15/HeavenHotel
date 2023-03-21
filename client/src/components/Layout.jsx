@@ -6,12 +6,11 @@ import { Fejlec } from './Fejlec'
 import { Logo } from './Logo'
 import { AuthContext } from '../context/auth/AuthContext'
 
-
 export const Layout = ({ children }) => {
 
-    const { currentUser} = useContext(AuthContext);
-
+    const { currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
+
     const pages = [
         { name: 'Főoldal', route: '/' },
         { name: 'Szobák', route: '/szobak' },
@@ -31,11 +30,9 @@ export const Layout = ({ children }) => {
 
     const [anchorElNav, setAnchorElNav] = useState(null);
 
-
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-    
 
     const handleCloseNavMenu = (route = false) => {
         if (route)
@@ -44,15 +41,13 @@ export const Layout = ({ children }) => {
         setAnchorElNav(null);
     };
 
-
     return (
         <>
             <Fejlec />
             <Logo />
-            <AppBar position="static" style={{borderStyle:"double", borderColor:"beige", borderWidth:7, background: "rgba(0, 0, 0, 0.31)" }}  >
+            <AppBar position="static" style={{ borderStyle: "double", borderColor: "beige", borderWidth: 7, background: "rgba(0, 0, 0, 0.31)" }}  >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters  >
-
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"
@@ -65,7 +60,6 @@ export const Layout = ({ children }) => {
                                 <MenuIcon />
                             </IconButton>
                             <Menu
-
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
@@ -98,7 +92,6 @@ export const Layout = ({ children }) => {
                             </Menu>
                         </Box>
 
-
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center" }}>
                             {currentUser != null && currentUser['isAdmin'] === 1 && (adminPages.map((page, index) => (
                                 <Button
@@ -122,15 +115,10 @@ export const Layout = ({ children }) => {
                                 </Button>
                             )))}
                         </Box>
-
-                        
                     </Toolbar>
                 </Container>
             </AppBar>
-
             {children}
-
-
         </>
     )
 }

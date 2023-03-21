@@ -10,33 +10,22 @@ import room6 from "../img/szobak/standardNegyagyasSzoba.jpg"
 import room7 from "../img/szobak/superiorNegyagyasSzoba.jpg"
 import { RoomTypeContext } from '../context/room/RoomTypeContext';
 
-
-
 export const Szobak = () => {
 
     const { roomTypes } = useContext(RoomTypeContext);
-
     const roomPic = [room1, room2, room3, room4, room5, room6, room7];
 
     return (
         <div className="section">
-
             <div className='alcim'>
                 <h3>Szobatípusaink</h3>
             </div>
             <div className="container">
-
                 <p>A szobák árai a reggeli árát tartalmazzák!</p>
-
-
-
                 <div className="row" >
-
-
                     {Array.from(roomTypes).map((val, index) =>
                         <Card id="roomCard" data-aos="fade-up" sx={{ maxWidth: 345, margin: 2, padding: 2 }} key={index}>
                             <CardMedia
-
                                 component="img"
                                 alt="room"
                                 height="140"
@@ -50,29 +39,28 @@ export const Szobak = () => {
                                 </Typography>
 
                                 <hr style={{ margin: 'auto', padding: 15 }} />
+
                                 <Typography variant="subtitle2" >
                                     {val.description}
                                 </Typography>
 
-
                                 <Typography variant="body2" color="text.secondary">
                                     Ágyak: {val.space}
                                 </Typography>
+
                                 <Typography variant="body2" color="text.secondary">
                                     Maximális létszám:  {val.space}
                                 </Typography>
+
                                 <Typography variant="body2" color="text.secondary">
                                     Szobaár: {val.price_night} Ft. / Éjszakától
                                 </Typography>
+
                             </CardContent>
-
-
                         </Card>
                     )}
-
                 </div>
             </div>
-
         </div>
     )
 }

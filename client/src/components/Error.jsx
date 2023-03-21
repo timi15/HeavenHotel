@@ -13,7 +13,6 @@ export const Error = () => {
                     <Link to="/">
                         <Button className='mt-5 mb-5' variant='outlined' id="button">Vissza a főoldalra</Button>
                     </Link>
-
                 </div>
             </div>
         </div>

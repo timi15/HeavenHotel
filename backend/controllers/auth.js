@@ -4,8 +4,7 @@ const db = require("../service/connection");
 
 module.exports.register = () => {
     return (req, res) => {
-        const { email, password, name, address, phoneNumber } = req.body;
-        
+        const { email, password, name, address, phoneNumber } = req.body;        
 
         db.query("SELECT * FROM user WHERE email LIKE ?;", [email], (err, rows) => {
             if (err) return res.status(500).json('Error')
@@ -30,10 +29,8 @@ module.exports.login = () => {
 
             const isCorrectPassword = bcrypt.compareSync(req.body.password, data[0].password);
 
-
             if (!isCorrectPassword)
                 return res.status(400).send("Wrong username or password.");
-
 
             const token = jwt.sign({ id: data[0].user_id }, "secret");
 

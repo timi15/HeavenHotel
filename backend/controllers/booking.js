@@ -56,7 +56,6 @@ module.exports.createBooking = () => {
         const checkOut = moment(checkOutDate);
         const duration = moment.duration(checkOut.diff(checkIn));
 
-
         if (duration.asMinutes() <= 0) {
             res.status(400).send({ message: 'End date must be after start date' });
             return;

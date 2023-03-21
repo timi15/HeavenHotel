@@ -1,6 +1,4 @@
-
 const db = require("../service/connection");
-
 
 module.exports.getUsers = () => {
     return (req, res) => {
@@ -23,8 +21,6 @@ module.exports.getUserByUserId = () => {
         })
     }
 }
-
-
 
 module.exports.userModificationByUserId = () => {
     return (req, res, next) => {

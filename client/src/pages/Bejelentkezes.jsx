@@ -52,7 +52,6 @@ export const Bejelentkezes = () => {
     }
     return (
         <Container component="main" style={{ maxWidth: 800 }}>
-
             <Box
                 sx={{
                     margin: 5,
@@ -65,9 +64,7 @@ export const Bejelentkezes = () => {
                     borderWidth: 7,
                     borderStyle: "double",
                     borderColor: "#434A42"
-
                 }}
-
             >
                 <i style={{ color: "#434A42", fontSize: 60 }} className="fa fa-sign-in mb-3" aria-hidden="true"></i>
 
@@ -75,11 +72,7 @@ export const Bejelentkezes = () => {
                     Bejelentkezés
                 </Typography>
 
-
                 <Box component="form" sx={{ mt: 1 }}>
-
-
-
                     <TextField
                         margin="normal"
                         required
@@ -88,13 +81,9 @@ export const Bejelentkezes = () => {
                         label="E-mail cím"
                         type="email"
                         onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
-
                     />
 
-
-
                     <TextField
-
                         margin="normal"
                         required
                         fullWidth
@@ -104,7 +93,6 @@ export const Bejelentkezes = () => {
                         onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
                     />
 
-
                     <div style={{ textAlign: 'center' }}>
                         <Button
                             id="button"
@@ -113,27 +101,18 @@ export const Bejelentkezes = () => {
                             style={{ marginTop: 20 }}
                             sx={{ mt: 3, mb: 2 }}
                             onClick={(e) => handleSubmit(e)}
-
                         >
                             Bejelentkezés
                         </Button>
                     </div>
-                    < div className="loginLink_singupLink">
 
+                    < div className="loginLink_singupLink">
                         <Link to="/regisztracio" variant="body2" style={{ width: 170, color: "#434A42", marginTop: 10, }}>
                             Még nincs fiókja? Regisztráljon itt!
                         </Link>
                     </div>
-
-
                 </Box>
-
-
             </Box>
-
         </Container>
-
-
-
     )
 }

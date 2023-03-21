@@ -4,6 +4,7 @@ const { getRooms, getRoomTypes, roomModificationById, getRoomTypeById } = requir
 const {  createBooking, getAllBookings, getAvailableRooms, bookingDeleteByBookingId } = require('../controllers/booking.js');
 
 function addRoutes(app) {
+    
     app.get("/roomtypes", getRoomTypes());
     app.get("/roomtypes/:id", getRoomTypeById());
     app.put("/roomtypes/:id", roomModificationById());
@@ -14,7 +15,6 @@ function addRoutes(app) {
     app.post("/reservations", createBooking());
     app.post("/reservations/availablerooms", getAvailableRooms());
     app.delete("/reservations/:id", bookingDeleteByBookingId());
-
 
     app.get("/users", getUsers());
     app.get("/users/:id", getUserByUserId());

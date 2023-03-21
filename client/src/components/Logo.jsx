@@ -5,7 +5,7 @@ import logo from "../img/logo1.png";
 export const Logo = () => {
   return (
     <div className="logo">
-      <Link to="/"><img  data-aos="flip-right"   id='logo' src={logo} alt="logo"  /></Link>
+      <Link to="/"><img data-aos="flip-right" id='logo' src={logo} alt="logo" /></Link>
     </div>
   )
 }

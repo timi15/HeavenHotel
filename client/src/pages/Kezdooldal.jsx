@@ -11,7 +11,6 @@ export const Kezdooldal = () => {
       <SzobaAFooldalon />
       <VendegeinkMondtak />
       <Galeria />
-
     </>
   )
 }

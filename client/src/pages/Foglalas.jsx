@@ -14,7 +14,7 @@ import axios from "axios";
 export const Foglalas = () => {
 
     moment().locale('hu');
-    
+
     const { roomTypes } = useContext(RoomTypeContext);
     const { currentUser } = useContext(AuthContext);
 
@@ -29,23 +29,18 @@ export const Foglalas = () => {
 
     const handleCheckInDateChange = (newValue) => {
         setCheckInDate(moment(Date.parse(newValue)).format());
-        setCheckOutDate(moment(Date.parse(newValue)).add(1, 'days').format())
-
+        setCheckOutDate(moment(Date.parse(newValue)).add(1, 'days').format());
     };
 
     const handleCheckOutDateChange = (newValue) => {
         setCheckOutDate(moment(Date.parse(newValue)).format());
-
     };
 
     const handleChangeRoomType = (event) => {
         setType(event.target.value);
     };
 
-
-
     const handleSubmit = () => {
-        // console.log(checkInDate, checkOutDate, type);
         axios.post("http://localhost:8080/reservations/availablerooms", { type, checkInDate, checkOutDate }, {
             headers: {
                 "Content-Type": "application/json"
@@ -78,7 +73,7 @@ export const Foglalas = () => {
             })
         } else {
             const userId = currentUser['userId'];
-            const email= currentUser['email'];
+            const email = currentUser['email'];
             const amount = priceNight * nightNumber;
             axios.post("http://localhost:8080/reservations", { email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount }, {
                 headers: {
@@ -133,7 +128,6 @@ export const Foglalas = () => {
                                 <p style={{ paddingTop: 12, width: 'auto' }}> {nightNumber} éjszaka</p>
                             </Flex>
 
-
                         </LocalizationProvider>
                     </div>
 
@@ -146,7 +140,6 @@ export const Foglalas = () => {
                                 label="Szobatípus"
                                 value={type}
                                 onChange={handleChangeRoomType}
-
                             >
                                 <MenuItem value="">
                                     <em>nincs kiválasztva</em>
@@ -158,15 +151,11 @@ export const Foglalas = () => {
                         </FormControl>
                     </div>
 
-
-
                     <Button onClick={() => { setShow(true); handleSubmit() }} id="button" variant="outlined" style={{ margin: 15 }}>
                         Szabad szobák keresése
                     </Button>
                 </form>
-
                 <hr />
-
                 <div className="row">
                     {
                         (show && (
@@ -176,49 +165,47 @@ export const Foglalas = () => {
 
                                     <CardContent>
 
-                                        <Typography style={{fontWeight:'bold'}} variant='subtitle2'>
-                                           Foglalni kívánt időszak: {moment(checkInDate).format('LL')}  - { moment(checkOutDate).format('LL')}
+                                        <Typography style={{ fontWeight: 'bold' }} variant='subtitle2'>
+                                            Foglalni kívánt időszak: {moment(checkInDate).format('LL')}  - {moment(checkOutDate).format('LL')}
                                         </Typography>
 
                                         <Typography variant="h5" component="div" style={{ fontFamily: "Rozha One", textTransform: "lowercase", textAlign: "center" }}>
                                             {value.room_type_name}
                                         </Typography>
-                                        
 
                                         <hr style={{ margin: 'auto', padding: 15 }} />
+
                                         <Typography variant="body1" textAlign={'justify'} >
                                             {value.description}
                                         </Typography>
 
-
                                         <Typography variant="body1" color="text.secondary">
                                             Ágyak: {value.space}
                                         </Typography>
+
                                         <Typography variant="body1" color="text.secondary">
                                             Maximális létszám:  {value.space}
                                         </Typography>
+
                                         <Typography variant="body1" color="text.secondary">
                                             Szobaár: {value.price_night} Ft. / Éjszakától
                                         </Typography>
+
                                         <Typography variant="body1" color="red" style={{ textAlign: "center" }}>
                                             Fizetendő összeg: {value.price_night * nightNumber} Ft
                                         </Typography>
+
                                     </CardContent>
 
                                     <CardActions>
                                         <Button id='button' onClick={() => reservation(value.room_id, value.price_night)} variant='outlined' size="small">Foglalás</Button>
                                     </CardActions>
-
-
                                 </Card>
-
                             )
                         ))
                     }
                 </div>
             </div>
         </div>
-
-
     )
 }

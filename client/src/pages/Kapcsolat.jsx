@@ -88,13 +88,13 @@ export const Kapcsolat = () => {
               <ul className="contact-element">
                 <li>
 
-                  <i className="fa fa-map-marker fa-sm mb-3"></i>4400 Nyíregyháza Hotel
+                  <i className="fa fa-map-marker fa-sm mb-3"></i>4400 Nyíregyháza, Hotel
                   utca 124.
 
                 </li>
                 <li>
 
-                  <i className="fa fa-phone fa-sm mb-3" ></i>+36-30-234-6421
+                  <i className="fa fa-phone fa-sm mb-3" ></i>+36 30 113 6090
 
                 </li>
                 <li>

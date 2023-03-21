@@ -6,24 +6,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Container } from 'react-bootstrap';
 import axios from "axios";
 import { passwordStrength } from 'check-password-strength';
-import { PasswordCustom } from '../PasswordCustom';
+import { PasswordCustom } from '../asserts/PasswordCustom';
 import { validate } from 'react-email-validator';
 import Swal from 'sweetalert2';
 
 export const Regisztracio = () => {
-    const [formData, setFormData] = useState({});
 
+    const [formData, setFormData] = useState({});
     const [show, setShow] = useState(false);
 
     const nameformat = /^[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó\D]*$/;
     const addressformat = /^([0-9]{4}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[,]{1}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[\wa-zíéáűúőó]*[ ]{1}[\w][a-z íéáűúőó\./\-0-9]*)$/;
 
-
     const navigate = useNavigate();
 
-
     const handleSubmit = (e) => {
-
         if (Object.entries(formData).length === 5) {
             if (
                 formData?.name.match(nameformat) &&
@@ -48,9 +45,6 @@ export const Regisztracio = () => {
                             showConfirmButton: false,
                             timer: 5000
                         }));
-
-
-
             } else {
                 Swal.fire({
                     position: 'center',
@@ -61,7 +55,6 @@ export const Regisztracio = () => {
                     timer: 5000
                 })
             }
-
         }
         else {
             Swal.fire({
@@ -73,13 +66,11 @@ export const Regisztracio = () => {
                 timer: 5000
             })
         }
-
     }
 
     return (
 
         <Container style={{ maxWidth: 800 }}>
-
             <Box
                 sx={{
                     margin: 5,
@@ -100,9 +91,7 @@ export const Regisztracio = () => {
                     Regisztráció
                 </Typography>
 
-
                 <Box sx={{ mt: 1 }}>
-
                     <div>
                         <TextField
                             placeholder='pl.: Teszt Elek'
@@ -114,8 +103,6 @@ export const Regisztracio = () => {
                             onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
                         />
                     </div>
-
-
 
                     <div>
                         <TextField
@@ -171,7 +158,7 @@ export const Regisztracio = () => {
 
                     {
                         show && (
-                            <div style={{textAlign:"right"}}>{passwordStrength(formData?.password, PasswordCustom ).value}</div>
+                            <div style={{ textAlign: "right" }}>{passwordStrength(formData?.password, PasswordCustom).value}</div>
                         )
                     }
 
@@ -193,18 +180,12 @@ export const Regisztracio = () => {
                         </Button>
                     </div>
                     < div className="loginLink_singupLink">
-
                         <Link to="/bejelentkezes" variant="body2" style={{ width: 170, color: "#434A42", marginTop: 10, }}>
                             Már van fiókja? Lépjen be itt!
                         </Link>
                     </div>
-
-
                 </Box>
-
-
             </Box>
-
         </Container>
     )
 }
