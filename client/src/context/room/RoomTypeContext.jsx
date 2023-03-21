@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react'
 
 export const RoomTypeContext = createContext();
 
-export const RoomType = ({children}) => {
+export const RoomType = ({ children }) => {
     const [roomTypes, setRoomTypes] = useState([]);
 
     const handleSet = (roomTypes) => {
@@ -24,10 +24,9 @@ export const RoomType = ({children}) => {
         }
     }
 
-
-  return (
-    <RoomTypeContext.Provider value={{roomTypes, handleSet, handleChange}}>
-        {children}
-    </RoomTypeContext.Provider>
-  )
+    return (
+        <RoomTypeContext.Provider value={{ roomTypes, handleSet, handleChange }}>
+            {children}
+        </RoomTypeContext.Provider>
+    )
 }

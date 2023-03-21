@@ -10,8 +10,7 @@ export const Auth = ({children}) => {
 
     const login = async (formData) => {
         const res = await axios.post("http://localhost:8080/login", formData, {withCredentials: true}); 
-        setCurrentUser(res.data);       
-    
+        setCurrentUser(res.data);        
     }
 
     const logout = async () => {

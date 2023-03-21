@@ -28,8 +28,7 @@ export const Users = ({ children }) => {
     const handleRemove = async (user_id) => {
         setUsers(users.filter((value) => value.user_id !== user_id));
         try {
-            const res = await axios.delete(`http://localhost:8080/users/${user_id}`);
-            
+            const res = await axios.delete(`http://localhost:8080/users/${user_id}`);            
             return true;
 
         } catch (err) {
