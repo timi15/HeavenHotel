@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { createContext, useState } from 'react';
-import Swal from "sweetalert2"
 
 export const UserContext = createContext();
 

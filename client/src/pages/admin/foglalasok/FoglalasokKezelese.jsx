@@ -1,32 +1,22 @@
-import React, { useContext } from 'react';
-import { Button } from 'react-bootstrap';
-import { useNavigate } from "react-router-dom";
-import { UserContext } from '../../../context/user/UserContext';
+import React, { useContext } from 'react'
+import { BookingContext } from '../../../context/booking/BookingContext';
 import Swal from "sweetalert2";
+import { Button } from 'react-bootstrap';
+import moment from "moment"
+import 'moment/locale/hu';
 
-export const FelhasznalokKezelese = () => {
+export const FoglalasokKezelese = () => {
 
-    const { users, handleRemove } = useContext(UserContext);
-    const navigate = useNavigate();
-
-
-    const handleChange = (id) => {
-        navigate(`/adminfelulet/felhasznalok/modositas/${id}`)
-
-    }
+    const { bookings, handleRemove } = useContext(BookingContext);
 
     const handleDelete = (id) => {
         handleRemove(id)
 
     }
 
-
-
     return (
-
-
         <>
-            <h1 className='kezelofeluletFelirat mb-5 alcim'>Regisztrált felhasználók</h1>
+            <h1 className='kezelofeluletFelirat mb-5 alcim'>Foglalások</h1>
             <div className="container mt-5 mb-5" style={{ textAlign: 'center' }}>
 
                 <div className="table-responsive">
@@ -35,11 +25,12 @@ export const FelhasznalokKezelese = () => {
                             <tr>
                                 <th>ID</th>
                                 <th>Név</th>
-                                <th>E-mail-cím</th>
-                                <th>Lakcím</th>
-                                <th>Telefonszám</th>
-                                <th>Adminisztrátor</th>
-                                <th></th>
+                                <th>Szobaszám</th>
+                                <th>Szobatípus</th>
+                                <th>Érkezés</th>
+                                <th>Távozás</th>
+                                <th>Éjszakák száma</th>
+                                <th>Fizetendő összeg</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -47,17 +38,18 @@ export const FelhasznalokKezelese = () => {
                         <tbody>
 
                             {
-                                users.map((value, index) =>
+                                bookings.map((value, index) =>
                                     <tr key={index} >
-                                        <td>{value.user_id}</td>
+                                        <td>{value.booking_id}</td>
                                         <td>{value.name}</td>
-                                        <td>{value.email}</td>
-                                        <td>{value.address}</td>
-                                        <td>{value.phone_number}</td>
+                                        <td>{value.room_number}</td>
+                                        <td>{value.room_type_name}</td>
+                                        <td>{moment(value.check_in).format('ll')}</td>
+                                        <td>{moment(value.check_out).format('ll')}</td>
+                                        <td>{value.night_number}</td>
+                                        <td>{value.amount} Ft</td>
 
 
-                                        <td>{value.is_admin ? <input type="checkbox" disabled checked /> : <input type="checkbox" disabled />}</td>
-                                        <td><Button variant='outlined' id="button" onClick={() => handleChange(value.user_id)} >Módosítás</Button></td>
                                         <td>
                                             <Button
                                                 variant='outlined'
@@ -66,7 +58,7 @@ export const FelhasznalokKezelese = () => {
 
                                                     Swal.fire({
                                                         title: 'Biztos a törlésben?',
-                                                        text: "A felhasználó véglegesen törölve lesz!",
+                                                        text: "A foglalás véglegesen törölve lesz a rendszerből!",
                                                         icon: 'warning',
                                                         showCancelButton: true,
                                                         cancelButtonText: "Mégse",
@@ -75,13 +67,13 @@ export const FelhasznalokKezelese = () => {
                                                         confirmButtonText: 'Igen, törlés!'
                                                     }).then((result) => {
                                                         if (result.isConfirmed) {
-                                                            handleDelete(value.user_id);
+                                                            handleDelete(value.booking_id);
                                                             Swal.fire({
-                                                                title:'Sikeresen törölte a felhasználót!',
-                                                                icon:"success",
+                                                                title: 'Sikeresen törölte a foglalást!',
+                                                                icon: "success",
                                                                 timer: 3000
-                                                            }                                                                
-                                                                
+                                                            }
+
                                                             )
                                                         }
                                                     })
@@ -102,7 +94,5 @@ export const FelhasznalokKezelese = () => {
                 </div>
             </div>
         </>
-
-
     )
 }

@@ -5,12 +5,12 @@ const smtpTransport = require('nodemailer-smtp-transport');
 
 moment.locale("hu")
 
-sendMail =(email, checkInDate, checkOutDate, nightNumber, amount )=> {
+sendMail = (email, checkInDate, checkOutDate, nightNumber, amount) => {
 
-    const message=`<h4>Tisztelt ${email}!</h4><p>Köszönjük, hogy nálunk fogalalt, melyet ezen levéllel visszaigazolunk.</p><p ><b>Foglalás adatai:</b></p><ul><li><p>Érkezés: <b>${moment(checkInDate).format('LL')}</b> </p></li> <li><p>Távozás: <b>${moment(checkOutDate).format('LL')}</b> </p></li><li><p>Éjszakák száma: <b>${nightNumber}</b> </p></li><li><p>Fizetendő összeg: <b>${amount} Ft</b> </p></li></ul><br><p>Tisztelettel <br>Heaven Hotel csapata</p><br><hr ><p > Ha bármilyen kérdése van, keresse recepciónkat az alábbi telefonszámon: +36-30-234-6421</p>`
+    const message = `<h4>Tisztelt ${email}!</h4><p>Köszönjük, hogy nálunk fogalalt, melyet ezen levéllel visszaigazolunk.</p><p ><b>Foglalás adatai:</b></p><ul><li><p>Érkezés: <b>${moment(checkInDate).format('LL')}</b> </p></li> <li><p>Távozás: <b>${moment(checkOutDate).format('LL')}</b> </p></li><li><p>Éjszakák száma: <b>${nightNumber}</b> </p></li><li><p>Fizetendő összeg: <b>${amount} Ft</b> </p></li></ul><br><p>Tisztelettel <br>Heaven Hotel csapata</p><br><hr ><p > Ha bármilyen kérdése van, keresse recepciónkat az alábbi telefonszámon: +36-30-234-6421</p>`
 
     const transporter = nodemailer.createTransport(smtpTransport({
-        service:"gmail",
+        service: "gmail",
         secure: false,
         auth: {
             user: 'saleshotelheaven01@gmail.com',
@@ -37,9 +37,20 @@ sendMail =(email, checkInDate, checkOutDate, nightNumber, amount )=> {
     });
 }
 
+module.exports.getAllBookings = () => {
+    return (req, res) => {
+        myQuery = "SELECT booking.booking_id, room.room_number,  user.name, room_type.room_type_name, booking.check_in, booking.check_out, booking.night_number, booking.amount FROM user INNER JOIN booking ON user.user_id = booking.user_id INNER JOIN room ON booking.room_id= room.room_id INNER JOIN room_type ON room_type.room_type_id= room.room_type_id;";
+        db.query(myQuery, (err, result) => {
+            if (err) throw err;
+            else res.send(result)
+        })
+    }
+}
+
+
 module.exports.createBooking = () => {
     return (req, res) => {
-        const {email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount } = req.body;
+        const { email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount } = req.body;
 
         const checkIn = moment(checkInDate);
         const checkOut = moment(checkOutDate);
@@ -83,7 +94,7 @@ module.exports.createBooking = () => {
 module.exports.getAvailableRooms = () => {
     return (req, res) => {
         const { type, checkInDate, checkOutDate } = req.body;
-        myQuery = "SELECT room.room_id, room_type.room_type_name, room_type.description, room_type.space, room_type.price_night FROM room INNER JOIN room_type ON room.room_type_id= room_type.room_type_id WHERE room_type.room_type_name LIKE ? AND room.room_id NOT IN (SELECT room_id FROM booking WHERE booking.check_in <= ? AND booking.check_out >= ? );";
+        myQuery = "SELECT room.room_id, room_type.room_type_name, room_type.description, room_type.space, room_type.price_night FROM room INNER JOIN room_type ON room.room_type_id = room_type.room_type_id WHERE room_type.room_type_name LIKE ? AND room.room_id NOT IN (SELECT room_id FROM booking WHERE booking.check_in <= ? AND booking.check_out >= ? );";
         db.query(myQuery, [type, checkOutDate, checkInDate], (err, results,) => {
             if (err) {
                 console.log(err);
@@ -99,4 +110,14 @@ module.exports.getAvailableRooms = () => {
         })
     }
 }
+
+module.exports.bookingDeleteByBookingId= ()=>{
+    return (req, res, next)=>{
+        db.query("DELETE FROM booking WHERE booking_id LIKE ?;", [req.params.id], (err) => {
+            if (err) res.send(err);
+            res.status(200).send();
+        })
+    }
+}
+
 

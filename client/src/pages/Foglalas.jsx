@@ -3,17 +3,18 @@ import { TextField, Select, MenuItem, Button, InputLabel, FormControl, Card, Car
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { RoomContext } from '../context/room/RoomContext';
 import { RoomTypeContext } from '../context/room/RoomTypeContext';
 import { AuthContext } from '../context/auth/AuthContext';
 import { Flex } from '@adobe/react-spectrum';
 import moment from "moment";
+import 'moment/locale/hu';
 import Swal from 'sweetalert2';
 import axios from "axios";
 
 export const Foglalas = () => {
 
-    const { rooms } = useContext(RoomContext);
+    moment().locale('hu');
+    
     const { roomTypes } = useContext(RoomTypeContext);
     const { currentUser } = useContext(AuthContext);
 
@@ -89,7 +90,7 @@ export const Foglalas = () => {
                         position: 'center',
                         icon: 'success',
                         title: "Sikeres foglalás!",
-                        text: 'Hotelünk hamarosan felveszi Önnel a kapcsolatot a foglalással kapcsolatban...',
+                        text: 'Hotelünk e-mail-ben visszaigazolja a foglalást',
                         showConfirmButton: false,
                         timer: 5000
                     })
@@ -175,8 +176,8 @@ export const Foglalas = () => {
 
                                     <CardContent>
 
-                                        <Typography variant='subtitle2'>
-                                           Foglalni kívánt időszak: {new Date(checkInDate).toLocaleDateString("sv-SE")}   { new Date(checkOutDate).toLocaleDateString("sv-SE")}
+                                        <Typography style={{fontWeight:'bold'}} variant='subtitle2'>
+                                           Foglalni kívánt időszak: {moment(checkInDate).format('LL')}  - { moment(checkOutDate).format('LL')}
                                         </Typography>
 
                                         <Typography variant="h5" component="div" style={{ fontFamily: "Rozha One", textTransform: "lowercase", textAlign: "center" }}>

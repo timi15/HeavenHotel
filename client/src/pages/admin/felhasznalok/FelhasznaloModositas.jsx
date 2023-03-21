@@ -97,7 +97,7 @@ export const FelhasznaloModositas = () => {
                     <input id="user" type="radio" name="is_admin" value="0" checked={formData?.is_admin === "0"} onChange={(e) => handleChange(e)} />
                     <label style={{ fontFamily: 'Rozha One' }} htmlFor="user">Felhasználó</label>
                     <input style={{ marginLeft: 20 }} id="admin" type="radio" name="is_admin" value="1" checked={formData?.is_admin === "1"} onChange={(e) => handleChange(e)} />
-                    <label style={{ fontFamily: 'Rozha One' }} htmlFor="admin">Admin</label>
+                    <label style={{ fontFamily: 'Rozha One' }} htmlFor="admin">Adminisztrátor</label>
                 </div>
                 <button
                     id='button'

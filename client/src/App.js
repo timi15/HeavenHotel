@@ -29,12 +29,15 @@ import { UserContext } from './context/user/UserContext';
 import { FelhasznaloModositas } from './pages/admin/felhasznalok/FelhasznaloModositas';
 import { SzobatipusokKezelese } from './pages/admin/szobatipusok/SzobatipusokKezelese';
 import { SzobatipusModositas } from './pages/admin/szobatipusok/SzobatipusModositas';
+import { BookingContext } from './context/booking/BookingContext';
+import { FoglalasokKezelese } from './pages/admin/foglalasok/FoglalasokKezelese';
 
 
 function App() {
+  const { handleSet: handleSetUsers } = useContext(UserContext);
   const { handleSet: handleSetRoomTypes } = useContext(RoomTypeContext);
   const { handleSet: handleSetRooms } = useContext(RoomContext);
-  const { handleSet: handleSetUsers } = useContext(UserContext);
+  const { handleSet: handleSetBooking } = useContext(BookingContext);
 
   const { currentUser } = useContext(AuthContext);
 
@@ -80,6 +83,20 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    axios.get("http://localhost:8080/reservations", {
+      headers: {
+        'Access-Control-Allow-Origin': "localhost:3000"
+      }
+    })
+      .then((res) => {
+        handleSetBooking(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
 
 
 
@@ -117,6 +134,8 @@ function App() {
 
                   <Route path='/adminfelulet/szobak' element={<SzobatipusokKezelese />} />
                   <Route path='/adminfelulet/szobak/modositas/:id' element={<SzobatipusModositas />} />
+
+                  <Route path='/adminfelulet/foglalasok' element={<FoglalasokKezelese/>} />
                 </>
               )
             }
