@@ -79,7 +79,7 @@ export const FelhasznaloModositas = () => {
     }, []);
     return (
 
-        <div className=" container editUser">
+        <div className=" container edit">
             <div className="editForm">
                 <h1 className=' modositas mb-5'>Módosítás (<i style={{ color: "#434A42" }}>{current[0]?.name}</i>)</h1>
                 <div style={{ textAlign: "center" }}>
@@ -93,7 +93,7 @@ export const FelhasznaloModositas = () => {
                 <input type="text" name="address" placeholder={current[0]?.address} value={formData?.address || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="phone_number">Telefonszám:</label>
                 <input type="text" placeholder={current[0]?.phone_number} name="phone_number" value={formData?.phone_number || ""} onChange={(e) => handleChange(e)} />
-                <div>
+                <div >
                     <input id="user" type="radio" name="is_admin" value="0" checked={formData?.is_admin === "0"} onChange={(e) => handleChange(e)} />
                     <label style={{ fontFamily: 'Rozha One' }} htmlFor="user">Felhasználó</label>
                     <input style={{ marginLeft: 20 }} id="admin" type="radio" name="is_admin" value="1" checked={formData?.is_admin === "1"} onChange={(e) => handleChange(e)} />
