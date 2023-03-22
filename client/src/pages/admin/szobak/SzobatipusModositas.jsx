@@ -9,8 +9,8 @@ import { RoomTypeContext } from '../../../context/room/RoomTypeContext';
 
 export const SzobatipusModositas = () => {
 
-    const [formData, setFormData] = useState({});
     const [current, setCurrent] = useState({});
+    const [formData, setFormData] = useState(current[0] || {});
     const { id } = useParams();
 
     const { handleChange: handleModify } = useContext(RoomTypeContext);
@@ -71,7 +71,7 @@ export const SzobatipusModositas = () => {
     useEffect(() => {
         axios.get(`http://localhost:8080/roomtypes/${id}`)
             .then(({ data }) => {
-                setFormData(data);
+                setFormData(data[0]);
                 setCurrent(data)
             }
 
@@ -88,13 +88,13 @@ export const SzobatipusModositas = () => {
                     <hr />
                 </div>
                 <label htmlFor="room_type_name">Szobatípus:</label>
-                <input type="text" name="room_type_name" placeholder={current[0]?.room_type_name} value={formData?.room_type_name || ""} onChange={(e) => handleChange(e)} />
+                <input type="text" name="room_type_name" value={formData?.room_type_name || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="description">Leírás:</label>
-                <textarea className='w-100' name="description" placeholder={current[0]?.description} rows="10" value={formData?.description || ""} onChange={(e) => handleChange(e)}></textarea>
+                <textarea className='w-100' name="description" rows="10" value={formData?.description || ""} onChange={(e) => handleChange(e)}></textarea>
                 <label htmlFor="space">Férőhely:</label>
-                <input type="number" name="space" placeholder={current[0]?.space} value={formData?.space || 0} min="0" onChange={(e) => handleChange(e)} />
+                <input type="number" name="space" value={formData?.space || 0} min="0" onChange={(e) => handleChange(e)} />
                 <label htmlFor="price_night">Ár/éj:</label>
-                <input type="number" name="price_night" placeholder={current[0]?.price_night} value={formData?.price_night || 0} min="0" onChange={(e) => handleChange(e)} />
+                <input type="number" name="price_night" value={formData?.price_night || 0} min="0" onChange={(e) => handleChange(e)} />
 
                 <button
                     id='button'

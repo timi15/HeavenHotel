@@ -7,8 +7,9 @@ import { RoomTypeContext } from '../../../context/room/RoomTypeContext';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 export const SzobaModositas = () => {
-    const [formData, setFormData] = useState({});
     const [current, setCurrent] = useState({});
+    const [formData, setFormData] = useState(current[0] || {});   
+    console.log(formData); 
     const { id } = useParams();
 
     const { handleChange: handleModify } = useContext(RoomContext);
@@ -69,7 +70,7 @@ export const SzobaModositas = () => {
     useEffect(() => {
         axios.get(`http://localhost:8080/rooms/${id}`)
             .then(({ data }) => {
-                setFormData(data);
+                setFormData(data[0]);
                 setCurrent(data)
             }
 
@@ -85,7 +86,7 @@ export const SzobaModositas = () => {
                     <hr />
                 </div>
                 <label htmlFor="room_number">Szobaszám:</label>
-                <input type="number" name="room_number" placeholder={current[0]?.room_number} value={formData?.room_number || ""} onChange={(e) => handleChange(e)} />
+                <input type="number" name="room_number"  value={formData?.room_number || ""} onChange={(e) => handleChange(e)} />
 
                 <FormControl sx={{ m: 2, width: 450 }}>
                     <InputLabel id="demo-simple-select-label">Szobatípus</InputLabel>

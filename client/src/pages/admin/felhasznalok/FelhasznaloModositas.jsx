@@ -8,8 +8,9 @@ import { UserContext } from '../../../context/user/UserContext';
 import Swal from "sweetalert2"
 
 export const FelhasznaloModositas = () => {
-    const [formData, setFormData] = useState({});
     const [current, setCurrent] = useState({});
+    const [formData, setFormData] = useState(current[0] || {});
+    
     const { id } = useParams();
 
     const { handleChange: handleModify } = useContext(UserContext);
@@ -21,7 +22,7 @@ export const FelhasznaloModositas = () => {
     }
 
     const handleSubmit = () => {
-        if (Object.entries(formData).length === 6 && !isEmpty())
+        if (Object.entries(formData).length === 7 && !isEmpty())
             handleModify(id, formData).then(val => {
                 if (val) {
                     navigate("/adminfelulet/felhasznalok");
@@ -62,14 +63,14 @@ export const FelhasznaloModositas = () => {
 
     const isEmpty = () => {
         console.log(Object.entries(formData).filter(([key, value]) => typeof value === "string" ? value.trim().length !== 0 : value));
-        return Object.entries(formData).filter(([key, value]) => typeof value === "string" ? value.trim().length !== 0 : value).length !== 6;
+        return Object.entries(formData).filter(([key, value]) => typeof value === "string" ? value.trim().length !== 0 : value).length !== 7;
 
     }
 
     useEffect(() => {
         axios.get(`http://localhost:8080/users/${id}`)
             .then(({ data }) => {
-                setFormData(data);
+                setFormData(data[0]);
                 setCurrent(data)
             }
 
@@ -86,13 +87,13 @@ export const FelhasznaloModositas = () => {
                     <hr />
                 </div>
                 <label htmlFor="email">E-mail:</label>
-                <input type="email" name="email" placeholder={current[0]?.email} value={formData?.email || ""} onChange={(e) => handleChange(e)} />
+                <input type="email" name="email"  value={formData?.email || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="name">Név:</label>
-                <input type="text" name="name" placeholder={current[0]?.name} value={formData?.name || ""} onChange={(e) => handleChange(e)} />
+                <input type="text" name="name"  value={formData?.name || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="address">Lakcím:</label>
-                <input type="text" name="address" placeholder={current[0]?.address} value={formData?.address || ""} onChange={(e) => handleChange(e)} />
+                <input type="text" name="address"  value={formData?.address || ""} onChange={(e) => handleChange(e)} />
                 <label htmlFor="phone_number">Telefonszám:</label>
-                <input type="text" placeholder={current[0]?.phone_number} name="phone_number" value={formData?.phone_number || ""} onChange={(e) => handleChange(e)} />
+                <input type="text"  name="phone_number" value={formData?.phone_number || ""} onChange={(e) => handleChange(e)} />
                 <div >
                     <input id="user" type="radio" name="is_admin" value="0" checked={formData?.is_admin === "0"} onChange={(e) => handleChange(e)} />
                     <label style={{ fontFamily: 'Rozha One' }} htmlFor="user">Felhasználó</label>
