@@ -5,12 +5,13 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../../context/user/UserContext';
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
+import {  TextField } from '@mui/material';
 
 export const FelhasznaloModositas = () => {
     const [current, setCurrent] = useState({});
     const [formData, setFormData] = useState(current[0] || {});
-    
+
     const { id } = useParams();
 
     const { handleChange: handleModify } = useContext(UserContext);
@@ -82,24 +83,68 @@ export const FelhasznaloModositas = () => {
 
         <div className=" container edit">
             <div className="editForm">
-                <h1 className=' modositas mb-5'>Módosítás (<i style={{ color: "#434A42" }}>{current[0]?.name}</i>)</h1>
+                <h1 className=' modositas mb-5'>Módosítás - <i style={{ color: "#434A42" }}>{current[0]?.name}</i></h1>
                 <div style={{ textAlign: "center" }}>
                     <hr />
                 </div>
-                <label htmlFor="email">E-mail:</label>
-                <input type="email" name="email"  value={formData?.email || ""} onChange={(e) => handleChange(e)} />
-                <label htmlFor="name">Név:</label>
-                <input type="text" name="name"  value={formData?.name || ""} onChange={(e) => handleChange(e)} />
-                <label htmlFor="address">Lakcím:</label>
-                <input type="text" name="address"  value={formData?.address || ""} onChange={(e) => handleChange(e)} />
-                <label htmlFor="phone_number">Telefonszám:</label>
-                <input type="text"  name="phone_number" value={formData?.phone_number || ""} onChange={(e) => handleChange(e)} />
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="email"
+                    name="email"
+                    label="E-mail-cím"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.email || ""}
+
+                />
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="text"
+                    name="name"
+                    label="Név"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.name || ""}
+
+                />
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="text"
+                    name="address"
+                    label="Lakcím"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.address || ""}
+
+                />
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="text"
+                    name="phone_number"
+                    label="Telefonszám"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.phone_number || ""}
+
+                />
+
                 <div >
                     <input id="user" type="radio" name="is_admin" value="0" checked={formData?.is_admin === "0"} onChange={(e) => handleChange(e)} />
                     <label style={{ fontFamily: 'Rozha One' }} htmlFor="user">Felhasználó</label>
-                    <input style={{ marginLeft: 20 }} id="admin" type="radio" name="is_admin" value="1" checked={formData?.is_admin === "1"} onChange={(e) => handleChange(e)} />
+                    <input style={{ marginLeft: 70 }} id="admin" type="radio" name="is_admin" value="1" checked={formData?.is_admin === "1"} onChange={(e) => handleChange(e)} />
                     <label style={{ fontFamily: 'Rozha One' }} htmlFor="admin">Adminisztrátor</label>
                 </div>
+
+                
+
                 <button
                     id='button'
                     className='mt-5'
@@ -109,7 +154,7 @@ export const FelhasznaloModositas = () => {
                             text: "A módosítás nem visszavonható művelet!",
                             icon: 'warning',
                             showCancelButton: true,
-                            cancelButtonText:"Mégse",
+                            cancelButtonText: "Mégse",
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
                             confirmButtonText: 'Igen, módosítás!'
@@ -118,8 +163,8 @@ export const FelhasznaloModositas = () => {
                                 handleSubmit()
                                 Swal.fire(
                                     {
-                                        title:"Sikeresen módosította a felhasználót!",
-                                        icon:"succes",
+                                        title: "Sikeresen módosította a felhasználót!",
+                                        icon: "succes",
                                         timer: 3000
                                     }
                                 )

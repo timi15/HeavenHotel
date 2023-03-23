@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import axios from 'axios';
 import React from 'react'
 import { useContext } from 'react';
@@ -87,14 +88,57 @@ export const SzobatipusModositas = () => {
                 <div style={{ textAlign: "center" }}>
                     <hr />
                 </div>
-                <label htmlFor="room_type_name">Szobatípus:</label>
-                <input type="text" name="room_type_name" value={formData?.room_type_name || ""} onChange={(e) => handleChange(e)} />
-                <label htmlFor="description">Leírás:</label>
-                <textarea className='w-100' name="description" rows="10" value={formData?.description || ""} onChange={(e) => handleChange(e)}></textarea>
-                <label htmlFor="space">Férőhely:</label>
-                <input type="number" name="space" value={formData?.space || 0} min="0" onChange={(e) => handleChange(e)} />
-                <label htmlFor="price_night">Ár/éj:</label>
-                <input type="number" name="price_night" value={formData?.price_night || 0} min="0" onChange={(e) => handleChange(e)} />
+
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="text"
+                    name="room_type_name"
+                    label="Szobatípus megnevezése"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.room_type_name || ""}
+
+                />
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="text"
+                    name="description"
+                    label="Leírás"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.description || ""}
+                    multiline
+                    rows={10}
+
+                />
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="number"
+                    name="space"
+                    label="Férőhely"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.space || ""}
+
+                />
+
+                <TextField
+                    sx={{ m: 3, width: 550 }}
+                    margin="normal"
+                    type="number"
+                    name="price_night"
+                    label="Ár/éj"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.price_night || ""}
+
+                />
 
                 <button
                     id='button'

@@ -4,12 +4,12 @@ import { RoomContext } from '../../../context/room/RoomContext';
 import Swal from "sweetalert2";
 import axios from 'axios';
 import { RoomTypeContext } from '../../../context/room/RoomTypeContext';
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 
 export const SzobaModositas = () => {
     const [current, setCurrent] = useState({});
-    const [formData, setFormData] = useState(current[0] || {});   
-    console.log(formData); 
+    const [formData, setFormData] = useState(current[0] || {});
+    console.log(formData);
     const { id } = useParams();
 
     const { handleChange: handleModify } = useContext(RoomContext);
@@ -85,10 +85,21 @@ export const SzobaModositas = () => {
                 <div style={{ textAlign: "center" }}>
                     <hr />
                 </div>
-                <label htmlFor="room_number">Szobaszám:</label>
-                <input type="number" name="room_number"  value={formData?.room_number || ""} onChange={(e) => handleChange(e)} />
 
-                <FormControl sx={{ m: 2, width: 450 }}>
+                <TextField
+                    sx={{ m: 3, width: 450 }}
+                    margin="normal"
+                    fullWidth
+                    type="number"
+                    name="room_number"
+                    label="Szobaszám"
+                    InputLabelProps={{ shrink: true }}
+                    onChange={(e) => handleChange(e)}
+                    value={formData?.room_number || ""}
+
+                />
+
+                <FormControl sx={{ m: 3, width: 450 }}>
                     <InputLabel id="demo-simple-select-label">Szobatípus</InputLabel>
                     <Select
                         name='room_type_id'

@@ -11,7 +11,7 @@ export const Fejlec = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <p style={{ color: 'white', fontSize: 14 }}>4400 Nyíregyháza, Hotel utca 124.  Tel: +36-30-234-6421</p>
+                        <p style={{ color: 'white', fontSize: 14 }}>4400 Nyíregyháza, Hotel utca 124.  Tel: +36 30 113 6090</p>
                     </div>
                     <div className="col-md-4" style={{ textAlign: "center" }}>
                         {
