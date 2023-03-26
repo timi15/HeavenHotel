@@ -34,11 +34,11 @@ module.exports.login = () => {
 
             const token = jwt.sign({ id: data[0].user_id }, "secret");
 
-            const { email, user_id: userId, is_admin: isAdmin } = data[0];
+            const { email, name, user_id: userId, is_admin: isAdmin } = data[0];
 
             res.cookie("access_token", token, {
                 httpOnly: true
-            }).status(200).json({ email, userId, isAdmin });
+            }).status(200).json({ email, name, userId, isAdmin });
         });
     }
 }
