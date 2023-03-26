@@ -25,9 +25,10 @@ export const Szobak = () => {
                     <h5 className='roomPage'>Szobák</h5>
                     <p>A szobák árai a reggeli árát tartalmazzák!</p>
                     <p>Kérjük előzetesen értesítsenek bennünket felmerülő kéréseikről, igényeikről (mint pl.: virágcsokor, újság stb.), hogy érkezésükre gondoskodni tudjunk ezek bekészítéséről.</p>
-                    <p style={{textDecoration:"underline"}}><strong>Szobák felszereltsége:</strong></p>
-                    <p>
-                        <ul style={{listStyleType:"circle"}}>
+                    <p style={{ textDecoration: "underline" }}><strong>Szobák felszereltsége:</strong></p>
+
+                    <div>
+                        <ul style={{ listStyleType: "circle" }}>
                             <li>Légkondicionálás</li>
                             <li>Hangszigetelt nyílászárók</li>
                             <li>Telefon</li>
@@ -39,7 +40,8 @@ export const Szobak = () => {
                             <li>Higiéniai és kozmetikai ápoló készlet</li>
                             <li>Hajszárító</li>
                         </ul>
-                    </p>
+                    </div>
+
                 </div>
 
                 <div className="row" >

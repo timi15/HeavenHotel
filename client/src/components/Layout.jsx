@@ -77,43 +77,50 @@ export const Layout = ({ children }) => {
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
-                                {currentUser != null && currentUser['isAdmin'] === 1 && (adminPages.map((page, index) => (
-                                    <MenuItem key={index} onClick={() => handleCloseNavMenu(page.route)}>
-                                        <Typography id='appbar-element' textAlign="center">{page.name}</Typography>
-                                    </MenuItem>
-                                )))}
+                                {currentUser != null && currentUser['isAdmin'] === 1
+                                    ? adminPages.map((page, index) => (
+                                        <MenuItem key={index} onClick={() => handleCloseNavMenu(page.route)}>
+                                            <Typography id='appbar-element' textAlign="center">{page.name}</Typography>
+                                        </MenuItem>))
+                                    : ""}
 
-                                {(currentUser === null || currentUser['isAdmin'] === 0) && (pages.map((page, index) => (
-                                    <MenuItem key={index} onClick={() => handleCloseNavMenu(page.route)}>
-                                        <Typography id='appbar-element' textAlign="center">{page.name}</Typography>
-                                    </MenuItem>
-                                )))}
+                                {currentUser === null || currentUser['isAdmin'] === 0
+                                    ? pages.map((page, index) => (
+                                        <MenuItem key={index} onClick={() => handleCloseNavMenu(page.route)}>
+                                            <Typography id='appbar-element' textAlign="center">{page.name}</Typography>
+                                        </MenuItem>))
+                                    : ""}
+
+
 
                             </Menu>
                         </Box>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center" }}>
-                            {currentUser != null && currentUser['isAdmin'] === 1 && (adminPages.map((page, index) => (
-                                <Button
-                                    id="appbar-button"
-                                    key={index}
-                                    onClick={() => handleCloseNavMenu(page.route)}
-                                    sx={{ my: 2, display: 'block' }}
-                                >
-                                    {page.name}
-                                </Button>
-                            )))}
 
-                            {(currentUser === null || currentUser['isAdmin'] === 0) && (pages.map((page, index) => (
-                                <Button
-                                    id="appbar-button"
-                                    key={index}
-                                    onClick={() => handleCloseNavMenu(page.route)}
-                                    sx={{ my: 2, display: 'block' }}
-                                >
-                                    {page.name}
-                                </Button>
-                            )))}
+                            {currentUser != null && currentUser['isAdmin'] === 1
+                                ? adminPages.map((page, index) => (
+                                    <Button
+                                        id="appbar-button"
+                                        key={index}
+                                        onClick={() => handleCloseNavMenu(page.route)}
+                                        sx={{ my: 2, display: 'block' }}
+                                    >
+                                        {page.name}
+                                    </Button>))
+                                : ""}
+
+                            {currentUser === null || currentUser['isAdmin'] === 0
+                                ? pages.map((page, index) => (
+                                    <Button
+                                        id="appbar-button"
+                                        key={index}
+                                        onClick={() => handleCloseNavMenu(page.route)}
+                                        sx={{ my: 2, display: 'block' }}
+                                    >
+                                        {page.name}
+                                    </Button>))
+                                : ""}
                         </Box>
                     </Toolbar>
                 </Container>

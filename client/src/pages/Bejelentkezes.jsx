@@ -10,6 +10,7 @@ export const Bejelentkezes = () => {
 
     const [formData, setFormData] = useState({});
 
+
     const { login } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -32,7 +33,8 @@ export const Bejelentkezes = () => {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Ön sikeresen bejelentkezett fiókjába!',
+                        title: 'Sikeres bejelentkezés!',
+                        text:"Most már akadálytalanul foglalhat",
                         showConfirmButton: false,
                         timer: 2500
                     })
@@ -113,6 +115,7 @@ export const Bejelentkezes = () => {
                     </div>
                 </Box>
             </Box>
+
         </Container>
     )
 }

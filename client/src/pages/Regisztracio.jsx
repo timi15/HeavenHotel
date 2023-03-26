@@ -91,10 +91,9 @@ export const Regisztracio = () => {
                     Regisztráció
                 </Typography>
 
-                <Box sx={{ mt: 1 }}>
+                <Box sx={{ mt: 1 }} >
                     <div>
                         <TextField
-                            placeholder='pl.: Teszt Elek'
                             required
                             margin="normal"
                             fullWidth
@@ -106,7 +105,7 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
-                            placeholder='pl.: 06301234567'
+                            helperText="Ilyen formában adja meg: 06301234567"
                             required
                             margin="normal"
                             fullWidth
@@ -118,7 +117,6 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
-                            placeholder='pl.: tesztelek01@gmail.com'
                             required
                             margin="normal"
                             fullWidth
@@ -131,7 +129,6 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
-                            placeholder='4400 Nyíregyháza, Kitalált utca 12.'
                             required
                             margin="normal"
                             fullWidth
@@ -143,24 +140,19 @@ export const Regisztracio = () => {
 
                     <div>
                         <TextField
-                            placeholder='min 8, max 16 karakter'
                             required
-                            margin="normal"
                             fullWidth
+                            helperText={show ? passwordStrength(formData?.password, PasswordCustom).value : "min 8 karakter, kis- és nagybetű, szám, speciális karakter"}
+                            margin="normal"
                             name="password"
                             label="Jelszó"
+                            f
                             type="password"
                             onKeyDown={() => setShow(true)}
                             onMouseLeave={() => setShow(false)}
                             onChange={({ target: { name, value } }) => setFormData({ ...formData, [name]: value })}
                         />
                     </div>
-
-                    {
-                        show && (
-                            <div style={{ textAlign: "right" }}>{passwordStrength(formData?.password, PasswordCustom).value}</div>
-                        )
-                    }
 
                     <FormGroup>
                         <FormControlLabel control={<Checkbox id='szerzodes' style={{ color: '#434A42' }} />} label={<div>

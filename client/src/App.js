@@ -43,65 +43,36 @@ function App() {
   const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/roomtypes", {
-      headers: {
-        'Access-Control-Allow-Origin': "localhost:3000"
-      }
-    })
-      .then((res) => {
-        handleSetRoomTypes(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const fetchData = async () => {
+      const [roomtypes, rooms, users, reservations] = await Promise.all([
+        axios.get('http://localhost:8080/roomtypes', {
+          headers: {
+            'Access-Control-Allow-Origin': "localhost:3000"
+          }
+        }),
+        axios.get('http://localhost:8080/rooms', {
+          headers: {
+            'Access-Control-Allow-Origin': "localhost:3000"
+          }
+        }),
+        axios.get('http://localhost:8080/users', {
+          headers: {
+            'Access-Control-Allow-Origin': "localhost:3000"
+          }
+        }),
+        axios.get('http://localhost:8080/reservations', {
+          headers: {
+            'Access-Control-Allow-Origin': "localhost:3000"
+          }
+        }),
+      ]);
+      handleSetRoomTypes(roomtypes.data);
+      handleSetRooms(rooms.data);
+      handleSetUsers(users.data);
+      handleSetBooking(reservations.data);
+    };
+    fetchData();
   }, []);
-
-  useEffect(() => {
-    axios.get("http://localhost:8080/rooms", {
-      headers: {
-        'Access-Control-Allow-Origin': "localhost:3000"
-      }
-    })
-      .then((res) => {
-        handleSetRooms(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios.get("http://localhost:8080/users", {
-      headers: {
-        'Access-Control-Allow-Origin': "localhost:3000"
-      }
-    })
-      .then((res) => {
-        handleSetUsers(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios.get("http://localhost:8080/reservations", {
-      headers: {
-        'Access-Control-Allow-Origin': "localhost:3000"
-      }
-    })
-      .then((res) => {
-        handleSetBooking(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-
-
-
-
 
   return (
 
@@ -136,7 +107,7 @@ function App() {
                   <Route path='/adminfelulet/szobatipusok/modositas/:id' element={<SzobatipusModositas />} />
                   <Route path='/adminfelulet/szobak/modositas/:id' element={<SzobaModositas />} />
 
-                  <Route path='/adminfelulet/foglalasok' element={<FoglalasokKezelese/>} />
+                  <Route path='/adminfelulet/foglalasok' element={<FoglalasokKezelese />} />
                 </>
               )
             }

@@ -15,8 +15,7 @@ export const Auth = ({children}) => {
 
     const logout = async () => {
         const res = await axios.get("http://localhost:8080/logout")
-        setCurrentUser(null);
-        window.location.href="/bejelentkezes";
+        setCurrentUser(null);       
     }
 
     useEffect(() => {
