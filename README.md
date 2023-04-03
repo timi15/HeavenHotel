@@ -2,6 +2,9 @@ Heaven Hotel weboldal
 
 Témavezető:
 
+Szabó Ákos
+
+Rehó János
 
 
 Készítette:
