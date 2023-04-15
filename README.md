@@ -1,13 +1,13 @@
 Heaven Hotel weboldal
 
-Témavezető:
+Témavezetők:
 
 Szabó Ákos
 
 Rehó János
 
 
-Készítette:
+Készítették:
 
 Osikóczki Sándor Mátyás
 
