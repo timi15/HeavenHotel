@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Már 15. 19:51
--- Kiszolgáló verziója: 10.4.27-MariaDB
--- PHP verzió: 8.2.0
+-- Létrehozás ideje: 2023. Ápr 15. 16:04
+-- Kiszolgáló verziója: 10.4.28-MariaDB
+-- PHP verzió: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,10 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `heaven`
 --
+
 CREATE DATABASE IF NOT EXISTS `heaven` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
 USE `heaven`;
+
 -- --------------------------------------------------------
 
 --
@@ -37,6 +39,15 @@ CREATE TABLE `booking` (
   `night_number` int(11) NOT NULL,
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `user_id`, `room_id`, `check_in`, `check_out`, `night_number`, `amount`) VALUES
+(1, 3, 2, '2023-04-16', '2023-04-18', 2, 44000),
+(2, 8, 1, '2023-04-24', '2023-04-25', 1, 17000),
+(3, 9, 3, '2023-04-27', '2023-04-29', 2, 50000);
 
 -- --------------------------------------------------------
 
@@ -59,8 +70,9 @@ INSERT INTO `room` (`room_id`, `room_type_id`, `room_number`) VALUES
 (2, 2, 3),
 (3, 3, 5),
 (4, 4, 7),
-(5, 5, 12),
-(6, 6, 14);
+(5, 5, 9),
+(6, 6, 11),
+(7, 7, 13);
 
 -- --------------------------------------------------------
 
@@ -111,7 +123,10 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `email`, `password`, `name`, `address`, `phone_number`, `is_admin`) VALUES
 (3, 'vargatimi505@gmail.com', '$2a$12$xw0g4jPTz76QtKsx4zYAOeqW.dTrpEP3.wOGVZDjLtGL4.IgfweyK', 'Varga Tímea', '4481 Sóstóhegy, Nyírség utca 1.', '06302466287', 1),
-(6, 'kisanna12@gmail.com', '$2a$12$J23sAyYvFAxnvltta1Ah1.rn91SHSLo0Lj6oM7fuUxmXw19tdPs4C', 'Kis Anna', '4400 Nyíregyháza, Kosbor utca 6.', '06704327644', 0);
+(6, 'kisanna12@gmail.com', '$2a$12$J23sAyYvFAxnvltta1Ah1.rn91SHSLo0Lj6oM7fuUxmXw19tdPs4C', 'Kis Anna', '4400 Nyíregyháza, Kosbor utca 6.', '06704327644', 0),
+(7, 'admin@admin.com', '$2a$12$WSMOJMaXJUTYbzeTwbk91eljXOybBDGGy2grn9A9n21SiRwiTqX2e', 'Admin Admin', '1111 Admin, Admin utca 1', '06301234567', 1),
+(8, 'tesztelek01@gmail.com', '$2a$12$/lZWz6DNRbbHIthQzYjqw.F6fXvavG2nHpzY8SlVL4lbXlJupQ7mO', 'Teszt Elek', '4400 Nyíregyháza, Szegfű utca 2.', '06201234567', 0),
+(9, 'osikoczki2001@gmail.com', '$2a$12$jxNsLF7ztKMFisTAUNoPx.b482jPVFhsfsjbmjQJa6qC97jwGhmHi', 'Osikóczki Sándor Mátyás', '4244 Újfehértó, Nyíl utca 25.', '06202451809', 1);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -152,13 +167,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `room`
 --
 ALTER TABLE `room`
-  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT a táblához `room_type`
@@ -170,7 +185,7 @@ ALTER TABLE `room_type`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Megkötések a kiírt táblákhoz

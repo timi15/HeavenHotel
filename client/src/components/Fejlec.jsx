@@ -16,7 +16,7 @@ export const Fejlec = () => {
                     </div>
                     <div className="col-md-4" style={{ textAlign: "center" }}>
                         {
-                            currentUser !== null ? <p style={{ color: "white", fontSize: 16 }}>Bejelentkezve:  {currentUser['email']}</p> : ""
+                            currentUser !== null ? <p style={{ color: "white", fontSize: 16 }}>Bejelentkezve:  {currentUser['name']}</p> : ""
                         }
                     </div>
                     <div className="col-md-4 ">
