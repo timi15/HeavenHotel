@@ -1,13 +1,13 @@
 Heaven Hotel weboldal
 
-Témavezető:
+Témavezetők:
 
 Szabó Ákos
 
 Rehó János
 
 
-Készítette:
+Készítették:
 
 Osikóczki Sándor Mátyás
 
@@ -25,7 +25,7 @@ NYÍREGYHÁZA
 
  - Töltse le a Windows telepítőt a Node.js webhelyről. Miután kiválasztotta az igényeinek megfelelő verziót, futtassa a telepítőt.
 
- - Indítunk kettő Visual Studio Code alkalmazást, egyikben a Front mappát nyitjuk meg, a másikban a backend mappát kell megnyitni az Open Folder menüponttal.
+ - Indítunk kettő Visual Studio Code alkalmazást, egyikben a client mappát nyitjuk meg, a másikban a backend mappát kell megnyitni az Open Folder menüponttal.
 
  - Mindkét Visual Studio Code-ban indítunk egy Terminált a Terminal menu/New Terminal-lal. (Vagy a Command Line is megfelel)
 

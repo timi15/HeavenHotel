@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 15. 16:04
+-- Létrehozás ideje: 2023. Ápr 18. 14:42
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -47,7 +47,9 @@ CREATE TABLE `booking` (
 INSERT INTO `booking` (`booking_id`, `user_id`, `room_id`, `check_in`, `check_out`, `night_number`, `amount`) VALUES
 (1, 3, 2, '2023-04-16', '2023-04-18', 2, 44000),
 (2, 8, 1, '2023-04-24', '2023-04-25', 1, 17000),
-(3, 9, 3, '2023-04-27', '2023-04-29', 2, 50000);
+(3, 10, 7, '2023-04-26', '2023-04-29', 3, 108000),
+(4, 11, 2, '2023-04-25', '2023-04-26', 1, 22000),
+(5, 12, 2, '2023-04-21', '2023-04-23', 2, 44000);
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,9 @@ INSERT INTO `user` (`user_id`, `email`, `password`, `name`, `address`, `phone_nu
 (6, 'kisanna12@gmail.com', '$2a$12$J23sAyYvFAxnvltta1Ah1.rn91SHSLo0Lj6oM7fuUxmXw19tdPs4C', 'Kis Anna', '4400 Nyíregyháza, Kosbor utca 6.', '06704327644', 0),
 (7, 'admin@admin.com', '$2a$12$WSMOJMaXJUTYbzeTwbk91eljXOybBDGGy2grn9A9n21SiRwiTqX2e', 'Admin Admin', '1111 Admin, Admin utca 1', '06301234567', 1),
 (8, 'tesztelek01@gmail.com', '$2a$12$/lZWz6DNRbbHIthQzYjqw.F6fXvavG2nHpzY8SlVL4lbXlJupQ7mO', 'Teszt Elek', '4400 Nyíregyháza, Szegfű utca 2.', '06201234567', 0),
-(9, 'osikoczki2001@gmail.com', '$2a$12$jxNsLF7ztKMFisTAUNoPx.b482jPVFhsfsjbmjQJa6qC97jwGhmHi', 'Osikóczki Sándor Mátyás', '4244 Újfehértó, Nyíl utca 25.', '06202451809', 1);
+(10, 'solteszmonika7@gmail.com', '$2a$12$RiQTj1Dos1144xmWV5LXXefeY/FKLRM40XK8WDFyJXG2C/QMbhs3W', 'Soltész Mónika', '4400 Nyíregyháza, Vasút utca 34.', '06205360569', 1),
+(11, 'user@user.com', '$2a$12$CfRGPiODgmtBpn9O7CMuq.kpj7C00eJENncP/5.PPIRgIvUTIYwKm', 'User User', '1111 User, User utca 1.', '06301239876', 0),
+(12, 'osikoczki2001@gmail.com', '$2a$12$mLX69HEqE5HgcWLQSwktM.amaYxcePeU2rsb2JFRvs.R/EcuSlnfG', 'Osikóczki Sándor Mátyás', '4244 Újfehértó, Nyíl utca 25.', '06202451809', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -167,7 +171,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `room`
@@ -185,7 +189,7 @@ ALTER TABLE `room_type`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Megkötések a kiírt táblákhoz
