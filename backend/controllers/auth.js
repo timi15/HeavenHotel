@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const db = require("../service/connection");
+const dotenv = require("dotenv")
+dotenv.config();
 
 module.exports.register = () => {
     return (req, res) => {
@@ -32,7 +34,7 @@ module.exports.login = () => {
             if (!isCorrectPassword)
                 return res.status(400).send("Wrong username or password.");
 
-            const token = jwt.sign({ id: data[0].user_id }, "secret");
+            const token = jwt.sign({ id: data[0].user_id, admin: data[0].is_admin }, process.env.JWT_SECRET, {expiresIn: process.env.JWT_LIFETIME});
 
             const { email, name, user_id: userId, is_admin: isAdmin } = data[0];
 

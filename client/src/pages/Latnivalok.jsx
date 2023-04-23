@@ -3,15 +3,15 @@ import { Link } from "react-router-dom"
 import { Latnivalo } from '../components/Latnivalo'
 
 import plakat from "../img/plakat.png";
-import kep1 from "../img/latnivalok/aquarius1.jpg"
-import kep2 from "../img/latnivalok/aquarius2.jpg"
-import kep3 from "../img/latnivalok/aquarius3.jpg"
-import kep4 from "../img/latnivalok/allatpark3.jpg"
-import kep5 from "../img/latnivalok/allatpark1.jpg"
-import kep6 from "../img/latnivalok/allatpark2.jpg"
-import kep7 from "../img/latnivalok/muzeumfalu1.jpg"
-import kep8 from "../img/latnivalok/muzeumfalu2.jpg"
-import kep9 from "../img/latnivalok/muzeumfalu3.jpg"
+import kep1 from "../img/latnivalok/lido.jpg"
+import kep2 from "../img/latnivalok/lido2.jpg"
+import kep3 from "../img/latnivalok/lido3.jpg"
+import kep4 from "../img/latnivalok/zoo.jpg"
+import kep5 from "../img/latnivalok/zoo2.jpg"
+import kep6 from "../img/latnivalok/zoo3.jpg"
+import kep7 from "../img/latnivalok/openairmuseum.jpg"
+import kep8 from "../img/latnivalok/openairmuseum2.jpg"
+import kep9 from "../img/latnivalok/openairmuseum3.jpg"
 
 export const Latnivalok = () => {
     return (

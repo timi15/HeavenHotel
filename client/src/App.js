@@ -45,22 +45,22 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const [roomtypes, rooms, users, reservations] = await Promise.all([
-        axios.get('http://localhost:8080/roomtypes', {
+        axios.get('http://localhost:8080/room/roomtypes', {
           headers: {
             'Access-Control-Allow-Origin': "localhost:3000"
           }
         }),
-        axios.get('http://localhost:8080/rooms', {
+        axios.get('http://localhost:8080/room/rooms', {
           headers: {
             'Access-Control-Allow-Origin': "localhost:3000"
           }
         }),
-        axios.get('http://localhost:8080/users', {
+        axios.get('http://localhost:8080/user/users', {
           headers: {
             'Access-Control-Allow-Origin': "localhost:3000"
           }
         }),
-        axios.get('http://localhost:8080/reservations', {
+        axios.get('http://localhost:8080/reservation/reservations', {
           headers: {
             'Access-Control-Allow-Origin': "localhost:3000"
           }

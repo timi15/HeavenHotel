@@ -43,10 +43,6 @@ i:hover {
     color: white;
 }
 
-
-
-
-
 /*TEXTFIELD*/
 
 .MuiTextField-root>label {
@@ -139,8 +135,6 @@ i:hover {
     text-transform: uppercase;
     margin-bottom: 30px;
     letter-spacing: 5px;
-
-
 }
 
 
@@ -175,13 +169,9 @@ i:hover {
 
 }
 
-
-
-
 /*
 FOOTER
 */
-
 
 footer {
 
@@ -236,7 +226,6 @@ footer {
 }
 
 /*ADATVEDELEM*/
-
 
 .adatvedelem {
     font-family: 'Times New Roman', Times, serif;
@@ -294,7 +283,7 @@ footer {
 /*ROLUNK*/
 
 .rolunk {
-    background-image: url("../../img/panorama.jpg");
+    background-image: url("../../img/latkep.jpg");
     padding: 100px;
     color: white;
     font-size: 20px;

@@ -14,7 +14,7 @@ export const Users = ({ children }) => {
     const handleChange = async (user_id, user) => {
         setUsers(users.map((value) => value.user_id !== user.user_id ? value : user));
         try {
-            const res = await axios.put(`http://localhost:8080/users/${user_id}`, user, {
+            const res = await axios.put(`http://localhost:8080/user/users/${user_id}`, user, {
                 headers: {
                     "Content-Type": "application/json"
                 }
@@ -28,7 +28,7 @@ export const Users = ({ children }) => {
     const handleRemove = async (user_id) => {
         setUsers(users.filter((value) => value.user_id !== user_id));
         try {
-            const res = await axios.delete(`http://localhost:8080/users/${user_id}`);            
+            const res = await axios.delete(`http://localhost:8080/user/users/${user_id}`);            
             return true;
 
         } catch (err) {

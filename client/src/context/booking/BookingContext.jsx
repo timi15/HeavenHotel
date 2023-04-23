@@ -14,7 +14,7 @@ export const Bookings = ({ children }) => {
     const handleRemove = async (booking_id) => {
         setBookings(bookings.filter((value) => value.booking_id !== booking_id));
         try {
-            const res = await axios.delete(`http://localhost:8080/reservations/${booking_id}`);
+            const res = await axios.delete(`http://localhost:8080/reservation/reservations/${booking_id}`);
             return true;
         } catch (err) {
             return false;

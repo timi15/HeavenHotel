@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 
-import room1 from "../img/szobak/superiorEgyagyasSzoba.jpg"
-import room2 from "../img/szobak/standardKetagyasSzoba.jpg"
-import room3 from "../img/szobak/superiorKetagyasSzoba.jpg"
-import room4 from "../img/szobak/standardKetagyasSzoba.jpg"
-import room5 from "../img/szobak/superiorHaromagyasSzoba.jpg"
-import room6 from "../img/szobak/standardNegyagyasSzoba.jpg"
-import room7 from "../img/szobak/superiorNegyagyasSzoba.jpg"
+import room1 from "../img/szobak/superior1.jpg"
+import room2 from "../img/szobak/standard2.jpg"
+import room3 from "../img/szobak/superior2.jpg"
+import room4 from "../img/szobak/standard3.jpg"
+import room5 from "../img/szobak/superior3.jpg"
+import room6 from "../img/szobak/standard4.jpg"
+import room7 from "../img/szobak/superior4.jpg"
 import { RoomTypeContext } from '../context/room/RoomTypeContext';
 
 export const Szobak = () => {

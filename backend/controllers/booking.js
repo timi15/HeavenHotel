@@ -37,7 +37,8 @@ sendMail = (email, checkInDate, checkOutDate, nightNumber, amount) => {
     });
 }
 
-module.exports.getAllBookings = () => {
+module.exports.getAllBookings = (req, res) => {
+
     return (req, res) => {
         myQuery = "SELECT booking.booking_id, room.room_number,  user.name, room_type.room_type_name, booking.check_in, booking.check_out, booking.night_number, booking.amount FROM user INNER JOIN booking ON user.user_id = booking.user_id INNER JOIN room ON booking.room_id= room.room_id INNER JOIN room_type ON room_type.room_type_id= room.room_type_id;";
         db.query(myQuery, (err, result) => {
@@ -48,7 +49,9 @@ module.exports.getAllBookings = () => {
 }
 
 
-module.exports.createBooking = () => {
+
+module.exports.createBooking = (req, res) => {
+
     return (req, res) => {
         const { email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount } = req.body;
 
@@ -90,6 +93,7 @@ module.exports.createBooking = () => {
 }
 
 
+
 module.exports.getAvailableRooms = () => {
     return (req, res) => {
         const { type, checkInDate, checkOutDate } = req.body;
@@ -110,12 +114,16 @@ module.exports.getAvailableRooms = () => {
     }
 }
 
-module.exports.bookingDeleteByBookingId= ()=>{
-    return (req, res, next)=>{
-        db.query("DELETE FROM booking WHERE booking_id LIKE ?;", [req.params.id], (err) => {
-            if (err) res.send(err);
-            res.status(200).send();
-        })
+module.exports.bookingDeleteByBookingId = () => {
+    return (req, res) => {
+        if (req.user.admin === 0) {
+            return res.status(401).send("Unauthorized access");
+        } else {
+            db.query("DELETE FROM booking WHERE booking_id LIKE ?;", [req.params.id], (err) => {
+                if (err) res.send(err);
+                res.status(200).send();
+            })
+        }
     }
 }
 

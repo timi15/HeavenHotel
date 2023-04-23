@@ -30,7 +30,7 @@ export const Regisztracio = () => {
                 document.getElementById("szerzodes").checked === true) {
 
                 e.preventDefault();
-                axios.post("http://localhost:8080/register", formData, {
+                axios.post("http://localhost:8080/auth/register", formData, {
                     headers: {
                         "Content-Type": "application/json"
                     }
@@ -146,7 +146,6 @@ export const Regisztracio = () => {
                             margin="normal"
                             name="password"
                             label="Jelszó"
-                            f
                             type="password"
                             onKeyDown={() => setShow(true)}
                             onMouseLeave={() => setShow(false)}

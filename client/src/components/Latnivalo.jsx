@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap'
 
 export const Latnivalo = (props) => {
     return (
-        <div data-aos="fade-up" once={true}>
+        <div data-aos="fade-up" >
             <h3 className='hover-underline-animation'>
                 <a href={props.link} target="_blank" rel="noreferrer" >{props.place}</a>
             </h3>

@@ -14,7 +14,7 @@ export const RoomType = ({ children }) => {
     const handleChange = async (id, roomType) => {
         setRoomTypes(roomTypes.map((value) => value.id !== roomType.id ? value : roomType));
         try {
-            const res = await axios.put(`http://localhost:8080/roomtypes/${id}`, roomType, {
+            const res = await axios.put(`http://localhost:8080/room/roomtypes/${id}`, roomType, {
                 headers: {
                     "Content-Type": "application/json"
                 }
