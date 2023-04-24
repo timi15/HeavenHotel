@@ -7,7 +7,6 @@ import { Button, Container } from 'react-bootstrap';
 import axios from "axios";
 import { passwordStrength } from 'check-password-strength';
 import { PasswordCustom } from '../asserts/PasswordCustom';
-import { validate } from 'react-email-validator';
 import Swal from 'sweetalert2';
 
 export const Regisztracio = () => {
@@ -17,6 +16,7 @@ export const Regisztracio = () => {
 
     const nameformat = /^[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó\D]*$/;
     const addressformat = /^([0-9]{4}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[,]{1}[ ]{1}[A-ZÍÁÉŰÚŐÓ][a-zíéáűúőó]*[ ]{1}[\wa-zíéáűúőó]*[ ]{1}[\w][a-z íéáűúőó\./\-0-9]*)$/;
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ export const Regisztracio = () => {
         if (Object.entries(formData).length === 5) {
             if (
                 formData?.name.match(nameformat) &&
-                validate(formData?.email) &&
+                formData?.email.match(mailformat) &&
                 formData?.address.match(addressformat) &&
                 passwordStrength(formData?.password, PasswordCustom).value === "Erős" &&
                 document.getElementById("szerzodes").checked === true) {

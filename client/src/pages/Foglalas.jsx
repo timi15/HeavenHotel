@@ -41,7 +41,7 @@ export const Foglalas = () => {
     };
 
     const handleSubmit = () => {
-        axios.post("http://localhost:8080/reservations/availablerooms", { type, checkInDate, checkOutDate }, {
+        axios.post("http://localhost:8080/reservation/reservations/availablerooms", { type, checkInDate, checkOutDate }, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -75,7 +75,7 @@ export const Foglalas = () => {
             const userId = currentUser['userId'];
             const email = currentUser['email'];
             const amount = priceNight * nightNumber;
-            axios.post("http://localhost:8080/reservations", { email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount }, {
+            axios.post("http://localhost:8080/reservation/reservations", { email, userId, roomId, checkInDate, checkOutDate, nightNumber, amount }, {
                 headers: {
                     "Content-Type": "application/json"
                 }

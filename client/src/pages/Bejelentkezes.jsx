@@ -9,15 +9,15 @@ import Swal from 'sweetalert2';
 export const Bejelentkezes = () => {
 
     const [formData, setFormData] = useState({});
-
-
     const { login } = useContext(AuthContext);
-
     const navigate = useNavigate();
+
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (Object.entries(formData).length === 0) {
+        //console.log(formData?.email.match(mailformat));
+        if (Object.entries(formData).length < 2 || formData?.email.match(mailformat) === null  ) {
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -34,7 +34,7 @@ export const Bejelentkezes = () => {
                         position: 'center',
                         icon: 'success',
                         title: 'Sikeres bejelentkezés!',
-                        text:"Most már akadálytalanul foglalhat",
+                        text: "Most már akadálytalanul foglalhat",
                         showConfirmButton: false,
                         timer: 2500
                     })
