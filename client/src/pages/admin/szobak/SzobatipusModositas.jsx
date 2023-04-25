@@ -70,7 +70,7 @@ export const SzobatipusModositas = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/roomtypes/${id}`)
+        axios.get(`http://localhost:8080/room/roomtypes/${id}`)
             .then(({ data }) => {
                 setFormData(data[0]);
                 setCurrent(data)

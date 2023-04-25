@@ -69,7 +69,7 @@ export const FelhasznaloModositas = () => {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/users/${id}`)
+        axios.get(`http://localhost:8080/user/users/${id}`)
             .then(({ data }) => {
                 setFormData(data[0]);
                 setCurrent(data)

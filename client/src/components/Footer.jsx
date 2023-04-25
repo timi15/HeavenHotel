@@ -50,7 +50,7 @@ export const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="row copyright">
+                        <div className="row copyright mt-5">
                             <p>Copyright <i className="fa fa-copyright"></i> 2023 All rights reserved.</p>
                         </div>
                     </div>

@@ -99,7 +99,7 @@ export const Kapcsolat = () => {
                 </li>
                 <li>
 
-                  <i className="fa fa-envelope fa-sm mb-3"></i>sales@hotelheaven.com
+                  <i className="fa fa-envelope fa-sm mb-3"></i>saleshotelheaven01@gmail.com
 
                 </li>
                 <li>

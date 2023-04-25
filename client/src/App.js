@@ -1,5 +1,4 @@
 import './asserts/css/style.css'
-import './App.css';
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';

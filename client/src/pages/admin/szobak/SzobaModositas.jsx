@@ -68,7 +68,7 @@ export const SzobaModositas = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/rooms/${id}`)
+        axios.get(`http://localhost:8080/room/rooms/${id}`)
             .then(({ data }) => {
                 setFormData(data[0]);
                 setCurrent(data)
