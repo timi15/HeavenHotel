@@ -21,7 +21,7 @@ Varga Tímea
 
 ```
  - Az elkészült munka megtekintéséhez szükséges a XAMPP letöltése. Látogassunk el a
-  következő oldalra: http://www.apachefriends.org/en/xampp.html, és onnan töltsük le
+  következő oldalra: https://www.apachefriends.org/hu/download.html, és onnan töltsük le
   az operációs rendszerünknek megfelelő XAMPP-verziót.
 
  - Telepítsük fel. A letöltött futtatható állományt indítsuk el, és kövessük a
