@@ -54,15 +54,13 @@ Varga Tímea
 ```
       email-cím:    user@user.com
       jelszó:       User001_
-
 ```
+
 2. adminisztrátori fiók belépési adatai:
 ```
       email-cím:    admin@admin.com
       jelszó:       Admin&123
-
 ```
-
 
 ##### Nyíregyháza 4400
 ##### Szabolcs-Szatmár-Bereg
