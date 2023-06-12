@@ -40,7 +40,7 @@ Varga Tímea
  - Sikeres telepítések után a xampp-ot indítsuk el és az Apache-t és MysQL-t is
   Startoljuk, és a MysQL Admin gombját válasszuk.
 
- - A phpMyAdmin-ba importáljuk be a kapott adatbázist (bakend/database/heaven.sql).
+ - A phpMyAdmin-ba importáljuk be a kapott adatbázist (backend/database/heaven.sql).
 
  - Mindkét Visual Studio Code-ban a Terminal-ban npm –i paranccsal telepítsük 
  az összes modult.
@@ -49,6 +49,20 @@ Varga Tímea
 
  - Ezután a http://localhost:3000 -es címen lehet elérni az alkalmazást.
 ```
+#### Belépési adatok:
+1. felhasználói fiók belépési adatai:
+```
+      email-cím:    user@user.com
+      jelszó:       User001_
+
+```
+2. adminisztrátori fiók belépési adatai:
+```
+      email-cím:    admin@admin.com
+      jelszó:       Admin&123
+
+```
+
 
 ##### Nyíregyháza 4400
 ##### Szabolcs-Szatmár-Bereg
